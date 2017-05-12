@@ -1,23 +1,21 @@
 <?php
 ///////////////////////////////
-//version number 1.0;
+//version number 1.1;
 //////////////////////////////
 
 //////////////////////////////////////////////
-//
 //function: global variables
 //Dependency connect(), getcollomnames();
-//
 ///////////////////////////////////////////////
 $tablename = 'products';
 $collomnames = getcollomnames($tablename);
 
 
 ///////////////////////////////////////////////////////////
-//
+//FunctionNr: 01
+//Status: Good
 //Function: Create connection with the specified database
 //Dependency none;
-//
 ///////////////////////////////////////////////////////////
 function createConnection() {
 
@@ -39,11 +37,12 @@ function createConnection() {
     //send back connection
     return $conn;
 }
+
 /////////////////////////////////////////////////////////
-//
+//FunctionNr: 02
+//Status: Missing comments (999)
 //Function: Get collomnames out of the table specified
 //Dependency: connect();
-//
 /////////////////////////////////////////////////////////
 function getcollomnames($tablename) {
     $colArray = array();
@@ -62,12 +61,12 @@ function getcollomnames($tablename) {
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//Function: Insert Data into Database Table;
-//Dependency: postd(), commaSeperatedHT(), createConnection(), addDataCheck(), addDataNormal();
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FunctionNr: 3
+//Status: Missing comments(999)
+//Function: Insert Data into Database Table
+//Dependency: extractfrompost(), commaseperatedcollomnames(), createConnection(), addDataCheck(), addDataNormal();
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function insertIntoDatabase($collomnames, $tablename) {
 
     // if the variable $_POST['add'] exists
@@ -80,13 +79,13 @@ function insertIntoDatabase($collomnames, $tablename) {
         }
 
         //extracts data from superglobal $_POST
-        $addData = postd(1, $collomnames);
+        $addData = extractfrompost(1, $collomnames);
 
         //if all the fields are filled
         if (addDataCheck($collomnames, $addData) ) {
 
             //creates SQL query
-            $sql = "INSERT INTO " . $tablename . "(" . commaSeperatedHT($collomnames,2) . ")
+            $sql = "INSERT INTO " . $tablename . "(" . commaseperatedcollomnames($collomnames,2) . ")
             VALUES (" . addDataNormal($collomnames, $addData) . ")";
 
             //if acticle whas added successfully
@@ -112,10 +111,10 @@ function insertIntoDatabase($collomnames, $tablename) {
 }
 
 ///////////////////////////////////////////////////////////////////////////
-//
+//FunctionNr: 4
+//Status: Good
 //Function: Takes data from SQL database.
-//Dependency: connect(), createSearchQuery(), commaSeperatedHT();
-//
+//Dependency: connect(), createSearchQuery(), commaseperatedcollomnames();
 ///////////////////////////////////////////////////////////////////////////
 function SelectFromDB($collomnames, $tablename) {
 
@@ -128,7 +127,7 @@ function SelectFromDB($collomnames, $tablename) {
     //creates the WHERE statement
     $querysearch = createSearchQuery($collomnames);
 
-    $sql = "SELECT " . commaSeperatedHT($collomnames,1) . " FROM " . $tablename;
+    $sql = "SELECT " . commaseperatedcollomnames($collomnames,1) . " FROM " . $tablename;
 
     //combines querysearch if it's defined
     if ($querysearch != "") {
@@ -148,10 +147,10 @@ function SelectFromDB($collomnames, $tablename) {
 }
 
 ////////////////////////////////////////////////////////////////////////
-//
+//FunctionNr: 5
+//Status: Good
 //Function: creates table from the provided data
 //Dependency: SelectFromDB(), tablemainrow(), tableheadactions();
-//
 ////////////////////////////////////////////////////////////////////////
 function CreateTableFromDB1($tablename, $collomnames) {
 
@@ -187,10 +186,10 @@ function CreateTableFromDB1($tablename, $collomnames) {
 }
 
 ////////////////////////////////////////////////////////////////////////
-//
+//FunctionNr: 6
+//Status: Good
 //Function: creates table from the provided data and adds buttons
 //Dependency: SelectFromDB(), tablehead(), tablemainrowactions();
-//
 ////////////////////////////////////////////////////////////////////////
 function CreateTableFromDB2($tablename, $collomnames) {
 
@@ -225,13 +224,13 @@ function CreateTableFromDB2($tablename, $collomnames) {
     }
 }
 
-//////////////////////////////////////////////////
-//
+///////////////////////////////////////////////////////
+//FunctionNr: 7
+//Status: Good
 //Function: extracts data from the superglobal $_POST
 //Dependency: none;
-//
-//////////////////////////////////////////////////
-function postd($y, $collomnames) {
+///////////////////////////////////////////////////////
+function extractfrompost($y, $collomnames) {
     //Defines $z variable
     $z = "";
 
@@ -249,15 +248,15 @@ function postd($y, $collomnames) {
 }
 
 ///////////////////////////////////////////
-//
+//FunctionNr: 8
+//Status: partly broken, missing comments (999)
 //Function: Creates searchquery
-//Dependency: postd()
-//
+//Dependency: extractfrompost()
 ///////////////////////////////////////////
 function createSearchQuery($collomnames) {
 
-    //This part is broken;
-    $addData = postd(2, $collomnames);
+    //This part is broken(999)
+    $addData = extractfrompost(2, $collomnames);
     $whereState = "";
 
     if ($addData == null || $addData == 0 || $addData == "") {
@@ -267,10 +266,9 @@ function createSearchQuery($collomnames) {
 
     for ($i=0; $i < count($addData); $i++) {
         if ($addData[$i] == "" || $addData[$i] == '"%' . '%"') {
-            //echo "p $i";
-            //echo "<br>check --> " . '"' . '"' . " <-- check <br>" ;
+
         } else if ($whereState == "") {
-            //echo "w $i" . $addData[$i];
+
             $whereState = " WHERE " . $collomnames[$i] . ' LIKE "%' . $addData[$i] . '%"';
         } else {
             $whereState = $whereState . " AND " . $collomnames[$i] . ' LIKE "%' . $addData[$i] . '%"';
@@ -281,12 +279,12 @@ function createSearchQuery($collomnames) {
 
 
 ////////////////////////////////////////////
-//
+//FunctionNr: 9
+//Status: missing comments(999)
 //Function: table convert functions
 //Dependency: none;
-//
 ///////////////////////////////////////////
-function commaSeperatedHT($collomnames, $nr) {
+function commaseperatedcollomnames($collomnames, $nr) {
     if ($nr == 1) {
         $y = $collomnames[0];
 
@@ -305,6 +303,12 @@ function commaSeperatedHT($collomnames, $nr) {
     return $y;
 }
 
+//////////////////////////////////////
+//FunctionNr: 10
+//Status: No function description, no comments (999)
+//Function: 999
+//Dependency: none
+//////////////////////////////////////
 function addDataNormal($collomnames, $addData) {
     $y = "'" . $addData[1] . "'";
     for ($i=2; $i < count($collomnames); $i++) {
@@ -313,13 +317,13 @@ function addDataNormal($collomnames, $addData) {
     return $y;
 }
 
-//////////////////////////////////////
-//
-//Function:
-//Dependency:
-//
-//////////////////////////////////////
-function addDataCheck($collomnames,$addData) {
+/////////////////////////////////////////
+//FunctionNr: 11
+//Status: No function desctiption (999)
+//Function: 999
+//Dependency: none
+/////////////////////////////////////////
+function addDataCheck($collomnames, $addData) {
     $y = "";
     for ($i=1; $i < count($collomnames); $i++) {
         $y = $y . "&&" . $addData[$i] . "<>" . '"'. '"' ;
@@ -327,12 +331,12 @@ function addDataCheck($collomnames,$addData) {
     return $y;
 }
 
-////////////////////////////////////////////
-//
+/////////////////////////////////////////////////////////////
+//FunctionNr: 12
+//Status: no comments (999)
 //Function: Generates table rows with provided information;
 //Dependency: none;
-//
-///////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 function tablemainrow($row, $collomnames) {
     $y = "";
     for ($i=0; $i < count($collomnames) ; $i++) {
@@ -342,10 +346,10 @@ function tablemainrow($row, $collomnames) {
 }
 
 ///////////////////////////////////////////////////////////////////////
-//
-//Function: Takes the generated row and adds function buttons to it
+//FunctionNr: 13
+//Status: bad comments(999)
+//Function: Takes the generated row and adds buttons to it
 //Dependency: tablemainrow();
-//
 ///////////////////////////////////////////////////////////////////////
 function tablemainrowactions($row, $collomnames) {
     $y = tablemainrow($row, $collomnames);
@@ -358,10 +362,10 @@ function tablemainrowactions($row, $collomnames) {
 }
 
 ///////////////////////////////////////////////////////////////////////
-//
+//FunctionNr: 14
+//Status: no comments(999)
 //Function: Generates table collomheads with the provided information
 //Dependency: none;
-//
 ///////////////////////////////////////////////////////////////////////
 function tablehead($collomnames) {
     $y = "";
@@ -372,10 +376,10 @@ function tablehead($collomnames) {
 }
 
 ///////////////////////////////////////////////////////////////////////
-//
+//FunctionNr: 15
+//Status: no comments (999)
 //Function: Takes the collom heads and adds th collomhead Actions
 //Dependency: tablehead();
-//
 ///////////////////////////////////////////////////////////////////////
 function tableheadactions($collomnames) {
     $y = tablehead($collomnames);
