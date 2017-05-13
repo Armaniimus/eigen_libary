@@ -1,6 +1,6 @@
 <?php
 /////////////////////////////////////////////////////
-//version number 1.2
+//version number 1.3
 //
 //Short instruction
 //1. code 999 are errors
@@ -9,12 +9,21 @@
 
 
 //////////////////////////////////////////////
-//function: global variables
+//FunctionNr: 00
+//Status: Good
+//Function: global variables
 //Dependency connect(), getcollomnames();
 ///////////////////////////////////////////////
-$tablename = 'products';
-$collomnames = getcollomnames($tablename);
 
+//Server information
+//$servername = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "stardunks";
+
+//Table information
+//$tablename = 'products';
+$collomnames = getcollomnames($tablename);
 
 ///////////////////////////////////////////////////////////
 //FunctionNr: 01
@@ -24,14 +33,12 @@ $collomnames = getcollomnames($tablename);
 ///////////////////////////////////////////////////////////
 function createConnection() {
 
-    //defines variables
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "stardunks";
+    //insert the global variables inside this function
+    global $servername, $username, $password, $dbname;
 
     //Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+    //echo  '<br>' . $servername . '<br>' . $username .  '<br>' . $password .  '<br>' . $dbname;
 
     //Check connection
     if ($conn->connect_error) {
@@ -40,6 +47,7 @@ function createConnection() {
     }
 
     //send back connection
+    //var_dump($conn);
     return $conn;
 }
 
@@ -178,7 +186,7 @@ function SelectFromDB($collomnames, $tablename) {
 //FunctionNr: 05
 //Status: Good
 //Function: creates table from the provided data
-//Dependency: SelectFromDB(), tablemainrow(), tableheadactions();
+//Dependency: SelectFromDB(), tablemainrow(), tableHead();
 ////////////////////////////////////////////////////////////////////////
 function createTableFromDB1($tablename, $collomnames) {
 
@@ -191,7 +199,7 @@ function createTableFromDB1($tablename, $collomnames) {
         $res = "<table border='1' width='100%'>";
 
         //generates the collomheads 1 by 1
-        $res = $res . "<tr>" . tablehead($collomnames) . "</tr>";
+        $res = $res . "<tr>" . tableHead($collomnames, 1) . "</tr>";
 
         //generates the tablerows 1 by 1;
         while($row = $result->fetch_assoc()) {
@@ -217,7 +225,7 @@ function createTableFromDB1($tablename, $collomnames) {
 //FunctionNr: 06
 //Status: Good
 //Function: creates table from the provided data and adds buttons
-//Dependency: SelectFromDB(), tablehead(), tablemainrowactions();
+//Dependency: SelectFromDB(), tableHead(), tablemainrowactions();
 ////////////////////////////////////////////////////////////////////////
 function createTableFromDB2($tablename, $collomnames) {
 
@@ -289,7 +297,7 @@ function extractfrompost($y, $collomnames) {
 
 ///////////////////////////////////////////
 //FunctionNr: 08
-//Status: Good but not tested(555)
+//Status: Good
 //Function: Creates searchquery
 //Dependency: extractfrompost(), testColomsSuperGlobalPost()
 ///////////////////////////////////////////
@@ -465,30 +473,41 @@ function tablemainrowactions($row, $collomnames) {
 //Function: Generates table collomheads with the provided information
 //Dependency: none;
 ///////////////////////////////////////////////////////////////////////
-function tablehead($collomnames) {
+function tableHead($collomnames, $y) {
 
     //sets the $y variable
-    $y = "";
+    $res = "";
 
-    //creates the top row of the table with collomnames
-    for ($i=0; $i<count($collomnames); $i++) {
-        $y = $y . "<th>" . $collomnames[$i] . "</th>";
+    //generates tableheads with id
+    if ($y == 1) {
+        //creates the top row of the table with collomnames
+        for ($i=0; $i<count($collomnames); $i++) {
+            $res = $res . "<th>" . $collomnames[$i] . "</th>";
+        }
+    }
+
+    //generates tableheads without id
+    if ($y == 2) {
+        //creates the top row of the table with collomnames
+        for ($i=1; $i<count($collomnames); $i++) {
+            $res = $res . "<th>" . $collomnames[$i] . "</th>";
+        }
     }
 
     //returns the $y variable
-    return $y;
+    return $res;
 }
 
 ///////////////////////////////////////////////////////////////////////
 //FunctionNr: 15
 //Status: Good
 //Function: Takes the collom heads and adds th collomhead Actions
-//Dependency: tablehead();
+//Dependency: tableHead();
 ///////////////////////////////////////////////////////////////////////
 function tableheadactions($collomnames) {
 
     //generates the data part for the top table row
-    $y = tablehead($collomnames);
+    $y = tableHead($collomnames, 1);
 
     //adds the button header
     $y = $y . "<th colspan='3'>Actions</th>";
@@ -498,7 +517,7 @@ function tableheadactions($collomnames) {
 }
 ///////////////////////////////////////////////////////////////////////
 //FunctionNr: 16
-//Status: Good but not tested(555)
+//Status: Good
 //Function: Tests if there is data inside superglobal $_POST
 //Dependency: none
 ///////////////////////////////////////////////////////////////////////
@@ -520,48 +539,54 @@ function testColomsSuperGlobalPost($collomnames) {
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //FunctionNr: 17
-//Status: Hardcoded, no accurate function description, no comments, check Dependency(999)
-//Function: 999
-//Dependency: tablehead(), addFormMain();
+//Status: Good
+//Function: generates an form From wher you can add an into the database
+//Dependency: tableHead(), addFormMain();
 //////////////////////////////////////////////////////////////////////////////////////////
 function addArticleForm($tablename, $collomnames) {
 
-    //opens table
-    $res = '<form name="dataConfig" action="" method="POST">
-        <table border="1" width="100%">';
+    //opens form and table
+    $res =
+        '<form name="dataConfig" action="" method="POST">
+        <table border="1" width="100%"  overflow-x="auto">';
 
     //generate table collomheads
-    $res = $res . '<tr>' . tablehead($collomnames) . '</tr>';
+    $res = $res . '<tr>' . tableHead($collomnames, 2) . '</tr>';
 
-    //
-    $res = $res . addFormMain();
+    //Generates the inputfields
+    $res = $res . addFormMain($collomnames);
 
     //close the table, add the add button and close the form
     $res = $res .
         '</table>
         <input name="add" type="submit" value="Add">
-        </form> ';
+        </form>';
 
     //return the table
     return $res;
 }
 ///////////////////////////////////////////////////////////////////////
 //FunctionNr: 18
-//Status: Hardcoded, no accurate function description, no comments(999)
-//Function: 999
+//Status: Good
+//Function: generates a row with inputfields
 //Dependency: none
 ///////////////////////////////////////////////////////////////////////
-function addFormMain(){
-    $res =
-        '<tr>
-            <td> <input name="voornaam"     type="text" value=""> </td>
-            <td> <input name="achternaam"   type="text" value=""> </td>
-            <td> <input name="geslacht"     type="text" value=""> </td>
-            <td> <input name="interntelnr"  type="text" value=""> </td>
-            <td> <input name="afdeling"     type="text" value=""> </td>
-            <td> <input name="postcode"     type="text" value=""> </td>
-            <td> <input name="email"        type="text" value=""> </td>
-        </tr>';
+function addFormMain($collomnames){
+
+    //opens row
+    $res = '<tr>';
+
+    //generates a table row with data
+    for ($i=1; $i<count($collomnames); $i++) {
+
+        //adds a inputfield
+        $res = $res . '<td>' . '<input name="' . $collomnames[$i] . '" type="text"> </td>';
+    }
+
+    //close row
+    $res = $res . '</tr>';
+
+    //return $res variable
     return $res;
 }
 ?>
