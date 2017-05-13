@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-version 1.0
+version 1.1
 -->
 <html>
     <head>
@@ -12,10 +12,12 @@ version 1.0
     <body>
         <?php
         echo 'Toon CreateTableFromDB1';
-        echo CreateTableFromDB2($tablename, $collomnames);
+        echo createTableFromDB2($tablename, $collomnames);
         echo '<br>Toon CreateTableFromDB2';
-        echo CreateTableFromDB1($tablename, $collomnames);
-
+        echo createTableFromDB1($tablename, $collomnames);
+        echo '<br>Toon articleForm';
+        echo addArticleForm($tablename, $collomnames);
         ?>
+
     </body>
 </html>
