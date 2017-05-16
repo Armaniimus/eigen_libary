@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.5 (inprogress) --//
+//-- version number 1.5 --//
 
 //-- Start Instruction Manual --//
 //
