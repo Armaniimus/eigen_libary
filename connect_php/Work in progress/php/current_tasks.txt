@@ -1,22 +1,16 @@
 1
-	Test script. 
 	Reprogram where multi input to be more plug and play.
 
 2
-	Fix overnotations.
-	Add needed by notations.
-	Add function information inside new functions.
-	Complete manuel at the top.
-
-3
-	Combine create createTableFromDB33 and createTableFromDB1+2
+	Combine create createTableFromDB3 and createTableFromDB1+2
 	Simplify createTableFromDB3
 
-4
-	Create getcolloms2 function thats able to get colloms but has a set starting position
-	Create getcolloms3 that can get colloms based on a binary number.
-	Make a form generator that can generate the binary number for getcollom3.
+3
+	Make a form generator that can generate the binary number for selCollBinary().
 
-5
+4
 	Add update functionality.
 	Add delete functionality.
+
+5
+	build select function

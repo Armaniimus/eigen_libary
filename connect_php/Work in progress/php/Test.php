@@ -1,6 +1,6 @@
 <?php
 //include 'Test_single_elements/selectstatements.php';
-include 'database_connect.php';
+include 'database_connect_currentproject.php';
 //echo createTableFromDB1($tableNames[0], $collomNames[0]);
 //echo createTableFromDB1($tableNames[1], $collomNames[1]);
 
@@ -26,9 +26,15 @@ echo addArticleForm($tableNames[0], $collomNames[0], 0 );
 
 //echo createTableFromDB2($tableNames[1], $collomNames[1]);
 echo createTableFromDB2($tableNames[0], $collomNames[0]);
-insertIntoDatabase($collomNames[0], $tableNames[0])
+insertIntoDatabase($collomNames[0], $tableNames[0]);
 
+$wwwxs = selCollBinary($collomNames[0], '013');
 
+echo "<br> <br>";
+foreach ($wwwxs as $value) {
+    echo "$value, ";
+}
+echo "<br>";
 //echo '</table>';
 
 //createTableFromDB3($tableNames, 1, 1);
