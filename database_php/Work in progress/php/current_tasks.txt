@@ -13,4 +13,8 @@
 	Add delete functionality.
 
 5
-	build select function
+	Seperate code function into 
+		Table generators
+		Html select generator
+		Database_functions
+6

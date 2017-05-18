@@ -14,25 +14,27 @@
    /////////////////////////
    Available functionalities
    /////////////////////////
-	form generators:
+	//form generators://
 
-		Table generators
-		createTableFromDB1(),
-		createTableFromDB2(),
-		createTableFromDB3();
+	Table generators
+		createTableFromDB1(), <----Without buttons
+		createTableFromDB2(), <----with buttons
+		createTableFromDB3(); <----customizeable size placeable inside a existing table
 	Simpel form generator to add a record to a database:
 		addArticleForm();
 
-	Automatic query's
-		Automatic collomname query:
+	//Automatic query's//
+
+	Automatic collomname query:
 		getCollomNames();
 	Automatic attribute/collom querier
 		getIndividualAtribute();
 
-	Add article functionality
-		insertIntoDatabase;
+	//Add article functionality//
+		insertIntoDatabase();
 
-	Support functions
+	//Support functions//
+		connect()
 			
 -- end Instruction Manual --
 //-----------------------------------------------------------------------------//
