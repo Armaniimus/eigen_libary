@@ -14,7 +14,9 @@
 
 5
 	Seperate code function into 
-		Table generators
-		Html select generator
-		Database_functions
+	    Table generators
+	    Html select generator
+	    Database_functions
+
 6
+	Note how variables need to be used
