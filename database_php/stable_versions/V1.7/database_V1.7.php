@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.7 (inprogress) --//
+//-- version number 1.7 --//
 
 //-- Start global variables                  --//
 //-- Dependency connect(), getcolumnNames(); --//
@@ -47,27 +47,27 @@ function connect() {
     //expects the global variable serverInfo to be set as a array with a 4 positions
         //Servername, Username, password, dbname
     //needs the connect function
-function getTableNames() {
+    function getTableNames() {
 
-    //Gets tablenames from the database
-    Global $serverInfo;
-    $conn = connect();
-    $sql = "SHOW TABLES FROM " . $serverInfo[3];
-    $result = $conn->query($sql);
+        //Gets tablenames from the database
+        Global $serverInfo;
+        $conn = connect();
+        $sql = "SHOW TABLES FROM " . $serverInfo[3];
+        $result = $conn->query($sql);
 
-    //Outputs data if information was found
-    $tableArray = [];
-    if ($result->num_rows > 0) {
-        $i = "";
+        //Outputs data if information was found
+        $tableArray = [];
+        if ($result->num_rows > 0) {
 
-        //Writes found data into an array
-        while ($row = $result->fetch_assoc() ) {
-            $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
-            $i++;
+            //Writes found data into an array
+            $i = 0;
+            while ($row = $result->fetch_assoc() ) {
+                $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
+                $i++;
+            }
+            return $tableArray;
         }
-        return $tableArray;
     }
-}
 
 //F03; D:connect(); S(G)
 //Status: Good
