@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.8 --//
+//-- version number 1.9 --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
@@ -174,7 +174,7 @@ function createWhere($columnNames) {
 //Varables input:
     //$tableName(expects an string with a DB tableName)
     //$columnNames(expects a array of strings with a DB column names in them)
-function GenerateTwoDimensionalArrayFromDB($tableName, $columnNames) {
+function Generate2dArrayFromDB($tableName, $columnNames) {
 
     //creates a connection with the Database
     $conn = connect();
@@ -312,5 +312,82 @@ function insertIntoDatabase($columnNames, $tableName) {
         $conn->close();
     }
 }
+
+//--
+
+//F09; D:connect(); S(999)
+//Status: 999 not tested
+//Function: Changes a value inside the set SQL database
+//Variables input:
+    //$tableName(needs a string of a DB tableName)
+    //$set needs a prepared sql command as a string
+    //$where needs a prepared sql command as a string
+function updateDatabase($tableName, $set, $where) {
+    $conn = connect();
+
+    $sql =
+    "UPDATE $tableName
+    SET $set
+    WHERE $where";
+
+    if ($conn->query($sql) === TRUE) {
+        $sql = "Record Succesvol geupdate <br>";
+    } else {
+        $sql = "Record is niet geupdate " . $conn->error;
+    }
+
+    return $sql;
+}
+
+//F10; D:connect(); S(999)
+//Status: 999 not tested
+//FunctionDescription:
+    //prepares a simple where statement
+//Variables input:
+    //$whereKey expects a string
+    //$whereValue expects a string
+function simpleWhere($whereKey, $whereValue) {
+
+    //where = this value
+    $where = "$whereKey = '$whereValue'";
+    return $where;
+}
+
+//F11; D:connect(); S(999)
+//Status: 999 not tested
+//FunctionDescription:
+    //creates a simple set statementS
+//Variables input:
+    //$setKeyColumn expects a string
+    //$setNewValue expects a string
+function updateSet($setKeyColumn, $setNewValue) {
+
+    //creates the set statement
+    $set = "$setKeyColumn = '$setNewValue'";
+    return $set;
+}
+
+//F12; D:connect(); S(999)
+//Status: 999 not tested
+//Function: Deletes a record inside the sql database
+//Variables input:
+    //$tableName(needs a string of a DB tableName)
+    //$where needs a prepared sql command as a string
+function deleteRecordInDatabase($tableName, $set, $where) {
+    $conn = connect();
+
+    $sql =
+    "DELETE $tableName
+    WHERE $where";
+
+    if ($conn->query($sql) === TRUE) {
+        $sql = "Record Succesvol verwijdert <br>";
+    } else {
+        $sql = "Record is niet verwijdert " . $conn->error;
+    }
+
+    return $sql;
+}
+
 
 ?>

@@ -1,4 +1,4 @@
-    version number 1.8
+    version number 1.9
 
     /////////////
     Codes meaning
@@ -10,7 +10,7 @@
    Available functionalities
    /////////////////////////
 	
-	//generate_table_from_array_v1.0 elements//
+	//generate_table_from_array_v1.0 + elements//
 	
 	Table generators from array
 	    createTableFromDB1(), <----Without buttons
@@ -22,12 +22,12 @@
 	    addArticleForm() <-- needs column names
 
 
-	//html_select_element_v1.0 elements//
+	//html_select_element_v1.0 + elements//
 
 	html select generated from php array
 	    generateHtmlSelect()
 
-	//database_v1.8 elements//
+	//database_v2.0 + elements//
 
 	support functions
 	    connect() <---- connects to the database
@@ -35,6 +35,8 @@
 	    getTableNames() <---- gets tablenames from the database
 	    selCollBinary() <---- is used to select data from an array
 	    createWhere() <---- prepares the where statement to use in other functions
+	    simpleWhere() <---- prepares a simple where statement
+	    updateSet() <---- prepares a simple set statement
 
 	Gets database data for an php Array
 	    GenerateTwoDimensionalArrayFromDB()<----Generates a Two dimensional array from the database
@@ -42,6 +44,8 @@
 
 	Modifying the database
 	    insertIntoDatabase() <---- adds a record to the database
+	    updateDatabase() <--- mutates/changes a record inside the database
+	    deleteRecordInDatabase() <---- deletes a record inside the database
 
 	
 		
