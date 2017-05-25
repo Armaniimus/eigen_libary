@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.7 (inprogress) --//
+//-- version number 1.8 --//
 
 //-- Start global variables                  --//
 //-- Dependency connect(), getcolumnNames(); --//
@@ -47,27 +47,27 @@ function connect() {
     //expects the global variable serverInfo to be set as a array with a 4 positions
         //Servername, Username, password, dbname
     //needs the connect function
-    function getTableNames() {
+function getTableNames() {
 
-        //Gets tablenames from the database
-        Global $serverInfo;
-        $conn = connect();
-        $sql = "SHOW TABLES FROM " . $serverInfo[3];
-        $result = $conn->query($sql);
+    //Gets tablenames from the database
+    Global $serverInfo;
+    $conn = connect();
+    $sql = "SHOW TABLES FROM " . $serverInfo[3];
+    $result = $conn->query($sql);
 
-        //Outputs data if information was found
-        $tableArray = [];
-        if ($result->num_rows > 0) {
+    //Outputs data if information was found
+    $tableArray = [];
+    if ($result->num_rows > 0) {
 
-            //Writes found data into an array
-            $i = 0;
-            while ($row = $result->fetch_assoc() ) {
-                $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
-                $i++;
-            }
-            return $tableArray;
+        //Writes found data into an array
+        $i = 0;
+        while ($row = $result->fetch_assoc() ) {
+            $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
+            $i++;
         }
+        return $tableArray;
     }
+}
 
 //F03; D:connect(); S(G)
 //Status: Good
@@ -182,7 +182,7 @@ function createWhere($columnNames) {
 //Varables input:
     //$tableName(expects an string with a sql tableName)
     //$columnNames(expects a array of strings with a sql column names in them)
-function selectFromDB($tableName, $columnNames) {
+function Generate2dArrayFromDB($tableName, $columnNames) {
 
     //creates a connection with the Database
     $conn = connect();
@@ -259,164 +259,10 @@ function getIndividualAtribute($tableName, $columnName) {
     }
 }
 
-//Supportive functions
-//------------------------
-
-//F08; D:none; S(G)
-//Status: Good
-//Function: generates an form from where you can add an article or search the database
-//Variable input:
-    //$tableName(expects an string with a sql tableName)
-    //$columnNames(expects a Array strings with a sql column names in them)
-function addArticleForm($tableName, $columnNames) {
-
-    //opens form and table
-    $res =
-        '<form name="test" action="" method="POST">
-        <table border="1" width="100%"  overflow-x="auto">';
-
-    //generates the tableheads WITHOUT id
-    $tableHeads = '';
-    for ($i=0; $i<count($columnNames); $i++) {
-        $tableHeads .= "<th>" . $columnNames[$i] . "</th>";
-    }
-    $res .= "<tr>" . $tableHeads . "</tr>";
-
-    //Generates the inputfields start a
-    $inputFields = '';
-    for ($i=0; $i<count($columnNames); $i++) {
-        $inputFields .= '<td>' . '<input name="' . $columnNames[$i] . '" type="text"> </td>';
-    }
-    $res .= '</tr>' . $inputFields . '</tr>';
-
-    //ends form and adds buttons
-    $res .= '
-    </table>
-    <input formname="test" name="select" type="submit" value="Select">
-    <input formname="test" name="add" type="submit" value="Add">
-    </form>';
-
-    return $res;
-}
-
 //full functions
 //------------------------
 
-//F09; D:getIndividualAtribute(); S(888)
-//Status: Good not tested throughly (888)
-//FunctionDescription: Generate an Html select based on available data inside a array
-//Variable input:
-    //$dataArray(requires an 2dimensional Array with strings in them)
-function generateHtmlSelect($dataArray) {
-    $atribute = getIndividualAtribute($tableName, $columnName);
-
-        //Generates a HTML Select Form element.
-        $result =
-        "<select name='$columnName' placeholder='$columnName'>";
-        foreach ($dataArray as $dA) {
-            $result .= "<option value='$dA'>$dA</option>";
-        }
-        $result .= "</select>";
-
-    return $result;
-}
-
-//F10; D:SelectFromDB(); S(888)
-//Function: creates table from the dataArray
-//Status: Good but Not tested throughly; (888)
-//Variables input:
-    //$dataArray(requires an 2dimensional Array with strings in them)
-function createTableFromDB1($dataArray) {
-
-    //opens table;
-    $result = "<table border='1' width='100%'>";
-
-    //generates the tableheads 1 by 1
-    $tableHeads = "";
-    $x=0;
-    for ($y=0; $y<count($dataArray[$x]); $y++) {
-        $tableHeads .= "<th>" . $dataArray[$x][$y] . "</th>";
-    }
-    $result .= "<tr>" . $tableHeads . "<tr>";
-
-    //generate table main rows
-    $x++;
-    for ($x=$x; $x<count($dataArray); $x++) {
-        $tableMainRow = "";
-        for ($y=0; $y<count($dataArray[$x]); $y++) {
-            $tableMainRow .= "<th>" . $dataArray[$x][$y] . "</th>";
-        }
-        $result .= "<tr>" . $tableMainRow . "</tr>";
-    }
-    $result .= "</table>";
-    return $result;
-}
-
-//F11; D:selectFromDB(); S(888)
-//Status: Good but not tested throughly (888)
-//Function: creates table from the provided data and adds buttons
-//Variables input:
-    //$dataArray(requires an 2dimensional Array with strings in them)
-function createTableFromDB2($dataArray) {
-
-    //opens table;
-    $res = "<table border='1' width='100%'>";
-
-    //generates the tableheads 1 by 1
-    $tableHeads = "";
-    $x=0;
-    for ($y=0; $y<count($dataArray[$x]); $y++) {
-        $tableHeads .= "<th>" . $dataArray[$x][$y] . "</th>";
-    }
-    $tableHeads .= "<th colspan='3'>Buttons</th>";
-    $res .= "<tr>" . $tableHeads . "<tr>";
-
-    //creeërt de buttons voor de tabel
-    $buttons =
-    "<td><button type='submit' form='form1' value='read'>Read</button></td>
-    <td><button type='submit' form='form1' value='update'>Update</button></td>
-    <td><button type='submit' form='form1' value='delete'>Delete</button></td>";
-
-    //generate table main rows
-    $x++;
-    for ($x=$x; $x<count($dataArray); $x++) {
-        $tableMainRow = "";
-        for ($y=0; $y<count($dataArray[$x]); $y++) {
-            $tableMainRow .= "<th>" . $dataArray[$x][$y] . "</th>";
-        }
-        $tableMainRow .= $buttons;
-        $res .= "<tr>" . $tableMainRow . "</tr>";
-
-    }
-    $res .= "</table>";
-    return $res;
-}
-
-//F12; D:selectFromDB(); S(G)
-//Status: Good but not tested throughly (888).
-//Function: creates table from the provided array can be put inside an existing table
-    //but opening an closing <table> tags allways need to be put around this output
-//Variables input:
-    //$dataArray(requires an 2dimensional Array with strings in them)
-    //$height(needs a INT)
-function createTableFromDB3($dataArray, $height) {
-    //Generates a table from an array
-    $res = "";
-    for ($x=1; $x<=$height; $x++) {
-        $res .= '<tr>';
-        for ($y=0; $y<count($dataArray[$x]); $y++) {
-            if (isset($dataArray[$x][$y]) ) {
-                $res .= '<td>' . $dataArray[$x][$y] . '</td>';
-            } else {
-                $res .= '<td></td>';
-            }
-        }
-        $res .= '</tr>';
-    }
-    return $res;
-}
-
-//F13; D:connect(); S(G)
+//F08; D:connect(); S(G)
 //Status: Good
 //Function: Insert data into an sql Table
 //Variables input:
