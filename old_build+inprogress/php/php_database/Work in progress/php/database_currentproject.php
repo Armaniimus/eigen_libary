@@ -1,9 +1,8 @@
 <?php
 //-- version number 1.8 --//
 
-//-- Start global variables                  --//
-//-- Dependency connect(), getcolumnNames(); --//
-//---------------------------------------------//
+
+//-- global variables D: connect(), getcolumnNames(), getTableNames() --//
 $serverInfo = ["localhost", "root", "", "project_over_de_rhein"]; //Servername, Username, password, dbname
     //generates table information
     $tableNames = getTableNames();
@@ -11,12 +10,6 @@ $serverInfo = ["localhost", "root", "", "project_over_de_rhein"]; //Servername, 
     for ($i=0; $i<count($tableNames); $i++) {
         $columnNames[$i] = getcolumnNames($tableNames[$i]);
     }
-
-//-- Start functions --//
-//---------------------//
-
-//Essential functions
-//------------------------
 
 //F01 D:none; S(G)
 //Status: Good
@@ -46,7 +39,7 @@ function connect() {
 //Variables input:
     //expects the global variable serverInfo to be set as a array with a 4 positions
         //Servername, Username, password, dbname
-    //needs the connect function
+    //it also needs the connect function
 function getTableNames() {
 
     //Gets tablenames from the database
@@ -73,7 +66,7 @@ function getTableNames() {
 //Status: Good
 //Function: returns columnnames out of the table specified
 //Variables input:
-    //$tableName(expects a string of a sql tablename)
+    //$tableName(expects a string of a DB tablename)
 function getcolumnNames($tableName) {
 
     //Gets column names from the database
@@ -97,14 +90,11 @@ function getcolumnNames($tableName) {
     }
 }
 
-//Sub Essential functions
-//------------------------
-
 //F04; D: none; S(G)
 //Status: Good
 //FunctionDescription: With this function you can choose which column names you want inside an array
 //Variables input:
-    //$columnNames(expects a array of strings with a sql column names in them)
+    //$columnNames(expects a array of strings with a DB column names in them)
     //$binaryCode(expects a string with the numbers 0123 in them)
         //this will be converting into a array and gets read out 1 by 1
             //0 means this data will NOT be used;
@@ -138,11 +128,13 @@ function selCollBinary($columnNames, $binaryCode) {
     return $collN;
 }
 
+//--
+
 //F05; D:none; S(G)
 //Status: Good;
 //FunctionDescription: generates the where statment from $_POST and given variable columnNames
 //Varables input:
-    //$columnNames(expects a array of strings with a sql column names in them)
+    //$columnNames(expects a array of strings with a DB column names in them)
 function createWhere($columnNames) {
 
     //extracts data from $_POST
@@ -180,8 +172,8 @@ function createWhere($columnNames) {
 //Status: Good
 //Function: Returns a 2 dimensional array with strings from SQL database.
 //Varables input:
-    //$tableName(expects an string with a sql tableName)
-    //$columnNames(expects a array of strings with a sql column names in them)
+    //$tableName(expects an string with a DB tableName)
+    //$columnNames(expects a array of strings with a DB column names in them)
 function Generate2dArrayFromDB($tableName, $columnNames) {
 
     //creates a connection with the Database
@@ -259,15 +251,12 @@ function getIndividualAtribute($tableName, $columnName) {
     }
 }
 
-//full functions
-//------------------------
-
 //F08; D:connect(); S(G)
 //Status: Good
 //Function: Insert data into an sql Table
 //Variables input:
-    //$columnNames(needs a array of sql atribute names)
-    //$tableName(needs a string of a sql tableName)
+    //$columnNames(needs a array of DB atribute names)
+    //$tableName(needs a string of a DB tableName)
 function insertIntoDatabase($columnNames, $tableName) {
 
     if (isset($_POST["add"]) ) {
