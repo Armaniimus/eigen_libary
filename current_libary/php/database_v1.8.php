@@ -174,7 +174,7 @@ function createWhere($columnNames) {
 //Varables input:
     //$tableName(expects an string with a DB tableName)
     //$columnNames(expects a array of strings with a DB column names in them)
-function Generate2dArrayFromDB($tableName, $columnNames) {
+function GenerateTwoDimensionalArrayFromDB($tableName, $columnNames) {
 
     //creates a connection with the Database
     $conn = connect();
