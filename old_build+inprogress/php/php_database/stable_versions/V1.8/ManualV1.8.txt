@@ -1,0 +1,40 @@
+-- version number 1.5 --
+
+-- Start Instruction Manual --
+
+	/////////////
+	Codes meaning
+	/////////////
+	1. code 999 are errors
+	2. code 555 is theoreticly correct but not tested
+	3. code 111 means start of new code not synced with git
+	4. code 222 means end of new code not synced with git
+	5. code 888 means check if its still valid
+
+   /////////////////////////
+   Available functionalities
+   /////////////////////////
+	//form generators://
+
+	Table generators
+		createTableFromDB1(), <----Without buttons
+		createTableFromDB2(), <----with buttons
+		createTableFromDB3(); <----customizeable size placeable inside a existing table
+	Simpel form generator to add a record to a database:
+		addArticleForm();
+
+	//Automatic query's//
+
+	Automatic collomname query:
+		getCollomNames();
+	Automatic attribute/collom querier
+		getIndividualAtribute();
+
+	//Add article functionality//
+		insertIntoDatabase();
+
+	//Support functions//
+		connect()
+			
+-- end Instruction Manual --
+//-----------------------------------------------------------------------------//
