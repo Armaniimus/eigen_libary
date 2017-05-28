@@ -174,7 +174,8 @@ function createWhere($columnNames) {
 //Varables input:
     //$tableName(expects an string with a DB tableName)
     //$columnNames(expects a array of strings with a DB column names in them)
-function Generate2dArrayFromDB($tableName, $columnNames) {
+    //$where(expects a string with a $where statement for the sql DB)
+function generate2dArrayFromDB($tableName, $columnNames, $where) {
 
     //creates a connection with the Database
     $conn = connect();
@@ -184,9 +185,6 @@ function Generate2dArrayFromDB($tableName, $columnNames) {
     for ($i=1; $i<count($columnNames); $i++) {
         $commaSeperatedcolumnNames .= ", " . $columnNames[$i];
     }
-
-    //Generates WHERE statement
-    $where = createWhere($columnNames);
 
     //combines SELECT $tableName and WHERE parts to form sql query
     $sql = "SELECT $commaSeperatedcolumnNames
