@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.9 --//
+//-- version number 2.0  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
@@ -251,9 +251,10 @@ function getIndividualAtribute($tableName, $columnName) {
 
 //F08; D:connect(); S(G)
 //Status: Good
-//Function: Insert data into an sql Table
+//Function: Insert a record into an sql Table
 //Variables input:
     //$columnNames(needs a array of DB atribute names)
+        //The data you like to add needs to be inside $_POST['collumnnames']
     //$tableName(needs a string of a DB tableName)
 function insertIntoDatabase($columnNames, $tableName) {
 
@@ -262,13 +263,13 @@ function insertIntoDatabase($columnNames, $tableName) {
 
         //extracts input data from superglobal $_POST exept column1
         $addData = array();
-        for ($i=1; $i<count($columnNames); $i++) {
+        for ($i=0; $i<count($columnNames); $i++) {
             $addData[$i] = $_POST[$columnNames[$i] ];
         }
 
         //tests if all fields are filled
         $test = "true";
-        for ($i=1; $i<count($columnNames); $i++) {
+        for ($i=0; $i<count($columnNames); $i++) {
             if ($addData[$i] == "") {
                 $test = "false";
             }
@@ -278,14 +279,14 @@ function insertIntoDatabase($columnNames, $tableName) {
         if ($test == 'true') {
 
             //Generates commaseperated names
-            $commaSeperatedcolumnNames = $columnNames[1];
-            for ($i=2; $i<count($columnNames); $i++) {
+            $commaSeperatedcolumnNames = $columnNames[0];
+            for ($i=1; $i<count($columnNames); $i++) {
                 $commaSeperatedcolumnNames .= "," . $columnNames[$i];
             }
 
             //Adds datafields till the last datafield is reached
-            $article = "'" . $addData[1] . "'";
-            for ($i=2; $i<count($columnNames); $i++) {
+            $article = "'" . $addData[0] . "'";
+            for ($i=1; $i<count($columnNames); $i++) {
                 $article .= "," . "'" . $addData[$i] . "'";
             }
 
