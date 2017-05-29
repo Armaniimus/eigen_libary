@@ -1,5 +1,5 @@
 <?php
-//-- version number 2.0  --//
+//-- version number 2.1  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
@@ -220,11 +220,11 @@ function generate2dArrayFromDB($tableName, $columnNames, $where) {
 
 //F07; D:connect(); S(G)
 //Status: Good
-//FunctionDescription: Returns a array from a specified colom/atribute inside the database.
+//FunctionDescription: Returns a array from a specified colom/attribute inside the database.
 //Variable input:
     //$tableName(expects an string with a sql table name)
     //$columnName(expects an string with a sql column name)
-function getIndividualAtribute($tableName, $columnName) {
+function getIndividualAttribute($tableName, $columnName) {
 
     //Perform Query
     $conn = connect();
@@ -253,15 +253,15 @@ function getIndividualAtribute($tableName, $columnName) {
 //Status: Good
 //Function: Insert a record into an sql Table
 //Variables input:
-    //$columnNames(needs a array of DB atribute names)
+    //$columnNames(needs a array of DB attribute names)
         //The data you like to add needs to be inside $_POST['collumnnames']
     //$tableName(needs a string of a DB tableName)
-function insertIntoDatabase($columnNames, $tableName) {
+function insertIntoDatabase($tableName, $columnNames) {
 
     if (isset($_POST["add"]) ) {
         $conn = connect();
 
-        //extracts input data from superglobal $_POST exept column1
+        //extracts input data from superglobal
         $addData = array();
         for ($i=0; $i<count($columnNames); $i++) {
             $addData[$i] = $_POST[$columnNames[$i] ];
