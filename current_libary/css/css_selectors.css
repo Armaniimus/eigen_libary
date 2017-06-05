@@ -1,20 +1,183 @@
+/*attribute selectors*/
+
 /* give style if input contains attribute type with the value email*/
 input[type="email"] {
 }
 
+a[target="blank_"] {
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor:pointer;
+}
+
+
+/*combinators*/
+
+/* targets the next sibling next to selected element*/
 .btn + .btn {
 }
 
+/* targets all children inside the selected element*/
 form > a {
 }
 
-
+/* targets all second selected elements if the follow the first selected element*/
 h1 ~ label {
 }
 
+
+/*substring Matching attribute selectors*/
+
+/* if href contains "downloads" then style a */
+a[href*="downloads"] {
+}
+
+/* if href begins with .pdf */
 a[href^="http:"] {
 }
 
+/* if href ends with .pdf */
 a[href$=".pdf"] {
    background-image: url('../img/icn-picture.svg');
+}
+
+/*structural pseudo-classen*/
+
+li:first-child {
+
+}
+
+li:last-child {
+
+}
+:only-child { } or li:only-child { }
+
+:empty { } or li:empty { }
+
+
+/* UI element states pseudo-classes */
+
+/* if a element is selected by the user*/
+input:focus,
+textarea:focus {
+    border: red 2px solid;
+}
+
+:disabled {
+    background-color: green;
+}
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+/*nth child pseudo-classes*/
+
+/*selects all even childs*/
+li:nth-child(even) {
+    background: #52bab3;
+    color: white;
+}
+
+/*selects all odd childs*/
+li:nth-child(odd) {
+    background: #52bab3;
+    color: white;
+}
+
+/*selects the third child*/
+li:nth-child(3) {
+    background: #52bab3;
+    color: white;
+}
+
+/* selects the first-child and then every third child that follows*/
+li:nth-child(3n+1) {
+    background: #52bab3;
+    color: white;
+}
+
+/*selects the 4th child and everything before it*/
+li:nth-child(-n+4) {
+    background: #52bab3;
+    color: white;
+}
+
+/* selects the 4th div*/
+div:nth-of-type(4) {
+  background: #52bab3;
+  color: white;
+}
+
+/* selects the 4th div counted from bottom up*/
+div:nth-last-of-type(4) {
+  background: #52bab3;
+  color: white;
+}
+
+
+/*root selector*/
+
+/*selects an element thats highest in the document*/
+:root {
+    background: #e3effb;
+}
+
+
+/*target selector*/
+
+/*once the specified element is a target of a href link give it the appropiate style*/
+#col-c:target {
+    background: #384047;
+    color: white;
+}
+
+/*not selector*/
+
+div:not(#col-a) {
+    border:solid 1px red;
+}
+input:not[type="submit"] {
+    box-shadow: inset 0 2px 0 rgba(0,0,0, .15);
+}
+
+.col:not(:first-child),
+nav a:not(:first-child) {
+    margin-left: 15px;
+}
+
+/*pseudo-elements*/
+
+.intro::first-line {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.intro::first-letter {
+    float:left;
+    font-size:80px;
+    color: white;
+    padding: 5px 10px;
+    background: #384047;
+    margin: 10px 10px 0 0;
+    border-radius: 5px;
+    line-height: 1;
+}
+
+.zip::before {
+    content: "ZIP - ";
+    margin-right: 8px;
+}
+
+.jpg::before {
+    content: "JPG - ";
+    margin-right: 8px;
+}
+
+/*displays an attributes value after the selected element*/
+a::after {
+    content:attr(href);/*<---*/
 }
