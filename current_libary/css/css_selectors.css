@@ -1,0 +1,20 @@
+/* give style if input contains attribute type with the value email*/
+input[type="email"] {
+}
+
+.btn + .btn {
+}
+
+form > a {
+}
+
+
+h1 ~ label {
+}
+
+a[href^="http:"] {
+}
+
+a[href$=".pdf"] {
+   background-image: url('../img/icn-picture.svg');
+}
