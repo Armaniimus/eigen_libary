@@ -16,15 +16,15 @@ input[type="submit"] {
 
 /*combinators*/
 
-/* targets the next sibling next to selected element*/
+/*The + combinator targets an element's immediate sibling*/
 .btn + .btn {
 }
 
-/* targets all children inside the selected element*/
+/*The > combinator targets a direct child(or childeren) of an element*/
 form > a {
 }
 
-/* targets all second selected elements if the follow the first selected element*/
+/*The ~ combinator targets all the specified siblings that follow an element*/
 h1 ~ label {
 }
 
