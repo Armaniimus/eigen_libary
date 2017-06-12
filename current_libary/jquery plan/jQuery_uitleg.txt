@@ -1,0 +1,5 @@
+we'll  use jQuery 3.2.1 minified with cdn
+
+jquery is the same as $
+
+
