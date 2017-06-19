@@ -3,7 +3,7 @@
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
-$serverInfo = ["localhost", "root", "", "project_over_de_rhein"]; //Servername, Username, password, dbname
+$serverInfo = ["Servername" => "localhost", "Username" => "root", "Password" => "", "Databasename" => "project_over_de_rhein"]; //Servername, Username, password, dbname
     //generates table information
     $tableNames = getTableNames();
     $columnNames = [];
@@ -23,7 +23,7 @@ function connect() {
     global $serverInfo;
 
     //Create connection
-    $conn = new mysqli($serverInfo[0], $serverInfo[1], $serverInfo[2], $serverInfo[3]);
+    $conn = new mysqli($serverInfo['Servername'], $serverInfo['Username'], $serverInfo['Password'], $serverInfo['Databasename']);
 
     //Check connection
     if ($conn->connect_error) {
@@ -45,7 +45,7 @@ function getTableNames() {
     //Gets tablenames from the database
     Global $serverInfo;
     $conn = connect();
-    $sql = "SHOW TABLES FROM " . $serverInfo[3];
+    $sql = "SHOW TABLES FROM " . $serverInfo['Databasename'];
     $result = $conn->query($sql);
 
     //Outputs data if information was found
@@ -55,7 +55,7 @@ function getTableNames() {
         //Writes found data into an array
         $i = 0;
         while ($row = $result->fetch_assoc() ) {
-            $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
+            $tableArray[$i] = $row["Tables_in_" . $serverInfo['Databasename'] ];
             $i++;
         }
         return $tableArray;
@@ -101,29 +101,29 @@ function getcolumnNames($tableName) {
             //1 means this data WILL be used;
             //2 means this data and everything after it WILL be used;
             //3 means this data and everything after it WILL NOT be used;
-function selCollBinary($columnNames, $code) {
+function selectWithCodeFromArray($array, $code) {
     $bC = str_split($code);
     $collN = []; // <--- is used to store the output data
     $y=0; // <--- is used to count in which position the next datapiece needs to go
 
-    for ($i=0; $i<count($columnNames); $i++) {
+    for ($i=0; $i<count($array); $i++) {
         if ($bC[$i] == 0) {
 
         }
         else if ($bC[$i] == 1) {
-            $collN[$y] = $columnNames[$i];
+            $collN[$y] = $array[$i];
             $y++;
         }
         else if ($bC[$i] == 2) {
             //runs till the end of the array and writes everything inside the array
-            for ($i=$i; $i<count($columnNames); $i++) {
-                $collN[$y] = $columnNames[$i];
+            for ($i=$i; $i<count($array); $i++) {
+                $collN[$y] = $array[$i];
                 $y++;
             }
         }
         else if ($bC[$i] == 3) {
             //runs till the end of the array and writes nothings
-            for ($i=$i; $i<count($columnNames); $i++) {
+            for ($i=$i; $i<count($array); $i++) {
 
             }
         }
