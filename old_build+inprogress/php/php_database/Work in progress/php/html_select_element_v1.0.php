@@ -8,15 +8,11 @@
 //Variable input:
     //$dataArray(requires an 2dimensional Array with strings in them and 1 string)
     //$columnName(requires an string)
-    //$openingLine requires a string with openingline with a select. //optional but handy if you want to control the type
-function generateHtmlSelect($dataArray, $columnName, $openingLine = NULL) {
+function generateHtmlSelect($dataArray, $columnName) {
 
     //Generates a HTML Select Form element.
-    if ($openingLine != NULL) {
-        $result = $openingLine;
-    } else {
-        $result = "<select name='$columnName'>";
-    }
+    $result =
+    "<select name='$columnName' placeholder='$columnName'>";
     foreach ($dataArray as $dA) {
         if (isset($_POST[$columnName]) && $_POST[$columnName] == $dA) {
             $result .= "<option value='$dA' selected>$dA</option>";
