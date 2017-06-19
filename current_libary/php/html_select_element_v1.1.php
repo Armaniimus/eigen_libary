@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.0 --//
+//-- version number 1.1 --//
 
 //F01; D:none; S(G)
 //Status: Good

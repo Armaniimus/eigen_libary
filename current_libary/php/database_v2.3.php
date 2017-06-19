@@ -1,5 +1,5 @@
 <?php
-//-- version number 2.2  --//
+//-- version number 2.3  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
