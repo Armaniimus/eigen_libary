@@ -1,5 +1,5 @@
 <?php
-//-- version number 2.1  --//
+//-- version number 2.2  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
@@ -95,16 +95,16 @@ function getcolumnNames($tableName) {
 //FunctionDescription: With this function you can choose which column names you want inside an array
 //Variables input:
     //$columnNames(expects a array of strings with a DB column names in them)
-    //$binaryCode(expects a string with the numbers 0123 in them)
+    //$code(expects a string with the numbers 0123 in them)
         //this will be converting into a array and gets read out 1 by 1
-            //0 means this data will NOT be used;
-            //1 means this data will be used;
-            //2 means this data and everything behind it will be used;
-            //3 means this data and everything behind it will NOT be used;
-function selCollBinary($columnNames, $binaryCode) {
-    $bC = str_split($binaryCode);
-    $collN = [];
-    $y = 0;
+            //0 means this data WILL NOT be used;
+            //1 means this data WILL be used;
+            //2 means this data and everything after it WILL be used;
+            //3 means this data and everything after it WILL NOT be used;
+function selCollBinary($columnNames, $code) {
+    $bC = str_split($code);
+    $collN = []; // <--- is used to store the output data
+    $y=0; // <--- is used to count in which position the next datapiece needs to go
 
     for ($i=0; $i<count($columnNames); $i++) {
         if ($bC[$i] == 0) {
@@ -115,13 +115,16 @@ function selCollBinary($columnNames, $binaryCode) {
             $y++;
         }
         else if ($bC[$i] == 2) {
+            //runs till the end of the array and writes everything inside the array
             for ($i=$i; $i<count($columnNames); $i++) {
                 $collN[$y] = $columnNames[$i];
                 $y++;
             }
         }
         else if ($bC[$i] == 3) {
+            //runs till the end of the array and writes nothings
             for ($i=$i; $i<count($columnNames); $i++) {
+
             }
         }
     }
