@@ -15,17 +15,17 @@ function createTableFromDB1($dataArray) {
     //generates the tableheads 1 by 1
     $tableHeads = "";
     $x=0;
-    for ($y=0; $y<count($dataArray[$x]); $y++) {
+    for ($col=0; $y<count($dataArray[$row]); $col++) {
         $tableHeads .= "<th>" . $dataArray[$x][$y] . "</th>";
     }
     $result .= "<tr>" . $tableHeads . "<tr>";
 
     //generate table main rows
-    $x++;
-    for ($x=$x; $x<count($dataArray); $x++) {
+    $row++;
+    for ($row=$row; $row<count($dataArray); $row++) {
         $tableMainRow = "";
-        for ($y=0; $y<count($dataArray[$x]); $y++) {
-            $tableMainRow .= "<th>" . $dataArray[$x][$y] . "</th>";
+        for ($col=0; $col<count($dataArray[$row]); $col++) {
+            $tableMainRow .= "<th>" . $dataArray[$row][$col] . "</th>";
         }
         $result .= "<tr>" . $tableMainRow . "</tr>";
     }
@@ -46,9 +46,9 @@ function createTableFromDB2($dataArray) {
 
     //generates the tableheads 1 by 1
     $tableHeads = "";
-    $x=0;
-    for ($y=0; $y<count($dataArray[$x]); $y++) {
-        $tableHeads .= "<th>" . $dataArray[$x][$y] . "</th>";
+    $row=0;
+    for ($col=0; $y<count($dataArray[$row]); $col++) {
+        $tableHeads .= "<th>" . $dataArray[$row][$col] . "</th>";
     }
     $tableHeads .= "<th colspan='3'>Buttons</th>";
     $res .= "<tr>" . $tableHeads . "<tr>";
@@ -60,11 +60,11 @@ function createTableFromDB2($dataArray) {
     <td><button type='submit' form='form1' value='delete'>Delete</button></td>";
 
     //generate table main rows
-    $x++;
-    for ($x=$x; $x<count($dataArray); $x++) {
+    $row++;
+    for ($row=$row; $row<count($dataArray); $row++) {
         $tableMainRow = "";
-        for ($y=0; $y<count($dataArray[$x]); $y++) {
-            $tableMainRow .= "<th>" . $dataArray[$x][$y] . "</th>";
+        for ($col=0; $col<count($dataArray[$row]); $col++) {
+            $tableMainRow .= "<th>" . $dataArray[$row][$col] . "</th>";
         }
         $tableMainRow .= $buttons;
         $res .= "<tr>" . $tableMainRow . "</tr>";
