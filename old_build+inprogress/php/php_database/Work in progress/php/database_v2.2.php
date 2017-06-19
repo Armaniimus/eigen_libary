@@ -1,9 +1,9 @@
 <?php
-//-- version number 2.0 --//
+//-- version number 2.2  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
-$serverInfo = ["localhost", "root", "", "project_over_de_rhein"]; //Servername, Username, password, dbname
+$serverInfo = ["Servername" => "localhost", "Username" => "root", "Password" => "", "Databasename" => "project_over_de_rhein"]; //Servername, Username, password, dbname
     //generates table information
     $tableNames = getTableNames();
     $columnNames = [];
@@ -23,7 +23,7 @@ function connect() {
     global $serverInfo;
 
     //Create connection
-    $conn = new mysqli($serverInfo[0], $serverInfo[1], $serverInfo[2], $serverInfo[3]);
+    $conn = new mysqli($serverInfo['Servername'], $serverInfo['Username'], $serverInfo['Password'], $serverInfo['Databasename']);
 
     //Check connection
     if ($conn->connect_error) {
@@ -45,7 +45,7 @@ function getTableNames() {
     //Gets tablenames from the database
     Global $serverInfo;
     $conn = connect();
-    $sql = "SHOW TABLES FROM " . $serverInfo[3];
+    $sql = "SHOW TABLES FROM " . $serverInfo['Databasename'];
     $result = $conn->query($sql);
 
     //Outputs data if information was found
@@ -55,7 +55,7 @@ function getTableNames() {
         //Writes found data into an array
         $i = 0;
         while ($row = $result->fetch_assoc() ) {
-            $tableArray[$i] = $row["Tables_in_" . $serverInfo[3] ];
+            $tableArray[$i] = $row["Tables_in_" . $serverInfo['Databasename'] ];
             $i++;
         }
         return $tableArray;
@@ -67,7 +67,7 @@ function getTableNames() {
 //Function: returns columnnames out of the table specified
 //Variables input:
     //$tableName(expects a string of a DB tablename)
-function getColumnNames($tableName) {
+function getcolumnNames($tableName) {
 
     //Gets column names from the database
     $conn = connect();
@@ -95,33 +95,36 @@ function getColumnNames($tableName) {
 //FunctionDescription: With this function you can choose which column names you want inside an array
 //Variables input:
     //$columnNames(expects a array of strings with a DB column names in them)
-    //$binaryCode(expects a string with the numbers 0123 in them)
+    //$code(expects a string with the numbers 0123 in them)
         //this will be converting into a array and gets read out 1 by 1
-            //0 means this data will NOT be used;
-            //1 means this data will be used;
-            //2 means this data and everything behind it will be used;
-            //3 means this data and everything behind it will NOT be used;
-function selCollBinary($columnNames, $binaryCode) {
-    $bC = str_split($binaryCode);
-    $collN = [];
-    $y = 0;
+            //0 means this data WILL NOT be used;
+            //1 means this data WILL be used;
+            //2 means this data and everything after it WILL be used;
+            //3 means this data and everything after it WILL NOT be used;
+function selectWithCodeFromArray($array, $code) {
+    $bC = str_split($code);
+    $collN = []; // <--- is used to store the output data
+    $y=0; // <--- is used to count in which position the next datapiece needs to go
 
-    for ($i=0; $i<count($columnNames); $i++) {
+    for ($i=0; $i<count($array); $i++) {
         if ($bC[$i] == 0) {
 
         }
         else if ($bC[$i] == 1) {
-            $collN[$y] = $columnNames[$i];
+            $collN[$y] = $array[$i];
             $y++;
         }
         else if ($bC[$i] == 2) {
-            for ($i=$i; $i<count($columnNames); $i++) {
-                $collN[$y] = $columnNames[$i];
+            //runs till the end of the array and writes everything inside the array
+            for ($i=$i; $i<count($array); $i++) {
+                $collN[$y] = $array[$i];
                 $y++;
             }
         }
         else if ($bC[$i] == 3) {
-            for ($i=$i; $i<count($columnNames); $i++) {
+            //runs till the end of the array and writes nothings
+            for ($i=$i; $i<count($array); $i++) {
+
             }
         }
     }
@@ -174,7 +177,8 @@ function createWhere($columnNames) {
 //Varables input:
     //$tableName(expects an string with a DB tableName)
     //$columnNames(expects a array of strings with a DB column names in them)
-function Generate2dArrayFromDB($tableName, $columnNames) {
+    //$where(expects a string with a $where statement for the sql DB)
+function generate2dArrayFromDB($tableName, $columnNames, $where) {
 
     //creates a connection with the Database
     $conn = connect();
@@ -184,9 +188,6 @@ function Generate2dArrayFromDB($tableName, $columnNames) {
     for ($i=1; $i<count($columnNames); $i++) {
         $commaSeperatedcolumnNames .= ", " . $columnNames[$i];
     }
-
-    //Generates WHERE statement
-    $where = createWhere($columnNames);
 
     //combines SELECT $tableName and WHERE parts to form sql query
     $sql = "SELECT $commaSeperatedcolumnNames
@@ -222,11 +223,11 @@ function Generate2dArrayFromDB($tableName, $columnNames) {
 
 //F07; D:connect(); S(G)
 //Status: Good
-//FunctionDescription: Returns a array from a specified colom/atribute inside the database.
+//FunctionDescription: Returns a array from a specified colom/attribute inside the database.
 //Variable input:
     //$tableName(expects an string with a sql table name)
     //$columnName(expects an string with a sql column name)
-function getIndividualAtribute($tableName, $columnName) {
+function getIndividualAttribute($tableName, $columnName) {
 
     //Perform Query
     $conn = connect();
@@ -253,24 +254,25 @@ function getIndividualAtribute($tableName, $columnName) {
 
 //F08; D:connect(); S(G)
 //Status: Good
-//Function: Insert data into an sql Table
+//Function: Insert a record into an sql Table
 //Variables input:
-    //$columnNames(needs a array of DB atribute names)
+    //$columnNames(needs a array of DB attribute names)
+        //The data you like to add needs to be inside $_POST['collumnnames']
     //$tableName(needs a string of a DB tableName)
-function insertIntoDatabase($columnNames, $tableName) {
+function insertIntoDatabase($tableName, $columnNames) {
 
     if (isset($_POST["add"]) ) {
         $conn = connect();
 
-        //extracts input data from superglobal $_POST exept column1
+        //extracts input data from superglobal
         $addData = array();
-        for ($i=1; $i<count($columnNames); $i++) {
+        for ($i=0; $i<count($columnNames); $i++) {
             $addData[$i] = $_POST[$columnNames[$i] ];
         }
 
         //tests if all fields are filled
         $test = "true";
-        for ($i=1; $i<count($columnNames); $i++) {
+        for ($i=0; $i<count($columnNames); $i++) {
             if ($addData[$i] == "") {
                 $test = "false";
             }
@@ -280,14 +282,14 @@ function insertIntoDatabase($columnNames, $tableName) {
         if ($test == 'true') {
 
             //Generates commaseperated names
-            $commaSeperatedcolumnNames = $columnNames[1];
-            for ($i=2; $i<count($columnNames); $i++) {
+            $commaSeperatedcolumnNames = $columnNames[0];
+            for ($i=1; $i<count($columnNames); $i++) {
                 $commaSeperatedcolumnNames .= "," . $columnNames[$i];
             }
 
             //Adds datafields till the last datafield is reached
-            $article = "'" . $addData[1] . "'";
-            for ($i=2; $i<count($columnNames); $i++) {
+            $article = "'" . $addData[0] . "'";
+            for ($i=1; $i<count($columnNames); $i++) {
                 $article .= "," . "'" . $addData[$i] . "'";
             }
 

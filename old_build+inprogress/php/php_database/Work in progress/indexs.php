@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <title>Over de Rhein</title>
         <link rel="stylesheet" href="css/Over_de_Rhein.css">
-        <?php include 'php/database_connect.php';?>
+        <?php
+            include 'php/database_v2.2.php';
+            include 'php/generate_table_from_array_v1.0.php';
+            include 'php/html_select_element_v1.0.php';
+        ?>
     </head>
     <body>
         <div class="row">
@@ -31,19 +35,12 @@
                                 Opdrachtnummer:
                             </td>
                             <td colspan="1">
-                                <select type="number" name="opdrachtnummer">
-                                    <?php
-                                    $opdrachtNrs = getIndividualAtribute($tableNames[0], $collomNames[0][0]);
-                                    echo $opdrachtNrs;
-                                    foreach ($opdrachtNrs as $oNr) {
-                                        if ($oNr == 2) {
-                                            echo '<option value="' . $oNr . '" selected>' . $oNr . '</option>';
-                                        } else {
-                                            echo '<option value="' . $oNr . '"> ' . $oNr . '</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
+                                <?php
+
+                                $opdrachtNrs = getIndividualAttribute($tableNames[1], $columnNames[1][1]);
+                                echo generateHtmlSelect($opdrachtNrs, $columnNames[1][1], '<select type="number" name="opdrachtnummer">')
+
+                                ?>
                             </td>
                             <td>
                                 <input type="submit" name="select" value="Send">
@@ -71,10 +68,15 @@
 
                         <?php
                         //generates a large table part inside this table
+                        $whereState = createWhere($columnNames[1]);
+                        $selColNames = selectWithCodeFromArray($columnNames[1], "002");
+                        $dataArray = generate2dArrayFromDB($tableNames[1], $selColNames, $whereState);
+
                         if (isset($_POST['opdrachtnummer']) ) {
-                            createTableFromDB3($tableNames[1], $collomNames[1], 8, 8, 2, $_POST['opdrachtnummer'], 'opdrachtnummer', 'select');
+                            $dataArray = generate2dArrayFromDB($tableNames[1], $selColNames, $whereState);
+                            echo createTableFromDB3($dataArray, 8);
                         } else {
-                            createTableFromDB3($tableNames[1], $collomNames[1], 8, 8, 2, "ISNULL", 'opdrachtnummer', 'select');
+                            echo createTableFromDB3($dataArray, 8);
                         }
                         ?>
 
