@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.1 --//
+//-- version number 1.2 --//
 
 //F01; D:SelectFromDB(); S(G)
 //Status: Good
