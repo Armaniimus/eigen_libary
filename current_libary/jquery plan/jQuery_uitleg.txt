@@ -1,5 +1,12 @@
-we'll  use jQuery 3.2.1 minified with cdn
+Lessen in deze opdrachten
 
-jquery is the same as $
+1. Hoe link je jquery in je project.
+2. Hoe roep je jquery aan.
+3. Wat is method chaining.
+4. Hoe gebruik je de method hide().
+5. Hoe gebruik je variabelen met jquery.
+6. Wat is het voordeel aan Jquery.
 
-
+Wat heb je natijd
+1. Een klein jquery libary element waarin je alles terug kan zien.
+2. Kleine basis over de functionaliteit van jquery

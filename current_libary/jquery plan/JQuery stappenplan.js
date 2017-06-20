@@ -8,13 +8,17 @@
     //add 1 a elements with an class named 'class'
 
 //3 link the js.js file
-    //add to html --> <script src="js.js"></script>
-    //add to js.js -> alert('hi')
-    //load index.html in the browser
+    // add to html
+        //<script src="js.js"></script>
+    // add to js.js
+        // alert('hi')
+    // load index.html in the browser
+    // If you see the popup box with the message hi it works
+        // and you can delete the alert inside the js.js
 
 //4. link the cdn
     // google jQuery CDN
-    // add the top most jQuery named 3x jQuery
+        // add the top most jQuery named 3x jQuery
 
 //5. create first line
     // jQuery('li').text('hij doe het');
@@ -22,7 +26,7 @@
 //6. show dollar sign
     // $('li').text('hij doe het');
 
-    //--
+    //------------------
 
 //7. Using variabless
     // 7.1  set variable name
@@ -55,7 +59,6 @@
 		// $(this).text($name)
 
 // 10. ways to make the code smaller
-
 	// 10.1 show method chaining
 		// .delay(800).fadeOut(400);
 
