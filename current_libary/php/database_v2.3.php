@@ -1,5 +1,5 @@
 <?php
-//-- version number 2.3  --//
+//-- version number 2.4  --//
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
@@ -261,58 +261,56 @@ function getIndividualAttribute($tableName, $columnName) {
     //$tableName(needs a string of a DB tableName)
 function insertIntoDatabase($tableName, $columnNames) {
 
-    if (isset($_POST["add"]) ) {
-        $conn = connect();
+    $conn = connect();
 
-        //extracts input data from superglobal
-        $addData = array();
-        for ($i=0; $i<count($columnNames); $i++) {
-            $addData[$i] = $_POST[$columnNames[$i] ];
-        }
-
-        //tests if all fields are filled
-        $test = "true";
-        for ($i=0; $i<count($columnNames); $i++) {
-            if ($addData[$i] == "") {
-                $test = "false";
-            }
-        }
-
-        //if tests where succesfull create sql query
-        if ($test == 'true') {
-
-            //Generates commaseperated names
-            $commaSeperatedcolumnNames = $columnNames[0];
-            for ($i=1; $i<count($columnNames); $i++) {
-                $commaSeperatedcolumnNames .= "," . $columnNames[$i];
-            }
-
-            //Adds datafields till the last datafield is reached
-            $article = "'" . $addData[0] . "'";
-            for ($i=1; $i<count($columnNames); $i++) {
-                $article .= "," . "'" . $addData[$i] . "'";
-            }
-
-            //Combines $article, $tableName and $commaSeperatedcolumnNames to create the SQL query
-            $sql = "INSERT INTO $tableName ($commaSeperatedcolumnNames)
-            VALUES ($article)";
-
-            //if acticle gives a notification back if an article was added successfully
-            //and reloads the page
-            if ($conn->query($sql) === TRUE) {
-                $message = "New record created successfully";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-                echo "<script type='text/javascript'>('window.location.reload();')</script>";
-            }
-
-        //if not all fields are filled gives a popup that not all fields are filled
-        } else {
-            $message = "Fill in the whole form";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
-
-        $conn->close();
+    //extracts input data from superglobal
+    $addData = array();
+    for ($i=0; $i<count($columnNames); $i++) {
+        $addData[$i] = $_POST[$columnNames[$i] ];
     }
+
+    //tests if all fields are filled
+    $test = "true";
+    for ($i=0; $i<count($columnNames); $i++) {
+        if ($addData[$i] == "") {
+            $test = "false";
+        }
+    }
+
+    //if tests where succesfull create sql query
+    if ($test == 'true') {
+
+        //Generates commaseperated names
+        $commaSeperatedcolumnNames = $columnNames[0];
+        for ($i=1; $i<count($columnNames); $i++) {
+            $commaSeperatedcolumnNames .= "," . $columnNames[$i];
+        }
+
+        //Adds datafields till the last datafield is reached
+        $article = "'" . $addData[0] . "'";
+        for ($i=1; $i<count($columnNames); $i++) {
+            $article .= "," . "'" . $addData[$i] . "'";
+        }
+
+        //Combines $article, $tableName and $commaSeperatedcolumnNames to create the SQL query
+        $sql = "INSERT INTO $tableName ($commaSeperatedcolumnNames)
+        VALUES ($article)";
+
+        //if acticle gives a notification back if an article was added successfully
+        //and reloads the page
+        if ($conn->query($sql) === TRUE) {
+            $message = "New record created successfully";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>('window.location.reload();')</script>";
+        }
+
+    //if not all fields are filled gives a popup that not all fields are filled
+    } else {
+        $message = "Fill in the whole form";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+
+    $conn->close();
 }
 
 //--
