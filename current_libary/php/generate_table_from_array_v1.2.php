@@ -7,7 +7,7 @@
     //creates table from the dataArray
 //Variables input:
     //$dataArray(requires an 2dimensional Array with strings in them)
-function createTableFromDB1($dataArray) {
+function ArrayToHTMLTable1($dataArray) {
 
     //opens table;
     $result = "<table border='1' width='100%'>";
@@ -39,7 +39,7 @@ function createTableFromDB1($dataArray) {
     //creates table from the provided data and adds buttons
 //Variables input:
     //$dataArray(requires an 2dimensional Array with strings in them)
-function createTableFromDB2($dataArray) {
+function ArrayToHTMLTable2($dataArray) {
 
     //opens table;
     $res = "<table border='1' width='100%'>";
@@ -82,7 +82,7 @@ function createTableFromDB2($dataArray) {
 //Variables input:
     //$dataArray(requires an 2dimensional Array with strings in them)
     //$height(needs a INT)
-function createTableFromDB3($dataArray, $height) {
+function ArrayToHTMLTable3($dataArray, $height) {
     //Generates a table from an array
     $res = "";
     for ($row=1; $row<=$height; $row++) {
