@@ -1,0 +1,71 @@
+* {box-sizing: border-box;}
+ body,html {width:98%; height:97%; font-family: 'Baloo', cursive;}
+
+.menu {
+    height: 2.2REM;
+
+    border: solid 1px;
+    float: left;
+    width: 100%;
+    padding: 5px;
+}
+
+ .formulier{
+    height: 95%; min-height: 100px;
+    width: 50%;
+    border: solid 2px;
+    float: left;
+}
+
+.deelformulierTwo {
+    height: 80%; min-height: 120px;
+    width: 100%;
+    border: solid 1px;
+    clear: float;
+    padding: 5px;
+    overflow:auto;
+}
+.deelformulierOne {
+    height: 10%; min-height: 60px;
+    width: 100%;
+    border: solid 1px;
+    clear: float;
+    padding: 5px;
+}
+.deelformulierOne a {
+    float: left;
+    color: purple;
+    /*width: 12.5%;*/
+    padding: 15px;
+}
+
+.kleiner {
+    height: 20%; min-height: 40px;
+}
+
+.content {
+    height: 95%; min-height: 100px;
+    width: 49%;
+    border: solid 1px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border: solid 1px;
+    float: left;
+    overflow: scroll;
+    padding: 5px;
+}
+
+.datum{
+    float: right;
+    font-size: 1.2REM;
+    margin-right: 10px;
+}
+
+
+.login{
+    float: right;
+    font-size: 1.2REM;
+}
+
+th,td{
+    text-align: center;
+}
