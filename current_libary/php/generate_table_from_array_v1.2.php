@@ -1,5 +1,5 @@
 <?php
-//-- version number 1.2 --//
+//-- version number 1.3 --//
 
 //F01; D:SelectFromDB(); S(G)
 //Status: Good
@@ -14,9 +14,9 @@ function createTableFromDB1($dataArray) {
 
     //generates the tableheads 1 by 1
     $tableHeads = "";
-    $x=0;
-    for ($col=0; $y<count($dataArray[$row]); $col++) {
-        $tableHeads .= "<th>" . $dataArray[$x][$y] . "</th>";
+    $row=0;
+    for ($col=0; $col<count($dataArray[$row]); $col++) {
+        $tableHeads .= "<th>" . $dataArray[$row][$col] . "</th>";
     }
     $result .= "<tr>" . $tableHeads . "<tr>";
 
