@@ -1,0 +1,5 @@
+--for GNU/Linux, Unix, or macOS
+$ gem install jekyll
+
+Not official supported windows download command
+gem install jekyll bundler
