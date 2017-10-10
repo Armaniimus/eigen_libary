@@ -1,4 +1,3 @@
-/* makes sure you'll get rows underneath eachother: */
 .row::after {
     content: "";
     clear: both;
@@ -10,8 +9,18 @@
     box-sizing: border-box;
 }
 /* grid support function2: */
-[class*="col-"] {
+.float,
+.float-l {
     float: left;
+}
+
+.float-r {
+    float: right;
+}
+
+/*test function*/
+[class*="col-"] {
+    border: solid green 1px;
 }
 
 /* For mobile phones: */
@@ -58,4 +67,20 @@
     .col-la-10 {width: 83.33%;}
     .col-la-11 {width: 91.66%;}
     .col-la-12 {width: 100%;}
+}
+
+/* for huge screens: */
+@media only screen and (min-width: 1000px) {
+    .col-h-1 {width: 8.33%;}
+    .col-h-2 {width: 16.66%;}
+    .col-h-3 {width: 25%;}
+    .col-h-4 {width: 33.33%;}
+    .col-h-5 {width: 41.66%;}
+    .col-h-6 {width: 50%;}
+    .col-h-7 {width: 58.33%;}
+    .col-h-8 {width: 66.66%;}
+    .col-h-9 {width: 75%;}
+    .col-h-10 {width: 83.33%;}
+    .col-h-11 {width: 91.66%;}
+    .col-h-12 {width: 100%;}
 }
