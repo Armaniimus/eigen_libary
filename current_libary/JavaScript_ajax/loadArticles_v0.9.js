@@ -1,13 +1,43 @@
 let ajaxResponse = "";
 
-function ajax(selector, value, mode) {
+/*************************************************************************************
+F01 D:none; S(G)
+Status: Good
+Function: creates an Get request url
+Variables input:
+    obj: needs an js object and a number;
+    mode: needs a number;
+*/
+function createUrl(obj, mode) {
+    let url = "?";
+    i = 0;
+    for (let key in obj) {
+        if (i > 0) {
+            url += "&";
+        }
+        url += key + "=" + obj[key];
+        i++;
+    }
+    url += "&mode=" + mode;
+    return url;
+}
+
+/*************************************************************************************
+F02 D:none; S(G) <--- This is A support function of the getAjaxController function
+Status: Good
+Function: Sends a get request
+Variables input:
+    url: url to a php file preferably
+    urlSel: An url extention wich contains the data for the get request.
+    mode: an selector to select if you want to return the result the the var ajaxResponse or print it to the console
+*/
+function getAjax(url, urlSel, mode) {
     const xhr = new XMLHttpRequest();
-    const url = "../php/get_articles.php";
     const target = "?" + selector + "=" + value;
     let response = 0;
     let article;
 
-    xhr.open('GET', url + target);
+    xhr.open('GET', url + urlSel);
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
@@ -32,18 +62,28 @@ function ajax(selector, value, mode) {
 
 }
 
-
-function loadArticles(selector, value, mode, func) {
+/*************************************************************************************
+F03 D:getAjax; var ajaxResponse S(G)
+Status: Good
+Function: Sends a get request and waits until the request is catched
+            then pass it to the function which is send to this function.
+                timeout for the test is around 5 seconds.
+Variables input:
+    url: url to a php file preferably
+    urlSel: An url extention wich contains the data for the ger request.
+    mode: selects if you want to return the variable to the var ajaxResponse or print it to the console
+    func: that handles the ajax request when ready
+*/
+function getAjaxController(url urlSel, mode, func) {
     ajaxResponse = "";
     let count = 0;
-    console.log("Load articles para" + selector + "," + mode + "," + value + "," + func);
 
-    ajax(selector, value, mode);
+    ajax(url, urlSel, mode);
 
-    var stop = setInterval(waitForResponse, 100);
+    const stop = setInterval(waitForResponse, 100);
     function waitForResponse() {
 
-        if (count < 10000) {
+        if (count < 5000) {
             count += 100;
             console.log(count);
 
@@ -59,21 +99,33 @@ function loadArticles(selector, value, mode, func) {
     }
 }
 
+/*************************************************************************************
+F04 D:getAjax; var ajaxResponse S(G)
+Status: Good
+Function: Sends a get request and waits until the request is catched
+            then pass it to the function which is send to this function.
+                timeout for the test is around 5 seconds.
+Variables input:
+    url: url to a php file preferably
+    urlSel: An url extention wich contains the data for the ger request.
+    mode: an variable which get send where you can takes a string or number what ever you want to send.
+    Function: that handles the ajax request when ready
+*/
 
-
-
-
-
-
-
-
-
-function ajaxAfhandeling() {
+// example ajax passable function
+function ajaxAfhandeling(ajaxResponse) {
     console.log(ajaxResponse);
 }
 
-loadArticles("1", "2", 1, ajaxAfhandeling);
 
+
+
+
+
+
+/***********************************
+example of a create artile function
+*/
 function createArticle() {
 
     let article = document.createElement("article");
@@ -129,32 +181,3 @@ function createArticle() {
 
     document.body.appendChild(article);
 }
-
-
-
-
-    // document.write("hello");
-    // document.write(article);
-
-    //
-    //
-    //
-    // <article class="">
-    //     <header class="article-head">
-    //         <h3>myhead</h3>
-    //     </header>
-
-    //     <div class="article-content">
-    //         <div class="col-12">
-    //             <p class="col-12">
-    //
-    //             </p>
-    //             <div class="float col-6">
-    //
-    //             </div>
-    //             <div class="float col-6">
-    //
-    //             </div>
-    //         </div>
-    //     </div>
-    // </article>
