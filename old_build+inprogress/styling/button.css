@@ -1,0 +1,24 @@
+.color--text--white {
+    color: white;
+}
+
+.button--orange {
+    background-color: orange;
+    border-bottom: 2px darkorange solid;
+    border-right: 2px darkorange solid;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 0px darkorange;
+    text-decoration: none;
+}
+
+.button--orange:hover {
+    color: #fef;
+    border-bottom: 0px orange;
+    border-right: 0px orange;
+
+    border-top: 2px darkorange solid;
+    border-left: 2px darkorange solid;
+
+    text-decoration: underline;
+}
