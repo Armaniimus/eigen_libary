@@ -21,6 +21,10 @@ header {
 .float-r {
   float: right; }
 
+.col-0 {
+  width: 0%;
+  display: none; }
+
 .col-1 {
   width: 8.33%; }
 
@@ -58,6 +62,10 @@ header {
   width: 100%; }
 
 @media only screen and (min-width: 600px) {
+  .col-m-0 {
+    width: 0%;
+    display: none; }
+
   .col-m-1 {
     width: 8.33%; }
 
@@ -94,6 +102,10 @@ header {
   .col-m-12 {
     width: 100%; } }
 @media only screen and (min-width: 768px) {
+  .col-la-0 {
+    width: 0%;
+    display: none; }
+
   .col-la-1 {
     width: 8.33%; }
 
@@ -130,6 +142,10 @@ header {
   .col-la-12 {
     width: 100%; } }
 @media only screen and (min-width: 1000px) {
+  .col-h-0 {
+    width: 0%;
+    display: none; }
+
   .col-h-1 {
     width: 8.33%; }
 
@@ -169,23 +185,16 @@ header {
   border: solid green 1px; }
 
 /************
- Font styles
+ Font sizes
 *************/
 html {
   font-size: 14px; }
 
 h1 {
-  margin: 0px;
-  font-size: 1.8rem;
-  color: orange;
-  text-shadow: 1.3px 1.3px 1px #992200;
-  font-weight: 500; }
+  font-size: 1.8rem; }
 
 h2 {
-  font-size: 1.6rem;
-  color: orange;
-  text-shadow: 1.3px 1.3px 1px #440;
-  font-weight: 100; }
+  font-size: 1.6rem; }
 
 h3 {
   font-size: 1.4rem; }
@@ -199,14 +208,30 @@ h3 {
 @media only screen and (min-width: 1000px) {
   html {
     font-size: 18px; } }
-.text--white {
-  color: white; }
+.text--color-white {
+  color: #fefefe; }
 
-.text--black {
+.text--color-black {
   color: black; }
 
-.text--orange {
+.text--color-orange {
   color: orange; }
+
+.text--shadow-black {
+  text-shadow: 2px 2px 1px #000; }
+
+.text--shadow-darkorange {
+  text-shadow: 2px 2px 1px darkorange; }
+
+.header--darkblue {
+  background-color: #191944;
+  border-radius: 5px;
+  padding: 6px 2px;
+  box-shadow: 0px 3px 4px -1px #111;
+  margin-bottom: 0px;
+  border: solid #333 1px;
+  text-align: center;
+  min-height: 3.5rem; }
 
 .button {
   border-style: solid;
@@ -236,13 +261,13 @@ h3 {
   border-top: 2px solid;
   border-left: 2px solid; }
 
-.button--h-underline {
+.button--hover-underline {
   text-decoration: none; }
 
-.button--h-underline:hover {
+.button--hover-underline:hover {
   text-decoration: underline; }
 
-.button--orange {
+.button--color-orange {
   background-color: orange;
   box-shadow: 2px 2px 2px 0px darkorange;
   border-bottom-color: darkorange;
@@ -250,19 +275,29 @@ h3 {
   border-top-color: orange;
   border-left-color: orange; }
 
-.button--orange:hover {
+.button--color-orange:hover {
   border-bottom-color: orange;
   border-right-color: orange;
   border-top-color: darkorange;
   border-left-color: darkorange; }
 
-.button--el {
-  padding: 30px; }
+.button--size-s {
+  padding: 0px; }
 
-.button--m {
+.button--size-m {
   padding: 10px; }
 
-.button--s {
-  padding: 0px; }
+.button--size-la {
+  padding: 20px; }
+
+.button--size-h {
+  padding: 30px; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline;
+  font-weight: bold; }
 
 /*# sourceMappingURL=master.css.map */
