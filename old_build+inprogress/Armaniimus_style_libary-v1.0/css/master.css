@@ -1,0 +1,268 @@
+html,
+body {
+  margin: 0px; }
+
+main,
+header {
+  padding: 15px 30px 0px 30px; }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+* {
+  box-sizing: border-box; }
+
+.float,
+.float-l {
+  float: left; }
+
+.float-r {
+  float: right; }
+
+.col-1 {
+  width: 8.33%; }
+
+.col-2 {
+  width: 16.66%; }
+
+.col-3 {
+  width: 25%; }
+
+.col-4 {
+  width: 33.33%; }
+
+.col-5 {
+  width: 41.66%; }
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33%; }
+
+.col-8 {
+  width: 66.66%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33%; }
+
+.col-11 {
+  width: 91.66%; }
+
+.col-12 {
+  width: 100%; }
+
+@media only screen and (min-width: 600px) {
+  .col-m-1 {
+    width: 8.33%; }
+
+  .col-m-2 {
+    width: 16.66%; }
+
+  .col-m-3 {
+    width: 25%; }
+
+  .col-m-4 {
+    width: 33.33%; }
+
+  .col-m-5 {
+    width: 41.66%; }
+
+  .col-m-6 {
+    width: 50%; }
+
+  .col-m-7 {
+    width: 58.33%; }
+
+  .col-m-8 {
+    width: 66.66%; }
+
+  .col-m-9 {
+    width: 75%; }
+
+  .col-m-10 {
+    width: 83.33%; }
+
+  .col-m-11 {
+    width: 91.66%; }
+
+  .col-m-12 {
+    width: 100%; } }
+@media only screen and (min-width: 768px) {
+  .col-la-1 {
+    width: 8.33%; }
+
+  .col-la-2 {
+    width: 16.66%; }
+
+  .col-la-3 {
+    width: 25%; }
+
+  .col-la-4 {
+    width: 33.33%; }
+
+  .col-la-5 {
+    width: 41.66%; }
+
+  .col-la-6 {
+    width: 50%; }
+
+  .col-la-7 {
+    width: 58.33%; }
+
+  .col-la-8 {
+    width: 66.66%; }
+
+  .col-la-9 {
+    width: 75%; }
+
+  .col-la-10 {
+    width: 83.33%; }
+
+  .col-la-11 {
+    width: 91.66%; }
+
+  .col-la-12 {
+    width: 100%; } }
+@media only screen and (min-width: 1000px) {
+  .col-h-1 {
+    width: 8.33%; }
+
+  .col-h-2 {
+    width: 16.66%; }
+
+  .col-h-3 {
+    width: 25%; }
+
+  .col-h-4 {
+    width: 33.33%; }
+
+  .col-h-5 {
+    width: 41.66%; }
+
+  .col-h-6 {
+    width: 50%; }
+
+  .col-h-7 {
+    width: 58.33%; }
+
+  .col-h-8 {
+    width: 66.66%; }
+
+  .col-h-9 {
+    width: 75%; }
+
+  .col-h-10 {
+    width: 83.33%; }
+
+  .col-h-11 {
+    width: 91.66%; }
+
+  .col-h-12 {
+    width: 100%; } }
+[class*="col-"] {
+  border: solid green 1px; }
+
+/************
+ Font styles
+*************/
+html {
+  font-size: 14px; }
+
+h1 {
+  margin: 0px;
+  font-size: 1.8rem;
+  color: orange;
+  text-shadow: 1.3px 1.3px 1px #992200;
+  font-weight: 500; }
+
+h2 {
+  font-size: 1.6rem;
+  color: orange;
+  text-shadow: 1.3px 1.3px 1px #440;
+  font-weight: 100; }
+
+h3 {
+  font-size: 1.4rem; }
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 15px; } }
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 16px; } }
+@media only screen and (min-width: 1000px) {
+  html {
+    font-size: 18px; } }
+.text--white {
+  color: white; }
+
+.text--black {
+  color: black; }
+
+.text--orange {
+  color: orange; }
+
+.button {
+  border-style: solid;
+  border-top-width: 0px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 0px;
+  border-radius: 5px; }
+
+.button:hover {
+  border-top-width: 2px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 2px; }
+
+.button-roundcorner {
+  border-style: solid;
+  border-top-width: 2px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 2px;
+  border-radius: 25px; }
+
+.button-roundcorner:hover {
+  border-bottom: 0px;
+  border-right: 0px;
+  border-top: 2px solid;
+  border-left: 2px solid; }
+
+.button--h-underline {
+  text-decoration: none; }
+
+.button--h-underline:hover {
+  text-decoration: underline; }
+
+.button--orange {
+  background-color: orange;
+  box-shadow: 2px 2px 2px 0px darkorange;
+  border-bottom-color: darkorange;
+  border-right-color: darkorange;
+  border-top-color: orange;
+  border-left-color: orange; }
+
+.button--orange:hover {
+  border-bottom-color: orange;
+  border-right-color: orange;
+  border-top-color: darkorange;
+  border-left-color: darkorange; }
+
+.button--el {
+  padding: 30px; }
+
+.button--m {
+  padding: 10px; }
+
+.button--s {
+  padding: 0px; }
+
+/*# sourceMappingURL=master.css.map */
