@@ -1,0 +1,18 @@
+.button--color-orange {
+    background-color: orange;
+    box-shadow: 2px 2px 2px 0px darkorange;
+
+    border-bottom-color: darkorange;
+    border-right-color: darkorange;
+
+    border-top-color: orange;
+    border-left-color: orange;
+}
+
+.button--color-orange:hover {
+    border-bottom-color: orange;
+    border-right-color: orange;
+
+    border-top-color: darkorange;
+    border-left-color: darkorange;
+}
