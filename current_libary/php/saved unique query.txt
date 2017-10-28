@@ -1,0 +1,4 @@
+SELECT opslag
+FROM main_data
+WHERE id <> 0
+GROUP BY opslag
