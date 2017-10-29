@@ -28,14 +28,19 @@
     border-color: #FF8C00;
 }
 
-.header--border-grey {
+.header--border-lightgrey {
     box-shadow: 0px 3px 4px -1px #aaa;
     border-color: #aaa;
 }
 
+.header--border-lightgrey {
+    box-shadow: 0px 3px 4px -1px #656565;
+    border-color: #656565;
+}
+
 .header--border-darkgrey {
-    box-shadow: 0px 3px 4px -1px #444;
-    border-color: #444;
+    box-shadow: 0px 3px 4px -1px #333;
+    border-color: #333;
 }
 
 // color
@@ -55,10 +60,14 @@
     background-color: #FF8C00;
 }
 
-.header--color-grey {
+.header--color-lightgrey {
     background-color: #aaa;
 }
 
+.header--color-grey {
+    background-color: #656565;
+}
+
 .header--color-darkgrey {
-    background-color: #444;
+    background-color: #333;
 }

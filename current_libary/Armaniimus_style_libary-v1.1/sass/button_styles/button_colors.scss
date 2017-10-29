@@ -64,7 +64,7 @@
 
 
 //grey
-.button--color-grey {
+.button--color-lightgrey {
     background-color: #aaa;
     box-shadow: 2px 2px 2px 0px #888;
 
@@ -75,7 +75,7 @@
     border-left-color: #aaa;
 }
 
-.button--color-grey:hover {
+.button--color-lightgrey:hover {
     border-bottom-color: #aaa;
     border-right-color: #aaa;
 
@@ -84,22 +84,43 @@
 }
 
 
-//darkgrey
-.button--color-darkgrey {
-    background-color: #444;
-    box-shadow: 2px 2px 2px 0px #333;
+//grey
+.button--color-grey {
+    background-color: #656565;
+    box-shadow: 2px 2px 2px 0px #555;
 
-    border-bottom-color: #333;
-    border-right-color: #333;
+    border-bottom-color: #555;
+    border-right-color: #555;
 
-    border-top-color: #444;
-    border-left-color: #444;
+    border-top-color: #656565;
+    border-left-color: #656565;
 }
 
-.button--color-darkgrey:hover {
-    border-bottom-color: #444;
-    border-right-color: #444;
+.button--color-grey:hover {
+    border-bottom-color: #656565;
+    border-right-color: #656565;
+
+    border-top-color: #555;
+    border-left-color: #555;
+}
+
+
+//darkgrey
+.button--color-darkgrey {
+    background-color: #333;
+    box-shadow: 2px 2px 2px 0px #222;
+
+    border-bottom-color: #222;
+    border-right-color: #222;
 
     border-top-color: #333;
     border-left-color: #333;
+}
+
+.button--color-darkgrey:hover {
+    border-bottom-color: #333;
+    border-right-color: #333;
+
+    border-top-color: #222;
+    border-left-color: #222;
 }
