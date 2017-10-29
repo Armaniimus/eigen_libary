@@ -1,0 +1,51 @@
+// ===================
+// Development styles
+// ===================
+
+// layout shown with green borders
+[class*="col-"] {
+    border: solid green 1px;
+}
+
+// height tests styles
+.h_100px {
+    height: 100px;
+}
+
+.h_200px {
+    height: 200px;
+}
+
+.h_300px {
+    height: 300px;
+}
+
+.h_400px {
+    height: 400px;
+}
+
+.h_500px {
+    height: 500px;
+}
+
+
+// width tests styles
+.w_100px {
+    width: 100px;
+}
+
+.w_200px {
+    width: 200px;
+}
+
+.w_300px {
+    width: 300px;
+}
+
+.w_400px {
+    width: 400px;
+}
+
+.w_500px {
+    width: 500px;
+}
