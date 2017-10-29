@@ -1,0 +1,11 @@
+.wrap--section::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.wrap--content {
+    padding: 0px 15px;
+    margin-bottom: 30px;
+}

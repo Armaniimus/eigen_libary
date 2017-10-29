@@ -1,9 +1,3 @@
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 // grid support function1: */
 * {
     box-sizing: border-box;
