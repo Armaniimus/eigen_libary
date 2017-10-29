@@ -228,15 +228,24 @@ h3 {
 .text--shadow-darkorange {
   text-shadow: 2px 2px 1px darkorange; }
 
-.header--darkblue {
-  background-color: #191944;
+.header {
   border-radius: 5px;
   padding: 6px 2px;
-  box-shadow: 0px 3px 4px -1px #111;
-  border: solid #333 1px;
   text-align: center;
   min-height: 3.5rem;
-  margin: 0px; }
+  margin: 0px;
+  border-bottom: solid 1px;
+  border-top: solid 1px; }
+
+.header--darkblue {
+  background-color: #191944;
+  box-shadow: 0px 3px 4px -1px #111;
+  border-color: #333; }
+
+.header--orange {
+  background-color: orange;
+  box-shadow: 0px 3px 4px -1px darkorange;
+  border-color: darkorange; }
 
 .button {
   border-style: solid;

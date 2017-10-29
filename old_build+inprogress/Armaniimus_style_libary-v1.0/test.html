@@ -6,14 +6,20 @@
         <title></title>
         <style media="screen">
             .hoi {
-                border: 1px solid black;
+                border-left: 1px solid orange;
+                border-right: 1px solid orange;
+                border-bottom: 1px solid orange;
                 padding: 0px;
+                border-radius: 5px;
 
             }
             .hoi p {
                 height: 100px;
             }
-            
+            [class*=col-] {
+                border: 0px;
+            }
+
         </style>
     </head>
     <body>
@@ -21,21 +27,21 @@
         <button type="button" name="button">hoi</button>
 
         <div class="row">
-            <div class="wrap--content col-4 col-la-6 float">
+            <div class="wrap--article col-4 col-la-6 float">
                 <div class="hoi">
-                    <h2 class="header--darkblue text--color-white text--shadow-black">My header</h2>
+                    <h2 class="header header--darkblue text--color-white text--shadow-black">My header</h2>
                     <p></p>
                 </div>
             </div>
-            <div class="wrap--content col-4 col-la-6 float">
+            <div class="wrap--article col-4 col-la-6 float">
                 <div class="hoi">
-                    <h2 class="header--darkblue text--color-white text--shadow-black">My header</h2>
+                    <h2 class="header header--orange text--color-white text--shadow-black">My header</h2>
                     <p></p>
                 </div>
             </div>
-            <div class="wrap--content col-4 col-la-6 float">
+            <div class="wrap--article col-4 col-la-6 float">
                 <div class="hoi">
-                    <h2 class="header--darkblue text--color-white text--shadow-black">My header</h2>
+                    <h2 class="header header--darkblue text--color-white text--shadow-black">My header</h2>
                     <p></p>
                 </div>
             </div>
