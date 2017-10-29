@@ -1,18 +1,105 @@
+
+
+//orange
 .button--color-orange {
-    background-color: orange;
-    box-shadow: 2px 2px 2px 0px darkorange;
+    background-color:#ffa500;
+    box-shadow: 2px 2px 2px 0px  #FF8C00;
 
-    border-bottom-color: darkorange;
-    border-right-color: darkorange;
+    border-bottom-color: #FF8C00;
+    border-right-color: #FF8C00;
 
-    border-top-color: orange;
-    border-left-color: orange;
+    border-top-color: #ffa500;
+    border-left-color: #ffa500;
 }
 
 .button--color-orange:hover {
-    border-bottom-color: orange;
-    border-right-color: orange;
+    border-bottom-color: #ffa500;
+    border-right-color: #ffa500;
 
-    border-top-color: darkorange;
-    border-left-color: darkorange;
+    border-top-color: #FF8C00;
+    border-left-color: #FF8C00;
+}
+
+
+//lightblue
+.button--color-lightblue {
+    background-color: #9ac0cd;
+    box-shadow: 2px 2px 2px 0px #7895ab;
+
+    border-bottom-color: #7895ab;
+    border-right-color: #7895ab;
+
+    border-top-color: #9ac0cd;
+    border-left-color: #9ac0cd;
+}
+
+.button--color-lightblue:hover {
+    border-bottom-color: #9ac0cd;
+    border-right-color: #9ac0cd;
+
+    border-top-color: #7895ab;
+    border-left-color: #7895ab;
+}
+
+
+//darkblue
+.button--color-darkblue {
+    background-color: #191944;
+    box-shadow: 2px 2px 2px 0px #090933;
+
+    border-bottom-color: #090933;
+    border-right-color: #090933;
+
+    border-top-color: #191944;
+    border-left-color: #191944;
+}
+
+.button--color-darkblue:hover {
+    border-bottom-color: #191944;
+    border-right-color: #191944;
+
+    border-top-color: #090933;
+    border-left-color: #090933;
+}
+
+
+//grey
+.button--color-grey {
+    background-color: #aaa;
+    box-shadow: 2px 2px 2px 0px #888;
+
+    border-bottom-color: #888;
+    border-right-color: #888;
+
+    border-top-color: #aaa;
+    border-left-color: #aaa;
+}
+
+.button--color-grey:hover {
+    border-bottom-color: #aaa;
+    border-right-color: #aaa;
+
+    border-top-color: #888;
+    border-left-color: #888;
+}
+
+
+//darkgrey
+.button--color-darkgrey {
+    background-color: #444;
+    box-shadow: 2px 2px 2px 0px #333;
+
+    border-bottom-color: #333;
+    border-right-color: #333;
+
+    border-top-color: #444;
+    border-left-color: #444;
+}
+
+.button--color-darkgrey:hover {
+    border-bottom-color: #444;
+    border-right-color: #444;
+
+    border-top-color: #333;
+    border-left-color: #333;
 }
