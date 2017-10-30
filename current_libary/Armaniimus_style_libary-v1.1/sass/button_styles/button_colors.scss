@@ -10,7 +10,7 @@
     border-left-color: $black;
 }
 
-.button--color-orange:hover {
+.button--color-black:hover {
     border-bottom-color: $black;
     border-right-color: $black;
 
@@ -73,7 +73,7 @@
     border-left-color: $darkblue;
 }
 
-.button--color-blue:hover {
+.button--color-darkblue:hover {
     border-bottom-color: $darkblue;
     border-right-color: $darkblue;
 
@@ -329,4 +329,67 @@
 
     border-top-color: $yellow-shade;
     border-left-color: $yellow-shade;
+}
+
+
+//lightbrown
+.button--color-lightbrown {
+    background-color: $lightbrown;
+    box-shadow: 2px 2px 2px 0px $lightbrown-shade;
+
+    border-bottom-color: $lightbrown-shade;
+    border-right-color: $lightbrown-shade;
+
+    border-top-color: $lightbrown;
+    border-left-color: $lightbrown;
+}
+
+.button--color-lightbrown:hover {
+    border-bottom-color: $lightbrown;
+    border-right-color: $lightbrown;
+
+    border-top-color: $lightbrown-shade;
+    border-left-color: $lightbrown-shade;
+}
+
+
+//brown
+.button--color-brown {
+    background-color: $brown;
+    box-shadow: 2px 2px 2px 0px $brown-shade;
+
+    border-bottom-color: $brown-shade;
+    border-right-color: $brown-shade;
+
+    border-top-color: $brown;
+    border-left-color: $brown;
+}
+
+.button--color-brown:hover {
+    border-bottom-color: $brown;
+    border-right-color: $brown;
+
+    border-top-color: $brown-shade;
+    border-left-color: $brown-shade;
+}
+
+
+//darkbrown
+.button--color-darkbrown {
+    background-color: $darkbrown;
+    box-shadow: 2px 2px 2px 0px $darkbrown-shade;
+
+    border-bottom-color: $darkbrown-shade;
+    border-right-color: $darkbrown-shade;
+
+    border-top-color: $darkbrown;
+    border-left-color: $darkbrown;
+}
+
+.button--color-darkbrown:hover {
+    border-bottom-color: $darkbrown;
+    border-right-color: $darkbrown;
+
+    border-top-color: $darkbrown-shade;
+    border-left-color: $darkbrown-shade;
 }

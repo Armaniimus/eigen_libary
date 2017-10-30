@@ -1,17 +1,21 @@
 .text--shadow-black {
-    text-shadow: 2px 2px 1px #000;
+    text-shadow: 2px 2px 1px $black-shade;
 }
 
 .text--shadow-lightblue {
-    text-shadow: 2px 2px 1px #8ab0bd;
+    text-shadow: 2px 2px 1px $lightblue-shade;
+}
+
+.text--shadow-blue {
+    text-shadow: 2px 2px 1px $blue-shade;
 }
 
 .text--shadow-darkblue {
-    text-shadow: 2px 2px 1px #191944;
+    text-shadow: 2px 2px 1px $darkblue-shade;
 }
 
 .text--shadow-orange {
-    text-shadow: 2px 2px 1px #ffa500;
+    text-shadow: 2px 2px 1px $darkorange;
 }
 
 .text--shadow-darkorange {
@@ -19,13 +23,57 @@
 }
 
 .text--shadow-lightgrey {
-    text-shadow: 2px 2px 1px #aaa;
+    text-shadow: 2px 2px 1px $lightgrey-shade;
 }
 
 .text--shadow-grey {
-    text-shadow: 2px 2px 1px #656565;
+    text-shadow: 2px 2px 1px $grey-shade;
 }
 
 .text--shadow-darkgrey {
-    text-shadow: 2px 2px 1px #333;
+    text-shadow: 2px 2px 1px $darkgrey-shade;
+}
+
+.text--shadow-lightgreen {
+    text-shadow: 2px 2px 1px $lightgreen-shade;
+}
+
+.text--shadow-green {
+    text-shadow: 2px 2px 1px $green-shade;
+}
+
+.text--shadow-darkgreen {
+    text-shadow: 2px 2px 1px $darkgreen-shade;
+}
+
+.text--shadow-red {
+    text-shadow: 2px 2px 1px $red-shade;
+}
+
+.text--shadow-darkred {
+    text-shadow: 2px 2px 1px $darkred-shade;
+}
+
+.text--shadow-pink {
+    text-shadow: 2px 2px 1px $pink-shade;
+}
+
+.text--shadow-purple {
+    text-shadow: 2px 2px 1px $purple-shade;
+}
+
+.text--shadow-yellow {
+    text-shadow: 2px 2px 1px $yellow-shade;
+}
+
+.text--shadow-lightbrown {
+    text-shadow: 2px 2px 1px $lightbrown-shade;
+}
+
+.text--brown-yellow {
+    text-shadow: 2px 2px 1px $brown-shade;
+}
+
+.text--shadow-darkbrown {
+    text-shadow: 2px 2px 1px $darkbrown-shade;
 }
