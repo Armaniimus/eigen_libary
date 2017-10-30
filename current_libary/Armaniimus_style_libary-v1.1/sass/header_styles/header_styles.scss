@@ -9,8 +9,8 @@
 
 // borders
 .header--border-black {
-    box-shadow: 0px 3px 4px -1px $black;
-    border-color: $black;
+    box-shadow: 0px 3px 4px -1px $black-shade;
+    border-color: $black-shade;
 }
 
 
@@ -28,66 +28,83 @@
 
 //blue
 .header--border-lightblue {
-    box-shadow: 0px 3px 4px -1px $lightblue;
-    border-color: $lightblue;
+    box-shadow: 0px 3px 4px -1px $lightblue-shade;
+    border-color: $lightblue-shade;
 }
 
 .header--border-blue {
-    box-shadow: 0px 3px 4px -1px $blue;
-    border-color: $blue;
+    box-shadow: 0px 3px 4px -1px $blue-shade;
+    border-color: $blue-shade;
 }
 
 .header--border-darkblue {
-    box-shadow: 0px 3px 4px -1px $darkblue;
-    border-color: $darkblue;
+    box-shadow: 0px 3px 4px -1px $darkblue-shade;
+    border-color: $darkblue-shade;
 }
 
 
 //grey
 .header--border-lightgrey {
-    box-shadow: 0px 3px 4px -1px $lightgrey;
-    border-color: $lightgrey;
+    box-shadow: 0px 3px 4px -1px $lightgrey-shade;
+    border-color: $lightgrey-shade;
 }
 
 .header--border-grey {
-    box-shadow: 0px 3px 4px -1px $grey;
-    border-color: $grey;
+    box-shadow: 0px 3px 4px -1px $grey-shade;
+    border-color: $grey-shade;
 }
 
 .header--border-darkgrey {
-    box-shadow: 0px 3px 4px -1px $darkgrey;
-    border-color: $darkgrey;
+    box-shadow: 0px 3px 4px -1px $darkgrey-shade;
+    border-color: $darkgrey-shade;
 }
 
 
 //green
 .header--border-lightgreen {
-    box-shadow: 0px 3px 4px -1px $lightgreen;
-    border-color: $lightgreen;
+    box-shadow: 0px 3px 4px -1px $lightgreen-shade;
+    border-color: $lightgreen-shade;
 }
 
 .header--border-green {
-    box-shadow: 0px 3px 4px -1px $green;
-    border-color: $green;
+    box-shadow: 0px 3px 4px -1px $green-shade;
+    border-color: $green-shade;
 }
 
 .header--border-darkgreen {
-    box-shadow: 0px 3px 4px -1px $darkgreen;
-    border-color: $darkgreen;
+    box-shadow: 0px 3px 4px -1px $darkgreen-shade;
+    border-color: $darkgreen-shade;
 }
 
 
 //red
 .header--border-red {
-    box-shadow: 0px 3px 4px -1px $red;
-    border-color: $red;
+    box-shadow: 0px 3px 4px -1px $red-shade;
+    border-color: $red-shade;
 }
 
 .header--border-darkred {
-    box-shadow: 0px 3px 4px -1px $darkred;
-    border-color: $darkred;
+    box-shadow: 0px 3px 4px -1px $darkred-shade;
+    border-color: $darkred-shade;
 }
 
+//pink
+.header--border-pink {
+    box-shadow: 0px 3px 4px -1px $pink-shade;
+    border-color: $pink-shade;
+}
+
+//purple
+.header--border-purple {
+    box-shadow: 0px 3px 4px -1px $purple-shade;
+    border-color: $purple-shade;
+}
+
+//yellow
+.header--border-yellow {
+    box-shadow: 0px 3px 4px -1px $yellow-shade;
+    border-color: $yellow-shade;
+}
 
 
 // color
@@ -155,4 +172,19 @@
 
 .header--color-darkred {
     background-color: $darkred;
+}
+
+//pink
+.header--color-pink {
+    background-color: $pink;
+}
+
+//purple
+.header--color-purple {
+    background-color: $purple;
+}
+
+//yellow
+.header--color-yellow {
+    background-color: $yellow;
 }

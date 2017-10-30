@@ -1,5 +1,5 @@
 $white: #fefefe;
-$black: black;
+$black: #000;           $black-shade: #333;
 
 $lightblue: #9ac0cd;    $lightblue-shade: #89b0bc;
 $blue: #151599;         $blue-shade: #040466;
@@ -12,9 +12,13 @@ $lightgrey: #aaa;       $lightgrey-shade: #888;
 $grey: #656565;         $grey-shade: #555;
 $darkgrey: #333;        $darkgrey-shade: #222;
 
-$lightgreen: #32CD32;
-$green: #0f0;
-$darkgreen: #006400;
+$lightgreen: #32cc32;   $lightgreen-shade: #21bc21;
+$green: #0c0;           $green-shade: #0a0;
+$darkgreen: #006400;    $darkgreen-shade: #005000;
 
-$red: #f00;
-$darkred: #800000;
+$red: #d00;             $red-shade: #b00;
+$darkred: #900000;      $darkred-shade: #800000;
+
+$pink: #FF69B4;         $pink-shade: #ee58a3;
+$purple: #800080;       $purple-shade: #700070;
+$yellow: #dddd00;       $yellow-shade: #bbbb00;
