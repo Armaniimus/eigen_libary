@@ -1,4 +1,10 @@
-// borders
+//white
+.header--border-white {
+    box-shadow: 0px 3px 4px -1px $white-shade;
+    border-color: $white-shade;
+}
+
+//black
 .header--border-black {
     box-shadow: 0px 3px 4px -1px $black-shade;
     border-color: $black-shade;

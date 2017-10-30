@@ -1,3 +1,23 @@
+//white
+.button--color-white {
+    background-color:$white;
+    box-shadow: 2px 2px 2px 0px $white-shade;
+
+    border-bottom-color: $white-shade;
+    border-right-color: $white-shade;
+
+    border-top-color: $white;
+    border-left-color: $white;
+}
+
+.button--color-white:hover {
+    border-bottom-color: $white;
+    border-right-color: $white;
+
+    border-top-color: $white-shade;
+    border-left-color: $white-shade;
+}
+
 //black
 .button--color-black {
     background-color:$black;

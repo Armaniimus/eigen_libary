@@ -270,6 +270,9 @@ h3 {
 .text--color-darkbrown {
   color: #663300; }
 
+.text--shadow-white {
+  text-shadow: 2px 2px 1px #dedede; }
+
 .text--shadow-black {
   text-shadow: 2px 2px 1px #333; }
 
@@ -277,7 +280,7 @@ h3 {
   text-shadow: 2px 2px 1px #89b0bc; }
 
 .text--shadow-blue {
-  text-shadow: 2px 2px 1px #040466; }
+  text-shadow: 2px 2px 1px #040477; }
 
 .text--shadow-darkblue {
   text-shadow: 2px 2px 1px #090933; }
@@ -337,6 +340,9 @@ h3 {
   min-height: 3.5rem;
   margin: 0px;
   border-bottom: solid 1px; }
+
+.header--color-white {
+  background-color: #fefefe; }
 
 .header--color-black {
   background-color: #151515; }
@@ -398,6 +404,10 @@ h3 {
 .header--color-darkbrown {
   background-color: #663300; }
 
+.header--border-white {
+  box-shadow: 0px 3px 4px -1px #dedede;
+  border-color: #dedede; }
+
 .header--border-black {
   box-shadow: 0px 3px 4px -1px #333;
   border-color: #333; }
@@ -411,8 +421,8 @@ h3 {
   border-color: #89b0bc; }
 
 .header--border-blue {
-  box-shadow: 0px 3px 4px -1px #040466;
-  border-color: #040466; }
+  box-shadow: 0px 3px 4px -1px #040477;
+  border-color: #040477; }
 
 .header--border-darkblue {
   box-shadow: 0px 3px 4px -1px #090933;
@@ -509,6 +519,20 @@ h3 {
 .button--hover-underline:hover {
   text-decoration: underline; }
 
+.button--color-white {
+  background-color: #fefefe;
+  box-shadow: 2px 2px 2px 0px #dedede;
+  border-bottom-color: #dedede;
+  border-right-color: #dedede;
+  border-top-color: #fefefe;
+  border-left-color: #fefefe; }
+
+.button--color-white:hover {
+  border-bottom-color: #fefefe;
+  border-right-color: #fefefe;
+  border-top-color: #dedede;
+  border-left-color: #dedede; }
+
 .button--color-black {
   background-color: #151515;
   box-shadow: 2px 2px 2px 0px #333;
@@ -567,17 +591,17 @@ h3 {
 
 .button--color-blue {
   background-color: #151599;
-  box-shadow: 2px 2px 2px 0px #040466;
-  border-bottom-color: #040466;
-  border-right-color: #040466;
+  box-shadow: 2px 2px 2px 0px #040477;
+  border-bottom-color: #040477;
+  border-right-color: #040477;
   border-top-color: #151599;
   border-left-color: #151599; }
 
 .button--color-blue:hover {
   border-bottom-color: #151599;
   border-right-color: #151599;
-  border-top-color: #040466;
-  border-left-color: #040466; }
+  border-top-color: #040477;
+  border-left-color: #040477; }
 
 .button--color-lightgrey {
   background-color: #aaa;
