@@ -240,6 +240,30 @@ h3 {
 .text--color-darkgrey {
   color: #333; }
 
+.text--color-lightgreen {
+  color: #32cc32; }
+
+.text--color-green {
+  color: #0c0; }
+
+.text--color-darkgreen {
+  color: #006400; }
+
+.text--color-red {
+  color: #d00; }
+
+.text--color-darkred {
+  color: #900000; }
+
+.text--color-pink {
+  color: #FF69B4; }
+
+.text--color-purple {
+  color: #800080; }
+
+.text--color-yellow {
+  color: #dddd00; }
+
 .text--shadow-black {
   text-shadow: 2px 2px 1px #000; }
 
