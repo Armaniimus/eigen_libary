@@ -7,37 +7,62 @@
 }
 
 .article--white {
-    border-color: #fefefe;
+    border-color: $white;
 }
 
 .article--black {
-    border-color: black;
+    border-color: $black;
 }
 
 .article--lightblue {
-    border-color: #8ab0bd;
+    border-color: $lightblue;
+}
+
+.article--blue {
+    border-color: $blue;
 }
 
 .article--darkblue {
-    border-color: #00008b;
+    border-color: $darkblue;
 }
 
 .article--orange {
-    border-color: #ffa500;
+    border-color: $orange;
 }
 
 .article--darkorange {
-    border-color: #FF8C00;
+    border-color: $darkorange;
 }
 
 .article--lightgrey {
-    border-color: #aaa;
+    border-color: $lightgrey;
 }
 
 .article--grey {
-    border-color: #656565;
+    border-color: $grey;
 }
 
 .article--darkgrey {
-    border-color: #666;
+    border-color: $darkgrey;
+}
+
+
+.article--lightgreen {
+    border-color: $lightgreen;
+}
+
+.article--green {
+    border-color: $green;
+}
+
+.article--darkgreen {
+    border-color: $darkgreen;
+}
+
+.article--red {
+    border-color: $red;
+}
+
+.article--darkred {
+    border-color: $darkred;
 }

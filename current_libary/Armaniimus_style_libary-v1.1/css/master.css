@@ -219,6 +219,9 @@ h3 {
 .text--color-lightblue {
   color: #9ac0cd; }
 
+.text--color-blue {
+  color: #151599; }
+
 .text--color-darkblue {
   color: #191944; }
 
@@ -269,13 +272,9 @@ h3 {
   margin: 0px;
   border-bottom: solid 1px; }
 
-.header--border-lightblue {
-  box-shadow: 0px 3px 4px -1px #8ab0bd;
-  border-color: #8ab0bd; }
-
-.header--border-darkblue {
-  box-shadow: 0px 3px 4px -1px #191944;
-  border-color: #191944; }
+.header--border-black {
+  box-shadow: 0px 3px 4px -1px black;
+  border-color: black; }
 
 .header--color-orange {
   box-shadow: 0px 3px 4px -1px #ffa500;
@@ -285,9 +284,21 @@ h3 {
   box-shadow: 0px 3px 4px -1px #FF8C00;
   border-color: #FF8C00; }
 
+.header--border-lightblue {
+  box-shadow: 0px 3px 4px -1px #9ac0cd;
+  border-color: #9ac0cd; }
+
+.header--border-blue {
+  box-shadow: 0px 3px 4px -1px #151599;
+  border-color: #151599; }
+
+.header--border-darkblue {
+  box-shadow: 0px 3px 4px -1px #191944;
+  border-color: #191944; }
+
 .header--border-lightgrey {
-  box-shadow: 0px 3px 4px -1px #999;
-  border-color: #999; }
+  box-shadow: 0px 3px 4px -1px #aaa;
+  border-color: #aaa; }
 
 .header--border-grey {
   box-shadow: 0px 3px 4px -1px #656565;
@@ -297,17 +308,43 @@ h3 {
   box-shadow: 0px 3px 4px -1px #333;
   border-color: #333; }
 
-.header--color-lightblue {
-  background-color: #9ac0cd; }
+.header--border-lightgreen {
+  box-shadow: 0px 3px 4px -1px #32CD32;
+  border-color: #32CD32; }
 
-.header--color-darkblue {
-  background-color: #191944; }
+.header--border-green {
+  box-shadow: 0px 3px 4px -1px #0f0;
+  border-color: #0f0; }
+
+.header--border-darkgreen {
+  box-shadow: 0px 3px 4px -1px #006400;
+  border-color: #006400; }
+
+.header--border-red {
+  box-shadow: 0px 3px 4px -1px #f00;
+  border-color: #f00; }
+
+.header--border-darkred {
+  box-shadow: 0px 3px 4px -1px #800000;
+  border-color: #800000; }
+
+.header--color-black {
+  background-color: black; }
 
 .header--color-orange {
   background-color: #ffa500; }
 
 .header--color-darkorange {
   background-color: #FF8C00; }
+
+.header--color-lightblue {
+  background-color: #9ac0cd; }
+
+.header--color-blue {
+  background-color: #151599; }
+
+.header--color-darkblue {
+  background-color: #191944; }
 
 .header--color-lightgrey {
   background-color: #aaa; }
@@ -317,6 +354,21 @@ h3 {
 
 .header--color-darkgrey {
   background-color: #333; }
+
+.header--color-lightgreen {
+  background-color: #32CD32; }
+
+.header--color-green {
+  background-color: #0f0; }
+
+.header--color-darkgreen {
+  background-color: #006400; }
+
+.header--color-red {
+  background-color: #f00; }
+
+.header--color-darkred {
+  background-color: #800000; }
 
 .button {
   border-style: solid;
@@ -354,7 +406,7 @@ h3 {
 
 .button--color-orange {
   background-color: #ffa500;
-  box-shadow: 2px 2px 2px 0px  #FF8C00;
+  box-shadow: 2px 2px 2px 0px #FF8C00;
   border-bottom-color: #FF8C00;
   border-right-color: #FF8C00;
   border-top-color: #ffa500;
@@ -368,17 +420,17 @@ h3 {
 
 .button--color-lightblue {
   background-color: #9ac0cd;
-  box-shadow: 2px 2px 2px 0px #7895ab;
-  border-bottom-color: #7895ab;
-  border-right-color: #7895ab;
+  box-shadow: 2px 2px 2px 0px #89b0bc;
+  border-bottom-color: #89b0bc;
+  border-right-color: #89b0bc;
   border-top-color: #9ac0cd;
   border-left-color: #9ac0cd; }
 
 .button--color-lightblue:hover {
   border-bottom-color: #9ac0cd;
   border-right-color: #9ac0cd;
-  border-top-color: #7895ab;
-  border-left-color: #7895ab; }
+  border-top-color: #89b0bc;
+  border-left-color: #89b0bc; }
 
 .button--color-darkblue {
   background-color: #191944;
@@ -469,10 +521,13 @@ a:hover {
   border-color: black; }
 
 .article--lightblue {
-  border-color: #8ab0bd; }
+  border-color: #9ac0cd; }
+
+.article--blue {
+  border-color: #151599; }
 
 .article--darkblue {
-  border-color: #00008b; }
+  border-color: #191944; }
 
 .article--orange {
   border-color: #ffa500; }
@@ -487,7 +542,22 @@ a:hover {
   border-color: #656565; }
 
 .article--darkgrey {
-  border-color: #666; }
+  border-color: #333; }
+
+.article--lightgreen {
+  border-color: #32CD32; }
+
+.article--green {
+  border-color: #0f0; }
+
+.article--darkgreen {
+  border-color: #006400; }
+
+.article--red {
+  border-color: #f00; }
+
+.article--darkred {
+  border-color: #800000; }
 
 [class*="col-"] {
   border: solid green 1px; }

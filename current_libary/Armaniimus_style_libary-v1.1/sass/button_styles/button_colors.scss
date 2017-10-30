@@ -2,125 +2,125 @@
 
 //orange
 .button--color-orange {
-    background-color:#ffa500;
-    box-shadow: 2px 2px 2px 0px  #FF8C00;
+    background-color:$orange;
+    box-shadow: 2px 2px 2px 0px $darkorange;
 
-    border-bottom-color: #FF8C00;
-    border-right-color: #FF8C00;
+    border-bottom-color: $darkorange;
+    border-right-color: $darkorange;
 
-    border-top-color: #ffa500;
-    border-left-color: #ffa500;
+    border-top-color: $orange;
+    border-left-color: $orange;
 }
 
 .button--color-orange:hover {
-    border-bottom-color: #ffa500;
-    border-right-color: #ffa500;
+    border-bottom-color: $orange;
+    border-right-color: $orange;
 
-    border-top-color: #FF8C00;
-    border-left-color: #FF8C00;
+    border-top-color: $darkorange;
+    border-left-color: $darkorange;
 }
 
 
 //lightblue
 .button--color-lightblue {
-    background-color: #9ac0cd;
-    box-shadow: 2px 2px 2px 0px #7895ab;
+    background-color: $lightblue;
+    box-shadow: 2px 2px 2px 0px $lightblue-shade;
 
-    border-bottom-color: #7895ab;
-    border-right-color: #7895ab;
+    border-bottom-color: $lightblue-shade;
+    border-right-color: $lightblue-shade;
 
-    border-top-color: #9ac0cd;
-    border-left-color: #9ac0cd;
+    border-top-color: $lightblue;
+    border-left-color: $lightblue;
 }
 
 .button--color-lightblue:hover {
-    border-bottom-color: #9ac0cd;
-    border-right-color: #9ac0cd;
+    border-bottom-color: $lightblue;
+    border-right-color: $lightblue;
 
-    border-top-color: #7895ab;
-    border-left-color: #7895ab;
+    border-top-color: $lightblue-shade;
+    border-left-color: $lightblue-shade;
 }
 
 
 //darkblue
 .button--color-darkblue {
-    background-color: #191944;
-    box-shadow: 2px 2px 2px 0px #090933;
+    background-color: $darkblue;
+    box-shadow: 2px 2px 2px 0px $darkblue-shade;
 
-    border-bottom-color: #090933;
-    border-right-color: #090933;
+    border-bottom-color: $darkblue-shade;
+    border-right-color: $darkblue-shade;
 
-    border-top-color: #191944;
-    border-left-color: #191944;
+    border-top-color: $darkblue;
+    border-left-color: $darkblue;
 }
 
 .button--color-darkblue:hover {
-    border-bottom-color: #191944;
-    border-right-color: #191944;
+    border-bottom-color: $darkblue;
+    border-right-color: $darkblue;
 
-    border-top-color: #090933;
-    border-left-color: #090933;
+    border-top-color: $darkblue-shade;
+    border-left-color: $darkblue-shade;
 }
 
 
 //grey
 .button--color-lightgrey {
-    background-color: #aaa;
-    box-shadow: 2px 2px 2px 0px #888;
+    background-color: $lightgrey;
+    box-shadow: 2px 2px 2px 0px $lightgrey-shade;
 
-    border-bottom-color: #888;
-    border-right-color: #888;
+    border-bottom-color: $lightgrey-shade;
+    border-right-color: $lightgrey-shade;
 
-    border-top-color: #aaa;
-    border-left-color: #aaa;
+    border-top-color: $lightgrey;
+    border-left-color: $lightgrey;
 }
 
 .button--color-lightgrey:hover {
-    border-bottom-color: #aaa;
-    border-right-color: #aaa;
+    border-bottom-color: $lightgrey;
+    border-right-color: $lightgrey;
 
-    border-top-color: #888;
-    border-left-color: #888;
+    border-top-color: $lightgrey-shade;
+    border-left-color: $lightgrey-shade;
 }
 
 
 //grey
 .button--color-grey {
-    background-color: #656565;
-    box-shadow: 2px 2px 2px 0px #555;
+    background-color: $grey;
+    box-shadow: 2px 2px 2px 0px $grey-shade;
 
-    border-bottom-color: #555;
-    border-right-color: #555;
+    border-bottom-color: $grey-shade;
+    border-right-color: $grey-shade;
 
-    border-top-color: #656565;
-    border-left-color: #656565;
+    border-top-color: $grey;
+    border-left-color: $grey;
 }
 
 .button--color-grey:hover {
-    border-bottom-color: #656565;
-    border-right-color: #656565;
+    border-bottom-color: $grey;
+    border-right-color: $grey;
 
-    border-top-color: #555;
-    border-left-color: #555;
+    border-top-color: $grey-shade;
+    border-left-color: $grey-shade;
 }
 
 
 //darkgrey
 .button--color-darkgrey {
-    background-color: #333;
-    box-shadow: 2px 2px 2px 0px #222;
+    background-color: $darkgrey;
+    box-shadow: 2px 2px 2px 0px $darkgrey-shade;
 
-    border-bottom-color: #222;
-    border-right-color: #222;
+    border-bottom-color: $darkgrey-shade;
+    border-right-color: $darkgrey-shade;
 
-    border-top-color: #333;
-    border-left-color: #333;
+    border-top-color: $darkgrey;
+    border-left-color: $darkgrey;
 }
 
 .button--color-darkgrey:hover {
-    border-bottom-color: #333;
-    border-right-color: #333;
+    border-bottom-color: $darkgrey;
+    border-right-color: $darkgrey;
 
-    border-top-color: #222;
-    border-left-color: #222;
+    border-top-color: $darkgrey-shade;
+    border-left-color: $darkgrey-shade;
 }

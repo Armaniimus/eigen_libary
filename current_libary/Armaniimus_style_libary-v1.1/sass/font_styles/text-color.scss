@@ -1,35 +1,39 @@
 .text--color-white {
-    color: #fefefe;
+    color: $white;
 }
 
 .text--color-black {
-    color:black;
+    color: $black;
 }
 
 .text--color-lightblue {
-    color: #9ac0cd;
+    color: $lightblue;
+}
+
+.text--color-blue {
+    color: $blue;
 }
 
 .text--color-darkblue {
-    color: #191944;
+    color: $darkblue;
 }
 
 .text--color-orange {
-    color: #ffa500;
+    color: $orange;
 }
 
 .text--color-darkorange {
-    color: #FF8C00;
+    color: $darkorange;
 }
 
 .text--color-lightgrey {
-    color: #aaa;
+    color: $lightgrey;
 }
 
 .text--color-grey {
-    color: #656565;
+    color: $grey;
 }
 
 .text--color-darkgrey {
-    color: #333;
+    color: $darkgrey;
 }
