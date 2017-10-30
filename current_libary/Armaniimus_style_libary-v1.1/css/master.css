@@ -228,9 +228,6 @@ h3 {
 .text--color-orange {
   color: #ffa500; }
 
-.text--color-darkorange {
-  color: #FF8C00; }
-
 .text--color-lightgrey {
   color: #aaa; }
 
@@ -347,7 +344,7 @@ h3 {
 .header--color-orange {
   background-color: #ffa500; }
 
-.header--color-darkorange {
+.header--color-orange-shade {
   background-color: #FF8C00; }
 
 .header--color-lightblue {
@@ -406,10 +403,6 @@ h3 {
   border-color: #333; }
 
 .header--color-orange {
-  box-shadow: 0px 3px 4px -1px #ffa500;
-  border-color: #ffa500; }
-
-.header--border-darkorange {
   box-shadow: 0px 3px 4px -1px #FF8C00;
   border-color: #FF8C00; }
 
@@ -825,9 +818,6 @@ a:hover {
 
 .article--orange {
   border-color: #ffa500; }
-
-.article--darkorange {
-  border-color: #FF8C00; }
 
 .article--lightgrey {
   border-color: #aaa; }

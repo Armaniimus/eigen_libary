@@ -22,10 +22,10 @@
 //orange
 .button--color-orange {
     background-color:$orange;
-    box-shadow: 2px 2px 2px 0px $darkorange;
+    box-shadow: 2px 2px 2px 0px $orange-shade;
 
-    border-bottom-color: $darkorange;
-    border-right-color: $darkorange;
+    border-bottom-color: $orange-shade;
+    border-right-color: $orange-shade;
 
     border-top-color: $orange;
     border-left-color: $orange;
@@ -35,8 +35,8 @@
     border-bottom-color: $orange;
     border-right-color: $orange;
 
-    border-top-color: $darkorange;
-    border-left-color: $darkorange;
+    border-top-color: $orange-shade;
+    border-left-color: $orange-shade;
 }
 
 
