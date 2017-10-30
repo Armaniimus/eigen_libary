@@ -440,11 +440,25 @@ h3 {
   border-top-color: #191944;
   border-left-color: #191944; }
 
-.button--color-darkblue:hover {
+.button--color-blue:hover {
   border-bottom-color: #191944;
   border-right-color: #191944;
   border-top-color: #090933;
   border-left-color: #090933; }
+
+.button--color-blue {
+  background-color: #151599;
+  box-shadow: 2px 2px 2px 0px #040466;
+  border-bottom-color: #040466;
+  border-right-color: #040466;
+  border-top-color: #151599;
+  border-left-color: #151599; }
+
+.button--color-blue:hover {
+  border-bottom-color: #151599;
+  border-right-color: #151599;
+  border-top-color: #040466;
+  border-left-color: #040466; }
 
 .button--color-lightgrey {
   background-color: #aaa;
