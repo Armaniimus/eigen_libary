@@ -108,3 +108,10 @@ Layout styles
  Developer styles
 ==================
  No description yet
+
+
+==================
+ Color support
+==================
+ the following colors are supported in the current version
+ 
