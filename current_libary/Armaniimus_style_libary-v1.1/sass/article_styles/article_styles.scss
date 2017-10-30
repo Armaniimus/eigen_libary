@@ -6,6 +6,14 @@
     border-radius: 5px;
 }
 
+.article--white {
+    border-color: #fefefe;
+}
+
+.article--black {
+    border-color: black;
+}
+
 .article--lightblue {
     border-color: #9ac0cd;
 }
@@ -22,8 +30,12 @@
     border-color: #FF8C00;
 }
 
-.article--grey {
+.article--lightgrey {
     border-color: #aaa;
+}
+
+.article--grey {
+    border-color: #656565;
 }
 
 .article--darkgrey {
