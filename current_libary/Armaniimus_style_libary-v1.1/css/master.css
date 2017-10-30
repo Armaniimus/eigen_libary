@@ -861,6 +861,36 @@ a:hover {
 .article--darkbrown {
   border-color: #663300; }
 
+#ingredienten li {
+  list-style-type: none;
+  list-style: none;
+  display: inline-block;
+  margin-right: 48%; }
+
+#ingredienten li::before {
+  content: url("../img/checkbox.png");
+  position: relative;
+  /*or absolute*/
+  z-index: 100000;
+  /*a number that's more than the modal box*/
+  right: 20px;
+  top: 6px;
+  display: block;
+  height: 5px;
+  width: 5px; }
+
+#ingredienten .active::before {
+  content: url("../img/checkbox-checked.png"); }
+
+#ingredienten .active {
+  text-decoration: line-through;
+  text-decoration-color: green; }
+
+#ingredienten .active:hover,
+#ingredienten li:hover {
+  color: grey;
+  cursor: pointer; }
+
 [class*="col-"] {
   border: solid green 1px; }
 
