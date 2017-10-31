@@ -4,17 +4,26 @@
     border-color: $white-shade;
 }
 
+//grey
+.header--border-lightgrey {
+    box-shadow: 0px 3px 4px -1px $lightgrey-shade;
+    border-color: $lightgrey-shade;
+}
+
+.header--border-grey {
+    box-shadow: 0px 3px 4px -1px $grey-shade;
+    border-color: $grey-shade;
+}
+
+.header--border-darkgrey {
+    box-shadow: 0px 3px 4px -1px $darkgrey-shade;
+    border-color: $darkgrey-shade;
+}
+
 //black
 .header--border-black {
     box-shadow: 0px 3px 4px -1px $black-shade;
     border-color: $black-shade;
-}
-
-
-//orange
-.header--color-orange {
-    box-shadow: 0px 3px 4px -1px $orange-shade;
-    border-color: $orange-shade
 }
 
 //blue
@@ -32,24 +41,6 @@
     box-shadow: 0px 3px 4px -1px $darkblue-shade;
     border-color: $darkblue-shade;
 }
-
-
-//grey
-.header--border-lightgrey {
-    box-shadow: 0px 3px 4px -1px $lightgrey-shade;
-    border-color: $lightgrey-shade;
-}
-
-.header--border-grey {
-    box-shadow: 0px 3px 4px -1px $grey-shade;
-    border-color: $grey-shade;
-}
-
-.header--border-darkgrey {
-    box-shadow: 0px 3px 4px -1px $darkgrey-shade;
-    border-color: $darkgrey-shade;
-}
-
 
 //green
 .header--border-lightgreen {
@@ -79,16 +70,10 @@
     border-color: $darkred-shade;
 }
 
-//pink
-.header--border-pink {
-    box-shadow: 0px 3px 4px -1px $pink-shade;
-    border-color: $pink-shade;
-}
-
-//purple
-.header--border-purple {
-    box-shadow: 0px 3px 4px -1px $purple-shade;
-    border-color: $purple-shade;
+//orange
+.header--color-orange {
+    box-shadow: 0px 3px 4px -1px $orange-shade;
+    border-color: $orange-shade
 }
 
 //yellow
@@ -112,4 +97,41 @@
 .header--border-darkbrown {
     box-shadow: 0px 3px 4px -1px $darkbrown-shade;
     border-color: $darkbrown-shade;
+}
+
+//indigo
+.header--border-indigo {
+    box-shadow: 0px 3px 4px -1px $indigo-shade;
+    border-color: $indigo-shade;
+}
+
+//violet
+.header--border-violet {
+    box-shadow: 0px 3px 4px -1px $violet-shade;
+    border-color: $violet-shade;
+}
+
+//purple
+.header--border-purple {
+    box-shadow: 0px 3px 4px -1px $purple-shade;
+    border-color: $purple-shade;
+}
+
+
+//lightpink
+.header--border-lightpink {
+    box-shadow: 0px 3px 4px -1px $lightpink-shade;
+    border-color: $lightpink-shade;
+}
+
+//pink
+.header--border-pink {
+    box-shadow: 0px 3px 4px -1px $pink-shade;
+    border-color: $pink-shade;
+}
+
+//darkpink
+.header--border-darkpink {
+    box-shadow: 0px 3px 4px -1px $darkpink-shade;
+    border-color: $darkpink-shade;
 }
