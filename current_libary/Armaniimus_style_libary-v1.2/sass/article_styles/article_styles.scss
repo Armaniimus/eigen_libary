@@ -10,6 +10,18 @@
     border-color: $white;
 }
 
+.article--lightgrey {
+    border-color: $lightgrey;
+}
+
+.article--grey {
+    border-color: $grey;
+}
+
+.article--darkgrey {
+    border-color: $darkgrey;
+}
+
 .article--black {
     border-color: $black;
 }
@@ -25,23 +37,6 @@
 .article--darkblue {
     border-color: $darkblue;
 }
-
-.article--orange {
-    border-color: $orange;
-}
-
-.article--lightgrey {
-    border-color: $lightgrey;
-}
-
-.article--grey {
-    border-color: $grey;
-}
-
-.article--darkgrey {
-    border-color: $darkgrey;
-}
-
 
 .article--lightgreen {
     border-color: $lightgreen;
@@ -63,17 +58,14 @@
     border-color: $darkred;
 }
 
-.article--pink {
-    border-color: $pink;
-}
-
-.article--purple {
-    border-color: $purple;
+.article--orange {
+    border-color: $orange;
 }
 
 .article--yellow {
     border-color: $yellow;
 }
+
 
 .article--lightbrown {
     border-color: $lightbrown;
@@ -85,4 +77,28 @@
 
 .article--darkbrown {
     border-color: $darkbrown;
+}
+
+.article--indigo {
+    border-color: $indigo;
+}
+
+.article--purple {
+    border-color: $purple;
+}
+
+.article--violet {
+    border-color: $violet;
+}
+
+.article--lightpink {
+    border-color: $lightpink;
+}
+
+.article--pink {
+    border-color: $pink;
+}
+
+.article--darkpink {
+    border-color: $darkpink;
 }
