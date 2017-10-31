@@ -2,10 +2,6 @@ html,
 body {
   margin: 0px; }
 
-main,
-header {
-  padding: 15px 30px 0px 30px; }
-
 * {
   box-sizing: border-box; }
 
@@ -182,9 +178,15 @@ header {
   clear: both;
   display: table; }
 
-.wrap--article {
+.wrapper--article {
   padding: 0px 15px;
   margin-bottom: 30px; }
+
+.wrapper-ad {
+  width: 120px; }
+
+.wrapper--betweenads {
+  width: calc(100% - 240px); }
 
 /************
  Font sizes
@@ -253,7 +255,7 @@ h3 {
   color: #900000; }
 
 .text--color-pink {
-  color: #FF69B4; }
+  color: #FF66CC; }
 
 .text--color-purple {
   color: #800080; }
@@ -316,7 +318,7 @@ h3 {
   text-shadow: 2px 2px 1px #800000; }
 
 .text--shadow-pink {
-  text-shadow: 2px 2px 1px #dd4792; }
+  text-shadow: 2px 2px 1px #dd3aab; }
 
 .text--shadow-purple {
   text-shadow: 2px 2px 1px #600060; }
@@ -387,7 +389,7 @@ h3 {
   background-color: #900000; }
 
 .header--color-pink {
-  background-color: #FF69B4; }
+  background-color: #FF66CC; }
 
 .header--color-purple {
   background-color: #800080; }
@@ -461,8 +463,8 @@ h3 {
   border-color: #800000; }
 
 .header--border-pink {
-  box-shadow: 0px 3px 4px -1px #dd4792;
-  border-color: #dd4792; }
+  box-shadow: 0px 3px 4px -1px #dd3aab;
+  border-color: #dd3aab; }
 
 .header--border-purple {
   box-shadow: 0px 3px 4px -1px #600060;
@@ -716,18 +718,18 @@ h3 {
   border-left-color: #800000; }
 
 .button--color-pink {
-  background-color: #FF69B4;
-  box-shadow: 2px 2px 2px 0px #dd4792;
-  border-bottom-color: #dd4792;
-  border-right-color: #dd4792;
-  border-top-color: #FF69B4;
-  border-left-color: #FF69B4; }
+  background-color: #FF66CC;
+  box-shadow: 2px 2px 2px 0px #dd3aab;
+  border-bottom-color: #dd3aab;
+  border-right-color: #dd3aab;
+  border-top-color: #FF66CC;
+  border-left-color: #FF66CC; }
 
 .button--color-pink:hover {
-  border-bottom-color: #FF69B4;
-  border-right-color: #FF69B4;
-  border-top-color: #dd4792;
-  border-left-color: #dd4792; }
+  border-bottom-color: #FF66CC;
+  border-right-color: #FF66CC;
+  border-top-color: #dd3aab;
+  border-left-color: #dd3aab; }
 
 .button--color-purple {
   background-color: #800080;
@@ -799,6 +801,62 @@ h3 {
   border-top-color: #552200;
   border-left-color: #552200; }
 
+.button--color-violet {
+  background-color: #8F00FF;
+  box-shadow: 2px 2px 2px 0px #8F00FF;
+  border-bottom-color: #8F00FF;
+  border-right-color: #8F00FF;
+  border-top-color: #8F00FF;
+  border-left-color: #8F00FF; }
+
+.button--color-violet:hover {
+  border-bottom-color: #8F00FF;
+  border-right-color: #8F00FF;
+  border-top-color: #7e00ee;
+  border-left-color: #7e00ee; }
+
+.button--color-indigo {
+  background-color: #6F00FF;
+  box-shadow: 2px 2px 2px 0px #5e00ee;
+  border-bottom-color: #5e00ee;
+  border-right-color: #5e00ee;
+  border-top-color: #6F00FF;
+  border-left-color: #6F00FF; }
+
+.button--color-indigo:hover {
+  border-bottom-color: #6F00FF;
+  border-right-color: #6F00FF;
+  border-top-color: #5e00ee;
+  border-left-color: #5e00ee; }
+
+.button--color-lightpink {
+  background-color: #FFB6C1;
+  box-shadow: 2px 2px 2px 0px #dd94b0;
+  border-bottom-color: #dd94b0;
+  border-right-color: #dd94b0;
+  border-top-color: #FFB6C1;
+  border-left-color: #FFB6C1; }
+
+.button--color-lightpink:hover {
+  border-bottom-color: #FFB6C1;
+  border-right-color: #FFB6C1;
+  border-top-color: #dd94b0;
+  border-left-color: #dd94b0; }
+
+.button--color-darkpink {
+  background-color: #FF58B4;
+  box-shadow: 2px 2px 2px 0px #dd3692;
+  border-bottom-color: #dd3692;
+  border-right-color: #dd3692;
+  border-top-color: #FF58B4;
+  border-left-color: #FF58B4; }
+
+.button--color-darkpink:hover {
+  border-bottom-color: #FF58B4;
+  border-right-color: #FF58B4;
+  border-top-color: #dd3692;
+  border-left-color: #dd3692; }
+
 .button--size-s {
   padding: 0px; }
 
@@ -868,7 +926,7 @@ a:hover {
   border-color: #900000; }
 
 .article--pink {
-  border-color: #FF69B4; }
+  border-color: #FF66CC; }
 
 .article--purple {
   border-color: #800080; }
@@ -918,34 +976,34 @@ a:hover {
 [class*="col-"] {
   border: solid green 1px; }
 
-.h_100px {
+.h-100px {
   height: 100px; }
 
-.h_200px {
+.h-200px {
   height: 200px; }
 
-.h_300px {
+.h-300px {
   height: 300px; }
 
-.h_400px {
+.h-400px {
   height: 400px; }
 
-.h_500px {
+.h-500px {
   height: 500px; }
 
-.w_100px {
+.w-100px {
   width: 100px; }
 
-.w_200px {
+.w-200px {
   width: 200px; }
 
-.w_300px {
+.w-300px {
   width: 300px; }
 
-.w_400px {
+.w-400px {
   width: 400px; }
 
-.w_500px {
+.w-500px {
   width: 500px; }
 
 /*# sourceMappingURL=master.css.map */

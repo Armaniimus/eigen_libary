@@ -413,3 +413,86 @@
     border-top-color: $darkbrown-shade;
     border-left-color: $darkbrown-shade;
 }
+
+
+//violet
+.button--color-violet {
+    background-color: $violet;
+    box-shadow: 2px 2px 2px 0px $violet;
+
+    border-bottom-color: $violet;
+    border-right-color: $violet;
+
+    border-top-color: $violet;
+    border-left-color: $violet;
+}
+
+.button--color-violet:hover {
+    border-bottom-color: $violet;
+    border-right-color: $violet;
+
+    border-top-color: $violet-shade;
+    border-left-color: $violet-shade;
+}
+
+
+//indigo
+.button--color-indigo {
+    background-color: $indigo;
+    box-shadow: 2px 2px 2px 0px $indigo-shade;
+
+    border-bottom-color: $indigo-shade;
+    border-right-color: $indigo-shade;
+
+    border-top-color: $indigo;
+    border-left-color: $indigo;
+}
+
+.button--color-indigo:hover {
+    border-bottom-color: $indigo;
+    border-right-color: $indigo;
+
+    border-top-color: $indigo-shade;
+    border-left-color: $indigo-shade;
+}
+
+
+//lightpink
+.button--color-lightpink {
+    background-color: $lightpink;
+    box-shadow: 2px 2px 2px 0px $lightpink-shade;
+
+    border-bottom-color: $lightpink-shade;
+    border-right-color: $lightpink-shade;
+
+    border-top-color: $lightpink;
+    border-left-color: $lightpink;
+}
+
+.button--color-lightpink:hover {
+    border-bottom-color: $lightpink;
+    border-right-color: $lightpink;
+
+    border-top-color: $lightpink-shade;
+    border-left-color: $lightpink-shade;
+}
+
+//lightpink
+.button--color-darkpink {
+    background-color: $darkpink;
+    box-shadow: 2px 2px 2px 0px $darkpink-shade;
+
+    border-bottom-color: $darkpink-shade;
+    border-right-color: $darkpink-shade;
+
+    border-top-color: $darkpink;
+    border-left-color: $darkpink;
+}
+
+.button--color-darkpink:hover {
+    border-bottom-color: $darkpink;
+    border-right-color: $darkpink;
+
+    border-top-color: $darkpink-shade;
+    border-left-color: $darkpink-shade;
+}
