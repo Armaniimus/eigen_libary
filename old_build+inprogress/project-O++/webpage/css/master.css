@@ -1,0 +1,41 @@
+.ad {
+    width: 120px;
+    min-height: 50px;
+    border: 1px solid red;
+}
+
+.ad-head {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid red;
+}
+
+.between-ads {
+    width: calc(100% - 240px);
+}
+
+header {
+    background-color: orange;
+    height: 60px;
+}
+
+main {
+    margin-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    background-color: orange;
+    height: 60px;
+    mtop: calc(100% - 60px);
+    width: 100%;
+}
+
+html,
+body {
+    margin: 0px;
+}
+
+html {
+    min-width: 768px;
+}
