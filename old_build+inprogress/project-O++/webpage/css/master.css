@@ -27,7 +27,6 @@ footer {
     position: absolute;
     background-color: orange;
     height: 60px;
-    mtop: calc(100% - 60px);
     width: 100%;
 }
 
@@ -41,22 +40,52 @@ html {
 }
 
 
-.dom-nav::before {
-    content: ">";
-    color: lightgrey;
-    font-weight: bolder;
+.dom-nav--content {
+    padding-left: 15px !important;
+}
+
+.dom-arrows {
+    display: inline;
+    width: 20px;
+    cursor: pointer;
+}
+
+.dom-arrows:hover {
+    background-color: lightgrey;
 }
 
 .dom-nav:hover::before {
-    color: grey;
+    color: black
 }
 
+
 .dom-nav {
+    display: inline-block;
     list-style: none;
-    width: 100%
+    width: calc(100% - 20px);
+    padding-left: 5px;
 }
 
 .dom-nav:hover {
     background-color: lightgrey;
     cursor: pointer;
+}
+
+.dom-controls,
+.dom-navigation {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dom-indent {
+    padding-left: 15px;
+}
+
+.page-box {
+    display: block;
+}
+
+.page-box-hidden {
+    display: none;
 }

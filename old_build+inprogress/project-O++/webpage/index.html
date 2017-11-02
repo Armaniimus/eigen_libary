@@ -27,24 +27,35 @@
             <div class="between-ads float">
                 <div class="main-wrap row">
                     <div class="col-3 float">
-                        <div class="controls col-12">
+                        <div class="dom-controls col-12">
                             <button id="remove" type="button" name="remove">Remove element</button>
                             <button id="addId" type="button" name="addId">Add ID</button>
                             <button id="addClass" type="button" name="addClass">Add Class</button>
                             <button id="addChild" type="button" name="addChild">Add child Element</button>
                         </div>
-                        <ul class="dom-navigation col-12">
-                            <li class="dom-nav dom-nav--page">Page
-                                <li class="dom-nav dom-nav--meta">Meta</li>
-                                <li class="dom-nav dom-nav--body">Body</li>
-                            </li>
+                        <ul class="dom-navigation">
+                            <li class="dom-nav dom-nav--opencontent">Page</li>
+                            <ul class="dom-indent page-box">
+                                <li class="dom-nav dom-nav--closedcontent">Meta</li>
+                                <ul class="dom-indent page-box-hidden">
+                                    <li class="dom-nav dom-nav--content">Title</li>
+                                </ul>
+                                <li class="dom-nav dom-nav--closedcontent">Body</li>
+                                <ul class="dom-indent page-box-hidden">
+                                    <li class="dom-nav dom-nav--content">Header</li>
+                                    <li class="dom-nav dom-nav--content">Main</li>
+                                    <li class="dom-nav dom-nav--content">Footer</li>
+                                </ul>
+                            </ul>
                         </ul>
                     </div>
                     <div class="edit-room col-6 float">
-                        <br><br><br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi
+                        hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi
                     </div>
-                    <div class="class-editor col-3 float">
-                        <br><br>
+                    <div class="info-page col-3 float">
+                        info and wiki here
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -57,4 +68,5 @@
             <br><br><br>
         </footer>
     </body>
+    <script type="text/javascript" src="javascript/master.js"></script>
 </html>
