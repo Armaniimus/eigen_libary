@@ -39,3 +39,24 @@ body {
 html {
     min-width: 768px;
 }
+
+
+.dom-nav::before {
+    content: ">";
+    color: lightgrey;
+    font-weight: bolder;
+}
+
+.dom-nav:hover::before {
+    color: grey;
+}
+
+.dom-nav {
+    list-style: none;
+    width: 100%
+}
+
+.dom-nav:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
