@@ -6,11 +6,6 @@ steps plan
   3. make the first global elements
 
 
-
-
-
-
-
 Things needed to build
   1. nodejs
   2. www.npmjs.com/package/file-system
@@ -22,6 +17,17 @@ html page where we can select page, buttons, header, titles, grid
 use a html a html page as your editor
 program arrows in front of them like in win 10 this pc file system
 when clicking on a element show all applied classes onto it in the center of the window.
+
+create favicons in the structure
+  1. a green P for the page
+  2. a green M for the meta-data
+  3. a full person for the body
+  4. a head for the header
+  5. a torso for the main
+  6. a pair of legs for the footer
+  7. a folder for the elements
+  8. 3 small green c's for a class
+  9. 1 small green id for an id
 
 3 extra views
   1. a view where classes are shown
@@ -46,7 +52,7 @@ page
     main
     footer
 
-when classes are added organize them into a sass structur
+when classes are added organize them into a sass structure
 
 
 
