@@ -1,36 +1,30 @@
-const openContent =  document.querySelectorAll(".dom-nav--opencontent");
+// Adds the icons in front of the dom tree where applicable
+function addDomIcons() {
+    const openContent =  document.querySelectorAll(".dom-nav--opencontent");
+    for (let i = 0; i < openContent.length; i++) {
+        const arrowOpen = document.createElement("div");
+        arrowOpen.innerHTML = "⮛";
+        arrowOpen.classList.add("dom-arrows");
+        arrowOpen.classList.add("arrowOpen");
 
-// openContent[0].style.backgroundColor = "blue";
+        const parent = openContent[i].parentNode;
+        parent.insertBefore(arrowOpen ,openContent[i]);
+    }
 
-for (let i = 0; i < openContent.length; i++) {
-    const arrowOpen = document.createElement("div");
-    arrowOpen.innerHTML = "⮛";
-    // arrowOpen.style.display = "inline";
-    // arrowOpen.style.width = "20px";
-    // arrowOpen.style.cursor = "pointer";
-    arrowOpen.classList.add("dom-arrows");
-    arrowOpen.classList.add("arrowOpen");
+    const closedContent =  document.querySelectorAll(".dom-nav--closedcontent");
+    for (let i = 0; i < closedContent.length; i++) {
+        const arrowClosed = document.createElement("div");
+        arrowClosed.innerHTML = "⮚";
+        arrowClosed.classList.add("dom-arrows");
+        arrowClosed.classList.add("arrowClosed");
 
-    const parent = openContent[i].parentNode;
-    parent.insertBefore(arrowOpen ,openContent[i]);
+        const parent = closedContent[i].parentNode;
+        parent.insertBefore(arrowClosed ,closedContent[i]);
+    }
 }
 
-const closedContent =  document.querySelectorAll(".dom-nav--closedcontent");
-
-// openContent[0].style.backgroundColor = "blue";
-
-for (let i = 0; i < closedContent.length; i++) {
-    const arrowClosed = document.createElement("div");
-    arrowClosed.innerHTML = "⮚";
-    arrowClosed.classList.add("dom-arrows");
-    arrowClosed.classList.add("arrowClosed");
-
-    const parent = closedContent[i].parentNode;
-    parent.insertBefore(arrowClosed ,closedContent[i]);
-}
-
-
-document.querySelector('.dom-navigation').addEventListener("click", function(e) {
+// controls the switch of class and icon so the domtree can collapse and expand
+function controlDomTree(e) {
     if (e.target.classList.contains('dom-arrows') ) {
         if (e.target.classList.contains('arrowOpen')) {
             e.target.innerHTML = "⮚";
@@ -44,4 +38,7 @@ document.querySelector('.dom-navigation').addEventListener("click", function(e) 
         e.target.classList.toggle("arrowOpen");
         e.target.classList.toggle("arrowClosed");
     }
-});
+};
+
+document.querySelector('.dom-navigation').addEventListener("click", controlDomTree, 1);
+addDomIcons();

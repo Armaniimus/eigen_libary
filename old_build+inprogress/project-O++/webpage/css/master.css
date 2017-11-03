@@ -39,11 +39,7 @@ html {
     min-width: 768px;
 }
 
-
-.dom-nav--content {
-    padding-left: 15px !important;
-}
-
+/* Dom arrow styles*/
 .dom-arrows {
     display: inline;
     width: 20px;
@@ -54,23 +50,28 @@ html {
     background-color: lightgrey;
 }
 
-.dom-nav:hover::before {
-    color: black
-}
-
-
-.dom-nav {
+/* Dom item styles*/
+.dom-nav--opencontent,
+.dom-nav--closedcontent {
     display: inline-block;
     list-style: none;
     width: calc(100% - 20px);
     padding-left: 5px;
 }
 
-.dom-nav:hover {
+.dom-nav--content {
+    padding-left: 15px;
+    list-style: none;
+}
+
+.dom-nav--content:hover,
+.dom-nav--opencontent:hover,
+.dom-nav--closedcontent:hover {
     background-color: lightgrey;
     cursor: pointer;
 }
 
+/*Dom list + control styles*/
 .dom-controls,
 .dom-navigation {
     width: 100%;
@@ -78,6 +79,8 @@ html {
     padding: 0px;
 }
 
+
+/* domWrapper styles*/
 .dom-indent {
     padding-left: 15px;
 }
