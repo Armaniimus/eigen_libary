@@ -57,7 +57,7 @@ function procesAddChild() {
     newElement.innerHTML = newElementTagName;
 
     if (parent.tagName == 'UL') {
-        alert('yes');
+        parent.appendChild(newElement);
     } else {
         // get neccesary information
         const container = parent.parentNode;
@@ -73,16 +73,14 @@ function procesAddChild() {
         // append container
         container.insertBefore(newElementContainer, parent);
 
+        // Set the arrows and classes for the controlling element
+        selectedElement.classList.remove('dom-nav--content');
+        selectedElement.classList.add('dom-nav--opencontent');
+
+        setOpenArrow(selectedElement)
     }
 
     // removes addChildForm
     const remove = document.querySelector('.inputformsurounding');
     remove.parentNode.removeChild(remove);
-
-    // Set the arrows and classes for the controlling element
-    selectedElement.classList.remove('dom-nav--content');
-    selectedElement.classList.add('dom-nav--opencontent');
-
-    setOpenArrow(selectedElement)
-
 }
