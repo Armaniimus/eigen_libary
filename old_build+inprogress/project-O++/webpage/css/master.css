@@ -92,3 +92,12 @@ html {
 .page-box-hidden {
     display: none;
 }
+
+/*dom-select style*/
+.dom-selected {
+    background-color: lightblue !important;
+}
+
+.dom-selected:hover {
+    background-color: blue !important;
+}
