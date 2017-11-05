@@ -42,37 +42,47 @@ function addChildAddform(currentElementType) {
 function addChildAddOptions(currentElementType) {
     let optionBodyArray;
 
+    getData(currentElementType);
+
     optionBodyArray = testElementMajor(currentElementType);
 
-    if (optionBodyArray == true) {
-        testElementList(currentElementType);
+    if (optionBodyArray === 'false') {
+        optionBodyArray = testElementList(currentElementType);
     }
 
-    if (optionBodyArray == true) {
-        testElementTable(currentElementType);
+    if (optionBodyArray === 'false') {
+        optionBodyArray = testElementTable(currentElementType);
     }
 
-    if (optionBodyArray == true) {
-        testElementForm(currentElementType);
+    if (optionBodyArray === 'false') {
+        optionBodyArray = testElementForm(currentElementType);
     }
 
-    if (optionBodyArray == true) {
-        testElementCommon(currentElementType);
+    if (optionBodyArray === 'false') {
+        optionBodyArray = testElementCommon(currentElementType);
     }
 
-    if (optionBodyArray == true) {
+    if (optionBodyArray === 'false') {
         alert('Element is not supported');
+
     } else {
         let selectBody;
         for (let i = 0; i <  optionBodyArray.length; i++) {
              selectBody += "<option>" +  optionBodyArray[i] + "</option>";
         }
+
+        // printTest()
+        // clearTest()s
         return selectBody;
     }
-
+    // printTest()
+    // clearTest()
 }
 
 function testElementMajor(currentElementType) {
+    getData('run testElementMajor');
+    getData(currentElementType);
+
     if (currentElementType == 'Header') {
          optionBodyArray = ['Div','Ul', 'Img', 'H1','H2', 'H3', 'Button', 'P'];
 
@@ -92,13 +102,15 @@ function testElementMajor(currentElementType) {
          optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P'];
 
     } else {
-        return true;
+        return 'false'
     }
 
     return optionBodyArray;
 }
 
 function testElementList(currentElementType) {
+    getData('run testElementList');
+
     if (currentElementType == 'Ul') {
          optionBodyArray =  ['Li'];
 
@@ -109,13 +121,15 @@ function testElementList(currentElementType) {
          optionBodyArray =  ['A', 'Ul', 'Ol', 'Div', 'Img', 'Button', 'P'];
 
     } else {
-       return 1 == 1;
+       return 'false';
    }
 
    return optionBodyArray;
 }
 
 function testElementTable(currentElementType) {
+    getData('run testElementTable');
+
     if (currentElementType == 'Table') {
          optionBodyArray =  ['Thead', 'Tfoot', 'Tbody', 'Caption', 'Colgroup'];
 
@@ -132,13 +146,15 @@ function testElementTable(currentElementType) {
          optionBodyArray =  ['Col'];
 
     } else {
-       return true;
+       return 'false';
    }
 
    return optionBodyArray;
 }
 
 function testElementForm(currentElementType) {
+    getData('run testElementForm');
+
     if (currentElementType == 'Form') {
         optionBodyArray =  ['Input', 'Button', 'Select', 'Textarea', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Fieldset', 'Label', 'Optgroup'];
 
@@ -152,18 +168,23 @@ function testElementForm(currentElementType) {
         optionBodyArray =  ['Legend', 'Input', 'Textarea', 'Select', 'Label', 'Optgroup', 'Button'];
 
    } else {
-       return true;
+       return 'false';
    }
 
    return optionBodyArray;
 }
 
 function testElementCommon(currentElementType) {
-    if (currentElementType == 'Div') {
-             optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'A', 'Button', 'P', 'Input'];
 
+
+    getData('run testElementCommon');
+    getData(currentElementType == 'Div');
+
+    if (currentElementType == 'Div') {
+        optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'A', 'Button', 'P', 'Input'];
+        getData(optionBodyArray);
     } else {
-       return true;
+       return 'false';
    }
 
    return optionBodyArray;
@@ -182,9 +203,29 @@ function procesAddChild() {
     newElement.classList.add("dom-nav--content")
     newElement.innerHTML = newElementTagName;
 
-    if (selectedElement.nextElementSibling.tagName == 'UL') {
+    /*=========
+     test part*/
+
+    //if the next sibling doesn't exist
+    if (selectedElement.nextElementSibling == undefined || selectedElement.nextElementSibling == null) {
+        subFunc_creatElements()
+
+    //if the next sibling exists and is an ul element
+    } else if (selectedElement.nextElementSibling.tagName == 'UL') {
         selectedElement.nextElementSibling.appendChild(newElement);
+
+    //if the next sibling exists and isn't an ul element
     } else {
+        subFunc_creatElements();
+    }
+
+    /*=======================
+     removes addchild overlay*/
+    const remove = document.querySelector('.inputformsurounding');
+    remove.parentNode.removeChild(remove);
+
+    function subFunc_creatElements() {
+
         // get neccesary information
         const parent = selectedElement.parentNode;
 
@@ -209,8 +250,4 @@ function procesAddChild() {
 
         setOpenArrow(selectedElement)
     }
-
-    // removes addChildForm
-    const remove = document.querySelector('.inputformsurounding');
-    remove.parentNode.removeChild(remove);
 }
