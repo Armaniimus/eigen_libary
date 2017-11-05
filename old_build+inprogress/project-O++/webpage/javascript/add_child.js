@@ -200,7 +200,7 @@ function procesAddChild() {
         subFunc_creatElements();
     }
 
-    /*=======================
+    /*========================
      removes addchild overlay*/
     const remove = document.querySelector('.inputformsurounding');
     remove.parentNode.removeChild(remove);

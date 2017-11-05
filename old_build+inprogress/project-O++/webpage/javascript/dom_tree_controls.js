@@ -35,7 +35,9 @@ function controlSelected(e) {
     if (e.target.classList.contains('dom-selected') ) {
 
     } else {
-        document.querySelector('.dom-selected').classList.remove('dom-selected');
+        if (document.querySelector('.dom-selected') !== null && document.querySelector('.dom-selected') !== undefined) {
+            document.querySelector('.dom-selected').classList.remove('dom-selected');
+        }
         e.target.classList.add('dom-selected');
     }
 }
