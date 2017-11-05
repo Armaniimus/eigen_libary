@@ -176,18 +176,17 @@ function procesAddChild() {
     const getElementType = document.getElementById('addelement-type');
     const selectedElement = document.querySelector('.dom-selected');
     const newElementTagName = getElementType.value;
-    const parent = selectedElement.nextElementSibling;
 
     // create the new element
     const newElement = document.createElement('LI');
     newElement.classList.add("dom-nav--content")
     newElement.innerHTML = newElementTagName;
 
-    if (parent.tagName == 'UL') {
-        parent.appendChild(newElement);
+    if (selectedElement.nextElementSibling.tagName == 'UL') {
+        selectedElement.nextElementSibling.appendChild(newElement);
     } else {
         // get neccesary information
-        const container = parent.parentNode;
+        const parent = selectedElement.parentNode;
 
         // create container
         const newElementContainer = document.createElement('ul');
@@ -197,8 +196,12 @@ function procesAddChild() {
         // append element to new container
         newElementContainer.appendChild(newElement);
 
-        // append container
-        container.insertBefore(newElementContainer, parent);
+        // insert New element before old element
+        parent.insertBefore(newElementContainer, selectedElement);
+
+        // switch the 2 elements
+        parent.insertBefore(selectedElement, newElementContainer);
+
 
         // Set the arrows and classes for the controlling element
         selectedElement.classList.remove('dom-nav--content');
