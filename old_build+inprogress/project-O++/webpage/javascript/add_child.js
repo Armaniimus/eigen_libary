@@ -44,22 +44,22 @@ function addChildAddOptions(currentElementType) {
 
     getData(currentElementType);
 
-    optionBodyArray = testElementMajor(currentElementType);
+    optionBodyArray = subFunc__testElementMajor(currentElementType);
 
     if (optionBodyArray === 'false') {
-        optionBodyArray = testElementList(currentElementType);
+        optionBodyArray = subFunc__testElementList(currentElementType);
     }
 
     if (optionBodyArray === 'false') {
-        optionBodyArray = testElementTable(currentElementType);
+        optionBodyArray = subFunc__testElementTable(currentElementType);
     }
 
     if (optionBodyArray === 'false') {
-        optionBodyArray = testElementForm(currentElementType);
+        optionBodyArray = subFunc__testElementForm(currentElementType);
     }
 
     if (optionBodyArray === 'false') {
-        optionBodyArray = testElementCommon(currentElementType);
+        optionBodyArray = subFunc__testElementCommon(currentElementType);
     }
 
     if (optionBodyArray === 'false') {
@@ -70,124 +70,105 @@ function addChildAddOptions(currentElementType) {
         for (let i = 0; i <  optionBodyArray.length; i++) {
              selectBody += "<option>" +  optionBodyArray[i] + "</option>";
         }
-
-        // printTest()
-        // clearTest()s
         return selectBody;
     }
-    // printTest()
-    // clearTest()
-}
 
-function testElementMajor(currentElementType) {
-    getData('run testElementMajor');
-    getData(currentElementType);
+    function subFunc__testElementMajor(currentElementType) {
+        if (currentElementType == 'Header') {
+             optionBodyArray = ['Div','Ul', 'Img', 'H1','H2', 'H3', 'Button', 'P'];
 
-    if (currentElementType == 'Header') {
-         optionBodyArray = ['Div','Ul', 'Img', 'H1','H2', 'H3', 'Button', 'P'];
+        } else if (currentElementType == 'Main') {
+             optionBodyArray = ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'span', 'A', 'Button', 'P'];
 
-    } else if (currentElementType == 'Main') {
-         optionBodyArray = ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'span', 'A', 'Button', 'P'];
+        } else if (currentElementType == 'Footer') {
+             optionBodyArray =  ['Div','Ul', 'Img', 'H1','H2', 'H3', 'Button', 'P'];
 
-    } else if (currentElementType == 'Footer') {
-         optionBodyArray =  ['Div','Ul', 'Img', 'H1','H2', 'H3', 'Button', 'P'];
+        } else if (currentElementType == 'Section') {
+             optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P', 'Article'];
 
-    } else if (currentElementType == 'Section') {
-         optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P', 'Article'];
+        } else if (currentElementType == 'Article') {
+             optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P'];
 
-    } else if (currentElementType == 'Article') {
-         optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P'];
+        } else if (currentElementType == 'Aside') {
+             optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P'];
 
-    } else if (currentElementType == 'Aside') {
-         optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Img', 'H1','H2', 'H3', 'H4', 'H5', 'span', 'A', 'Button', 'P'];
+        } else {
+            return 'false'
+        }
 
-    } else {
-        return 'false'
+        return optionBodyArray;
     }
 
-    return optionBodyArray;
-}
+    function subFunc__testElementList(currentElementType) {
+        if (currentElementType == 'Ul') {
+             optionBodyArray =  ['Li'];
 
-function testElementList(currentElementType) {
-    getData('run testElementList');
+        } else if (currentElementType == 'Ol') {
+             optionBodyArray =  ['Li'];
 
-    if (currentElementType == 'Ul') {
-         optionBodyArray =  ['Li'];
+        } else if (currentElementType == 'Li') {
+             optionBodyArray =  ['A', 'Ul', 'Ol', 'Div', 'Img', 'Button', 'P'];
 
-    } else if (currentElementType == 'Ol') {
-         optionBodyArray =  ['Li'];
+        } else {
+           return 'false';
+       }
 
-    } else if (currentElementType == 'Li') {
-         optionBodyArray =  ['A', 'Ul', 'Ol', 'Div', 'Img', 'Button', 'P'];
+       return optionBodyArray;
+    }
 
-    } else {
-       return 'false';
-   }
+    function subFunc__testElementTable(currentElementType) {
+        if (currentElementType == 'Table') {
+             optionBodyArray =  ['Thead', 'Tfoot', 'Tbody', 'Caption', 'Colgroup'];
 
-   return optionBodyArray;
-}
+        } else if (currentElementType == 'Thead') {
+             optionBodyArray =  ['Tr'];
 
-function testElementTable(currentElementType) {
-    getData('run testElementTable');
+        } else if (currentElementType == 'Tbody') {
+             optionBodyArray =  ['Tr'];
 
-    if (currentElementType == 'Table') {
-         optionBodyArray =  ['Thead', 'Tfoot', 'Tbody', 'Caption', 'Colgroup'];
+        } else if (currentElementType == 'Tfoot') {
+             optionBodyArray =  ['Tr'];
 
-    } else if (currentElementType == 'Thead') {
-         optionBodyArray =  ['Tr'];
+        } else if (currentElementType == 'Colgroup') {
+             optionBodyArray =  ['Col'];
 
-    } else if (currentElementType == 'Tbody') {
-         optionBodyArray =  ['Tr'];
+        } else {
+           return 'false';
+       }
 
-    } else if (currentElementType == 'Tfoot') {
-         optionBodyArray =  ['Tr'];
+       return optionBodyArray;
+    }
 
-    } else if (currentElementType == 'Colgroup') {
-         optionBodyArray =  ['Col'];
+    function subFunc__testElementForm(currentElementType) {
+        if (currentElementType == 'Form') {
+            optionBodyArray =  ['Input', 'Button', 'Select', 'Textarea', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Fieldset', 'Label', 'Optgroup'];
 
-    } else {
-       return 'false';
-   }
+       } else if (currentElementType == 'Select') {
+            optionBodyArray =  ['Option'];
 
-   return optionBodyArray;
-}
+       } else if (currentElementType == 'Optgroup') {
+            optionBodyArray =  ['Option'];
 
-function testElementForm(currentElementType) {
-    getData('run testElementForm');
+       } else if (currentElementType == 'Fieldset') {
+            optionBodyArray =  ['Legend', 'Input', 'Textarea', 'Select', 'Label', 'Optgroup', 'Button'];
 
-    if (currentElementType == 'Form') {
-        optionBodyArray =  ['Input', 'Button', 'Select', 'Textarea', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Fieldset', 'Label', 'Optgroup'];
+       } else {
+           return 'false';
+       }
 
-   } else if (currentElementType == 'Select') {
-        optionBodyArray =  ['Option'];
+       return optionBodyArray;
+    }
 
-   } else if (currentElementType == 'Optgroup') {
-        optionBodyArray =  ['Option'];
+    function subFunc__testElementCommon(currentElementType) {
+        if (currentElementType == 'Div') {
+            optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'A', 'Button', 'P', 'Input'];
+            getData(optionBodyArray);
+        } else {
+           return 'false';
+       }
 
-   } else if (currentElementType == 'Fieldset') {
-        optionBodyArray =  ['Legend', 'Input', 'Textarea', 'Select', 'Label', 'Optgroup', 'Button'];
-
-   } else {
-       return 'false';
-   }
-
-   return optionBodyArray;
-}
-
-function testElementCommon(currentElementType) {
-
-
-    getData('run testElementCommon');
-    getData(currentElementType == 'Div');
-
-    if (currentElementType == 'Div') {
-        optionBodyArray =  ['Div','Ul', 'Ol', 'Table', 'Form', 'Img', 'H1','H2', 'H3', 'H4', 'H5','Aside', 'Article', 'Section', 'A', 'Button', 'P', 'Input'];
-        getData(optionBodyArray);
-    } else {
-       return 'false';
-   }
-
-   return optionBodyArray;
+       return optionBodyArray;
+    }
 }
 
 
