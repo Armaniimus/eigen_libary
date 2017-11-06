@@ -16,7 +16,7 @@ function HTMLglobal__construct() {
 
 
 function Htmlglobal__createChild(objectName) {
-    let object = {elementTagName: objectName, children: []};
+    let object = {elementTagName: objectName, children: [], classList: [], elementId: '', attributeList: []};
     return object;
 }
 
@@ -56,9 +56,7 @@ function HTMLglobal__search(searchStr, func, name, attributeValue) {
                 strCount = returns.strCount;
                 object = returns.returnObject
             } else {
-                console.log('invalid dom traverse');
-
-                // return false;
+                return('invalid dom traverse');
             }
         }
     }
@@ -123,42 +121,51 @@ function HTMLglobal__search(searchStr, func, name, attributeValue) {
         }
         return false;
     }
-    function subFunc__traveseGlobal() {
-        if (savePath.length == 1) {
-            HTMLglobal.children[savePath[0]];
+    return subFunc__traveseGlobal();
 
-        } else if (savePath.length == 2) {
-            HTMLglobal.children[savePath[0]].children[savePath[1]];
+    function subFunc__traveseGlobal() {
+        if (savePath.length == 2) {
+            return subFunc__mutate(HTMLglobal.children[savePath[1]]);
 
         } else if (savePath.length == 3) {
-            HTMLglobal.children[savePath[0]].children[savePath[1]].children[savePath[2]];
+            return subFunc__mutate(HTMLglobal.children[savePath[1]].children[savePath[2]]);
 
         } else if (savePath.length == 4) {
-            HTMLglobal.children[savePath[0]].children[savePath[1]].children[savePath[2]].children[savePath[3]];
+            HTMLglobal.children[savePath[1]].children[savePath[2]].children[savePath[3]];
+            return subFunc__mutate(HTMLglobal.children[savePath[1]].children[savePath[2]].children[savePath[3]]);
+
+        } else if (savePath.length == 5) {
+            HTMLglobal.children[savePath[1]].children[savePath[2]].children[savePath[3]].children[savePath[4]];
+
+            return subFunc__mutate(HTMLglobal.children[savePath[1]].children[savePath[2]].children[savePath[3]].children[savePath[4]]);
         }
-
-
+        return 'Api pathname length not supported';
 
 
     }
 
-    function subFunc__mutate() {
+    function subFunc__mutate(object) {
         if (func == 'addchild' || func == 0) {
-            object = Htmlglobal__createChild(name);
+            obj = Htmlglobal__createChild(name);
+            object.children.push(obj);
             return true;
 
         } else if (func == 'addclass' || func == 1) {
-            HTMLglobal__addClass(name);
+            obj = HTMLglobal__addClass(name);
+            object.classList.push(obj);
             return true;
 
         } else if (func == 'addattribute' || func == 2) {
-            HTMLglobal__addAttribute(name, attributeValue);
+            obj = HTMLglobal__addAttribute(name, attributeValue);
+            object.attributeList.push(obj);
             return true;
 
         } else if (func == 'addid' || func == 3) {
-            HTMLglobal__addId(name);
+            obj = HTMLglobal__addId(name);
+            object.elementId = obj;
             return true;
         }
+        return 'invalidFunctionName';
     }
 }
 
@@ -174,11 +181,11 @@ function testdivs() {
 
 testdivs()
 
-console.log(HTMLglobal__search('html/body/header/div-4', 0, 'div'))
+console.log(HTMLglobal__search('html/body/header/div-0', 0, 'div'))
 
 // console.log(HTMLglobal__search('html-body-header') );
 //console.log(HTMLglobal__GetChildUrl('html/body/header/div-4') );
 
 
 
-// console.log(HTMLglobal);
+console.log(HTMLglobal);
