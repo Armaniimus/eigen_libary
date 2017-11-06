@@ -113,7 +113,7 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
                     returns.strCount = strCount + 1;
                     returns.returnObject = object.children[i];
 
-                    console.log(object.children[i])
+                    // console.log(object.children[i])
                     //send return object
                     return returns;
                 }
@@ -257,6 +257,6 @@ function HTMLDOM__search() {
     return navigationUrl;
 }
 // console.log(HTMLDOM__search());
-console.log(HTMLApi__search( HTMLDOM__search(), 0, 'button'));
-
-console.log(HTMLApi);
+// console.log(HTMLApi__search( HTMLDOM__search(), 0, 'button'));
+//
+// console.log(HTMLApi);

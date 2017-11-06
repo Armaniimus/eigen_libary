@@ -181,7 +181,7 @@ function procesAddChild() {
 
     // create the new element
     const newElement = document.createElement('LI');
-    newElement.classList.add("dom-nav--content")
+    newElement.classList.add("dom-nav--content");
     newElement.innerHTML = newElementTagName;
 
     /*=========
@@ -189,7 +189,7 @@ function procesAddChild() {
 
     //if the next sibling doesn't exist
     if (selectedElement.nextElementSibling == undefined || selectedElement.nextElementSibling == null) {
-        subFunc_creatElements()
+        subFunc_creatElements();
 
     //if the next sibling exists and is an ul element
     } else if (selectedElement.nextElementSibling.tagName == 'UL') {
@@ -231,4 +231,5 @@ function procesAddChild() {
 
         setOpenArrow(selectedElement)
     }
+    HTMLApi__search( HTMLDOM__search(), 0, newElementTagName);
 }
