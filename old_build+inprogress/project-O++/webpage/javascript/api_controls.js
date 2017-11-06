@@ -33,6 +33,10 @@ function HTMLApi__addAttribute(attributeName, value) {
 
 }
 
+function HTMLApi__removeElement(object) {
+    // object = "";
+}
+
 function HTMLApi__search(searchStr, func, name, attributeValue) {
     searchStr = searchStr.split("/");
     let strCount = 0;
@@ -113,7 +117,6 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
                     returns.strCount = strCount + 1;
                     returns.returnObject = object.children[i];
 
-                    // console.log(object.children[i])
                     //send return object
                     return returns;
                 }
@@ -164,22 +167,27 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
             obj = HTMLApi__addId(name);
             object.elementId = obj;
             return true;
+
+        } else if (func == 'removeElement' || func == 4) {
+            HTMLApi__removeElement(object);
+            return true;
         }
+
         return 'invalidFunctionName';
     }
 }
 
-function testdivs() {
-    HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-    // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-}
+// function testdivs() {
+//     HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
+// }
 
-testdivs()
+// testdivs()
 
 // console.log(HTMLApi__search('html/body/header/div-1', 0, 'div'))
 // console.log(HTMLApi);
@@ -259,4 +267,4 @@ function HTMLDOM__search() {
 // console.log(HTMLDOM__search());
 // console.log(HTMLApi__search( HTMLDOM__search(), 0, 'button'));
 //
-// console.log(HTMLApi);
+console.log(HTMLApi);

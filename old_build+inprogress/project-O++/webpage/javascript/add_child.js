@@ -184,9 +184,15 @@ function procesAddChild() {
     newElement.classList.add("dom-nav--content");
     newElement.innerHTML = newElementTagName;
 
-    /*=========
-     test part*/
+    addChildToDom(selectedElement, newElement, newElementTagName);
 
+    /*========================
+     removes addchild overlay*/
+    const remove = document.querySelector('.inputformsurounding');
+    remove.parentNode.removeChild(remove);
+}
+
+function addChildToDom(selectedElement, newElement, newElementTagName) {
     //if the next sibling doesn't exist
     if (selectedElement.nextElementSibling == undefined || selectedElement.nextElementSibling == null) {
         subFunc_creatElements();
@@ -199,11 +205,6 @@ function procesAddChild() {
     } else {
         subFunc_creatElements();
     }
-
-    /*========================
-     removes addchild overlay*/
-    const remove = document.querySelector('.inputformsurounding');
-    remove.parentNode.removeChild(remove);
 
     function subFunc_creatElements() {
 
