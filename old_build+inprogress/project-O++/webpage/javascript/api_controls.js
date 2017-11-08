@@ -34,10 +34,21 @@ function HTMLApi__addAttribute(attributeName, value) {
 }
 
 function HTMLApi__removeElement(object) {
-    // object = "";
+    console.log(object);
 }
 
 function HTMLApi__search(searchStr, func, name, attributeValue) {
+
+    // console.log(' ')
+    // console.log(' ')
+    // console.log(' ')
+    // console.log(' ')
+    // console.log('searchStr = ' + searchStr)
+    // console.log('func = ' + func)
+    // console.log('name = ' + name)
+    // console.log('attributeValue = ' + attributeValue)
+
+
     searchStr = searchStr.split("/");
     let strCount = 0;
     let savePath = [];
@@ -83,9 +94,9 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
         }
 
         // loop trough the objects to see if one matches.
-        for (var i = 0; i < object.children.length; i++) {
-
-            if (object.children[i].elementTagName == searchStr[strCount]) {
+        let counti = 0;
+        while(counti < object.children.length) {
+            if (object.children[counti].elementTagName == searchStr[strCount]) {
 
                 /**************************
                 Test for multible Element*/
@@ -95,12 +106,12 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
                     if (multibleElement.countTo == multibleElement.count) {
 
                         //fill return object
-                        returns.savePath = i;
+                        returns.savePath = counti;
                         returns.strCount = strCount + 1;
                         returns.returnObject = object.children[i];
 
                         //send return object
-                        return returns;
+                        // return returns;
 
 
                     // Increment the counter
@@ -113,17 +124,27 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
                 } else {
 
                     //fill return object
-                    returns.savePath = i;
+                    returns.savePath = counti;
                     returns.strCount = strCount + 1;
                     returns.returnObject = object.children[i];
 
                     //send return object
-                    return returns;
+                    // return returns;
                 }
             }
+
+            // console.log('logCount: ' + counti)
+            // console.log(object);
+            // console.log(object.children.length)
+            counti++
         }
+
+
+
+        return returns;
         return false;
     }
+    // console.log('hello');
     return subFunc__traveseGlobal();
 
     function subFunc__traveseGlobal() {
@@ -143,8 +164,6 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
             return subFunc__mutate(HTMLApi.children[savePath[1]].children[savePath[2]].children[savePath[3]].children[savePath[4]]);
         }
         return 'Api pathname length not supported';
-
-
     }
 
     function subFunc__mutate(object) {
@@ -169,7 +188,9 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
             return true;
 
         } else if (func == 'removeElement' || func == 4) {
-            HTMLApi__removeElement(object);
+            // HTMLApi__removeElement(object);
+            // object.parentNode.removeChild(object);
+            object.indexOf;
             return true;
         }
 
@@ -177,20 +198,6 @@ function HTMLApi__search(searchStr, func, name, attributeValue) {
     }
 }
 
-// function testdivs() {
-//     HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-//     // HTMLApi.children[1].children[0].children.push(HTMLApi__addChild('div') );
-// }
-
-// testdivs()
-
-// console.log(HTMLApi__search('html/body/header/div-1', 0, 'div'))
-// console.log(HTMLApi);
 
 function HTMLDOM__search() {
     const selectedElement = document.querySelector('.dom-selected');
@@ -201,7 +208,7 @@ function HTMLDOM__search() {
     let tagcount;
 
     tagname = currentEl.innerHTML.toLowerCase();
-    let i= 0
+    let i= 0;
 
     while (i < 200) {
         let ii = 0;
@@ -246,6 +253,7 @@ function HTMLDOM__search() {
 
         } else {
             // set tagname
+            tagname[0] = tagname[0].toUpperCase();
             tagname = parent.previousElementSibling.innerHTML.toLowerCase();
 
             // set currentEl
@@ -264,7 +272,5 @@ function HTMLDOM__search() {
     }
     return navigationUrl;
 }
-// console.log(HTMLDOM__search());
-// console.log(HTMLApi__search( HTMLDOM__search(), 0, 'button'));
-//
+
 console.log(HTMLApi);

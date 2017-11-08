@@ -25,8 +25,9 @@ function controlRemoveChild() {
         testValidElement = "invalid";
     }
 
-
+    console.log(HTMLApi__search( HTMLDOM__search(), 4));
     if (testValidElement == "valid") {
+
         /*****************
         Set next variable*/
         if (selectedElement.nextElementSibling == null) {
@@ -108,7 +109,7 @@ function controlRemoveChild() {
         }
 
         function subFunc__removeParent() {
-            /***********************************
+            /******************************************
             Sets the class of the visual parent right*/
             if (selectedElement.parentNode.previousElementSibling.classList.contains('dom-nav--opencontent')) {
                 selectedElement.parentNode.previousElementSibling.classList.remove('dom-nav--opencontent');
@@ -131,7 +132,6 @@ function controlRemoveChild() {
             selectedElement.parentNode.removeChild(selectedElement.nextElementSibling);
             selectedElement.parentNode.removeChild(selectedElement);
         }
-
     } else {
         alert("You can't remove this element");
     }
