@@ -110,6 +110,14 @@ html {
     position: fixed;
 }
 
+.hidden {
+    display: none;
+}
+
+.dom-btn-width {
+    width: 128px
+}
+
 .inputform {
     height: 50vh;
     width: 50vw;

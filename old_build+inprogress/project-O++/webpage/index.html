@@ -13,27 +13,38 @@
     </head>
     <body>
         <header class="row">
-            <br><br><br>
+
+            <!-- 1st menu -->
+            <div class="">
+                <button type="button" name="button">Save</button>
+                <button type="button" name="button">Load</button>
+                <button type="button" name="button">Save Export As Html</button>
+            </div>
+
+            <br>
         </header>
 
         <main class="row">
 
-            <div class="ad-head">
+            <div class="ad-head col-12">
 
             </div>
-            <div class="ad float">
-            </div>
 
-            <div class="between-ads float">
-                <div class="main-wrap row">
-                    <div class="col-3 float">
-                        <div class="dom-controls col-12">
-                            <button id="remove" type="button" name="remove">Remove element</button>
-                            <button id="addId" type="button" name="addId">Add ID</button>
-                            <button id="addClass" type="button" name="addClass">Add Class</button>
-                            <button id="addAttribute" type="button" name="addAttribute">Add Attribute</button>
-                            <button id="addChild" type="button" name="addChild">Add child Element</button>
+            <!-- start middle container -->
+            <div class="col-12">
+                <!-- start side menu -->
+                <div class="col-4 float">
+
+                    <!-- start dom nav -->
+                    <div id="dom-navigation--screen" class="">
+                        <div class="col-12">
+                            <button type="button" name="button">Switch screen</button>
+                                <!-- <button type="button" name="button">Program Wiki</button> -->
+                            <button type="button" name="addChild" id="addChild">Add</button>
+                            <button type="button" name="editElement" id="editElement">Edit</button>
+                            <button type="button" name="remove" id="remove">Remove</button>
                         </div>
+
                         <ul class="dom-navigation">
                             <li class="dom-nav--opencontent">Html</li>
                             <ul class="dom-indent page-box">
@@ -50,19 +61,106 @@
                             </ul>
                         </ul>
                     </div>
-                    <div class="edit-room col-6 float">
-                        hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi<br>hoi
+
+                    <!-- start wiki -->
+                    <div id="wiki--screen" class="info-page col-12 hidden">
+                        <div class="">
+                            <button type="button" name="button">Dom Nav</button>
+                        </div>
+                        <div class="">
+                            info and wiki here
+                            <br>
+                            <br>
+                        </div>
                     </div>
-                    <div class="info-page col-3 float">
-                        info and wiki here
-                        <br>
-                        <br>
+                </div>
+                <!-- end side menu -->
+
+                <!-- start main info -->
+                <div class="edit-room col-8 float">
+                    <div class="col-12">
+                        <button type="button" name="button">Selected Edit</button>
+                        <button type="button" name="button">Selected Info</button>
+                        <button type="button" name="button">Total Info</button>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="col-6 float">
+                            <h4>Element</h4>
+                            <div>Element-name</div>
+                            <div class="">
+                                <button type="button" name="button">Add_Child</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-6 float">
+                            <h4>ID</h4>
+                            <div class="">
+                                ID-name
+                            </div>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>Classes</h4>
+                            <select class="" name="">
+                                <option value="0">Class-0</option>
+                                <option value="1">Class-1</option>
+                                <option value="2">Class-2</option>
+                                <option value="3">Class-3</option>
+                                <option value="4">Class-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>Attributes</h4>
+                            <select class="" name="">
+                                <option value="0">Attribute-0</option>
+                                <option value="1">Attribute-1</option>
+                                <option value="2">Attribute-2</option>
+                                <option value="3">Attribute-3</option>
+                                <option value="4">Attribute-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>children</h4>
+                            <select class="" name="">
+                                <option value="0">child-0</option>
+                                <option value="1">child-1</option>
+                                <option value="2">child-2</option>
+                                <option value="3">child-3</option>
+                                <option value="4">child-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
-
-            <div class="ad float float">
-            </div>
+            <!-- end main info -->
         </main>
 
         <footer class="row">
