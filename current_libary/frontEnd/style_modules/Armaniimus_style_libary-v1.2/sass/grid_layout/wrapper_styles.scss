@@ -1,0 +1,19 @@
+.wrap--section::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.wrapper--article {
+    padding: 0px 15px;
+    margin-bottom: 30px;
+}
+
+.wrapper-ad {
+    width: 120px;
+}
+
+.wrapper--betweenads {
+    width: calc(100% - 240px);
+}

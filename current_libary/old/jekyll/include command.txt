@@ -1,0 +1,3 @@
+{% include footer.html %}
+
+{% include_relative somedir/footer.html %}

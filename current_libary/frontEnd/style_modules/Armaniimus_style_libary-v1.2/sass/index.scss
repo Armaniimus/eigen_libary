@@ -1,0 +1,33 @@
+// ==================
+// importing Project
+// ==================
+
+// variables
+@import 'variables/index.scss';
+
+// layout core
+@import 'basis_styles/index.scss';
+@import 'grid_layout/index.scss';
+
+// element styles
+@import 'font_styles/index.scss';
+@import 'header_styles/index.scss';
+@import 'button_styles/index.scss';
+
+// special elements
+@import 'special_elements/index.scss';
+
+// link styles
+@import 'link_styles/index.scss';
+
+// article styles
+@import 'article_styles/index.scss';
+
+// list styles
+@import 'list_styles/index.scss';
+
+// user styles
+@import 'user_styles/index.scss';
+
+// development styles
+@import 'development_styles/index.scss';
