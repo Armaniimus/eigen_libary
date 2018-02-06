@@ -10,8 +10,10 @@ if (isset($createResult)) {
     $result = "<textarea name='content' rows='8' cols='40'></textarea>";
 }
 
-elseif (isset($readResult)) {
-    $result = "<textarea name='content' rows='8' cols='40'>$readResult</textarea>";
+elseif (isset($crudResult)) {
+    if ($crudResult["mode"] == "read") {
+        $result = "<textarea name='content' rows='8' cols='40'>" . $crudResult["content"] . "</textarea>";
+    }
 }
 
 elseif (isset($updateResult)) {
