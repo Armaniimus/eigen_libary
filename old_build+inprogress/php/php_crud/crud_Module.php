@@ -31,7 +31,7 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     // controls the update
     if (isset($_POST['update'] ) ) {
         $content = new crud_Module($url, $_POST['content']);
-        $updateResult = $content->update();
+        $crudResult = $content->update();
     }
 
     // controls the delete
@@ -87,12 +87,16 @@ class crud_Module {
     }
 
     public function update() {
-        if (isset($_POST['submit_update'] ) ) {
-            $this->create($this->url, $this->content);
-            return "submit_update";
+        if (!isset($_POST['submit_update'] ) ) {
+            $this->result = $this->read();
+            $this->result["mode"] = "update_setup";
+
+            return $this->result;
 
         } else {
-            return $this->read();
+            $this->result["content"] = $this->create($this->url, $this->content);
+            $this->result["mode"] = "update_submit";
+            return $this->result;
         }
     }
 
