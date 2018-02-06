@@ -16,29 +16,35 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     }
     $url = controlUrl($_POST['url']);
 
-    // controls the create
-    if (isset($_POST['create'] ) ) {
-        $content = new crud_Module($url, $_POST['content']);
-        $crudResult = $content->create();
-    }
 
-    // controls the read
-    if (isset($_POST['read'] ) ) {
-        $content = new crud_Module($url);
-        $crudResult = $content->read();
-    }
+    function controlCrud($url, $content) {
+        // controls the create
+        if (isset($_POST['create'] ) ) {
+            $content = new crud_Module($url, $content);
+            $crudResult = $content->create();
+        }
 
-    // controls the update
-    if (isset($_POST['update'] ) ) {
-        $content = new crud_Module($url, $_POST['content']);
-        $crudResult = $content->update();
-    }
+        // controls the read
+        if (isset($_POST['read'] ) ) {
+            $content = new crud_Module($url);
+            $crudResult = $content->read();
+        }
 
-    // controls the delete
-    if (isset($_POST['delete'] ) ) {
-        $content = new crud_Module($url);
-        $crudResult = $content->delete();
+        // controls the update
+        if (isset($_POST['update'] ) ) {
+            $content = new crud_Module($url, $content);
+            $crudResult = $content->update();
+        }
+
+        // controls the delete
+        if (isset($_POST['delete'] ) ) {
+            $content = new crud_Module($url);
+            $crudResult = $content->delete();
+        }
+
+        return $crudResult;
     }
+    $crudResult = controlCrud($url, $_POST['content']);
 }
 ////
 
