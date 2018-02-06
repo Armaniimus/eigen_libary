@@ -6,31 +6,32 @@ if ( isset($_POST['url']) && $_POST['url'] !== "") {
 include('crud_Module.php');
 
 
-if (isset($crudResult)) {
-    if ($crudResult["mode"] == "create") {
-          $result = "<textarea name='content' rows='8' cols='40'></textarea>";
-    }
+if (isset($createResult)) {
+    $result = "<textarea name='content' rows='8' cols='40'></textarea>";
+}
 
-    else if ($crudResult["mode"] == "create") {
-        $result = "<textarea name='content' rows='8' cols='40'>" . $crudResult["content"] . "</textarea>";
-    }
+elseif (isset($readResult)) {
+    $result = "<textarea name='content' rows='8' cols='40'>$readResult</textarea>";
+}
 
-    else if ($crudResult["mode"] == "submit_update") {
+elseif (isset($updateResult)) {
+    // if at the setup step of the update
+    if ($updateResult == "submit_update") {
         $result = "<textarea name='content' rows='8' cols='40'></textarea>";
 
-    }
-    else if ($crudResult["mode"] == "setup_update") {
+    // else if at the finish step of the update
+    } else {
         $result = "
             Update Data: <br>
-            <textarea name='content' rows='6' cols='40'>" . $crudResult["content"] . "</textarea>
+            <textarea name='content' rows='6' cols='40'>$updateResult</textarea>
             <input type='submit' name='update' value='Update'>
-            <input type='hidden' name='submit_update' value='$url'>
+            <input type='hidden' name='submit_update_url' value='$url'>
+            <input type='hidden' name='submit_update'>
         ";
     }
-
-    else if ($crudResult["mode"] == "delete") {
-        $result = "<textarea name='content' rows='8' cols='40'></textarea>";
-    }
+}
+elseif (isset($deleteResult)) {
+    $result = "<textarea name='content' rows='8' cols='40'></textarea>";
 }
 
 if (!isset($result) ) {
