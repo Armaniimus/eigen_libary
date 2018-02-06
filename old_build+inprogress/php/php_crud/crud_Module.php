@@ -20,25 +20,25 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     function controlCrud($url, $content) {
         // controls the create
         if (isset($_POST['create'] ) ) {
-            $content = new crud_Module($url, $content);
+            $content = new crud_File_Module($url, $content);
             $crudResult = $content->create();
         }
 
         // controls the read
         if (isset($_POST['read'] ) ) {
-            $content = new crud_Module($url);
+            $content = new crud_File_Module($url);
             $crudResult = $content->read();
         }
 
         // controls the update
         if (isset($_POST['update'] ) ) {
-            $content = new crud_Module($url, $content);
+            $content = new crud_File_Module($url, $content);
             $crudResult = $content->update();
         }
 
         // controls the delete
         if (isset($_POST['delete'] ) ) {
-            $content = new crud_Module($url);
+            $content = new crud_File_Module($url);
             $crudResult = $content->delete();
         }
 
@@ -48,7 +48,7 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
 }
 ////
 
-class crud_Module {
+class crud_File_Module {
     private $url;
     private $content;
     private $mode;
