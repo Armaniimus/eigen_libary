@@ -37,7 +37,7 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     // controls the delete
     if (isset($_POST['delete'] ) ) {
         $content = new crud_Module($url);
-        $deleteResult = $content->delete();
+        $crudResult = $content->delete();
     }
 }
 ////
@@ -101,8 +101,9 @@ class crud_Module {
     }
 
     public function delete() {
+        $this->result["mode"] = "delete";
         unlink($this->url);
-        return "submit_delete";
+        return $this->result;
     }
 }
 

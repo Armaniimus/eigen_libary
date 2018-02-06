@@ -12,12 +12,12 @@ if (isset($crudResult)) {
     }
 
 
-    if ($crudResult["mode"] == "read") {
+    else if ($crudResult["mode"] == "read") {
         $result = "<textarea name='content' rows='8' cols='40'>" . $crudResult["content"] . "</textarea>";
     }
 
 
-    if ($crudResult["mode"] == "update_setup") {
+    else if ($crudResult["mode"] == "update_setup") {
         $result = "
             Update Data: <br>
             <textarea name='content' rows='6' cols='40'>" . $crudResult["content"] . "</textarea>
@@ -27,12 +27,13 @@ if (isset($crudResult)) {
         ";
     }
 
-    if ($crudResult["mode"] == "update_submit") {
+    else if ($crudResult["mode"] == "update_submit") {
         $result = "<textarea name='content' rows='8' cols='40'></textarea>";
     }
-}
-elseif (isset($deleteResult)) {
-    $result = "<textarea name='content' rows='8' cols='40'></textarea>";
+
+    else if ($crudResult["mode"] == "delete") {
+        $result = "<textarea name='content' rows='8' cols='40'></textarea>";
+    }
 }
 
 if (!isset($result) ) {
