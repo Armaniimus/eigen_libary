@@ -1,5 +1,12 @@
 <?php
 
+
+
+
+
+
+
+
 class crud_Module {
     private $url;
     private $content;
@@ -40,7 +47,6 @@ class crud_Module {
             else {
                 // $this->result = ">>>ERROR: No data found file is empty<<<";
                 $this->result = "";
-                fclose($myfile);
             }
 
         } else {
@@ -50,14 +56,13 @@ class crud_Module {
         return $this->result;
     }
 
-    public function update($fase) {
-        if ($fase == 0 || $fase == "setup") {
-            return $this->read();
-        }
-
-        else if ($fase == 1 || $fase == "submit") {
+    public function update() {
+        if (isset($_POST['submit_update'] ) ) {
             $this->create($this->url, $this->content);
             return "submit_update";
+
+        } else {
+            return $this->read();
         }
     }
 
