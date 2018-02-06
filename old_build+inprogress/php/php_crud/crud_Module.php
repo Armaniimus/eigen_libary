@@ -4,8 +4,17 @@
 ******************/
 if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update'] ) || isset($_POST['delete'] ) ) {
 
-    //set the url
-    $url = $_POST['url'];
+    function controlUrl($url) {
+        $_POST['url'];
+        if (isset( $_POST['submit_update_url'] ) ) {
+            $url = $_POST['submit_update_url'];
+        }
+        $url = str_replace('..', '', $url);
+
+        return $url;
+    }
+
+    $url = controlUrl($_POST['url']);
 
     // controls the create
     if (isset($_POST['create'] ) ) {
@@ -40,14 +49,8 @@ class crud_Module {
     public $result;
 
     public function __construct($url, $content = null) {
-        //if update is submitted set submitted url
-        if (isset( $_POST['submit_update_url'] ) ) {
-            $url = $_POST['submit_update_url'];
-        }
-
-        $url = str_replace('..', '', $url);
-        $this->url = $url;
         $this->content = $content;
+        $this->url = $url;
     }
 
     public function create() {
