@@ -19,7 +19,7 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     // controls the create
     if (isset($_POST['create'] ) ) {
         $content = new crud_Module($url, $_POST['content']);
-        $createResult = $content->create();
+        $crudResult = $content->create();
     }
 
     // controls the read
@@ -54,11 +54,12 @@ class crud_Module {
     }
 
     public function create() {
+        $this->result["mode"] = "create";
         $myfile = fopen($this->url, "w") or die("Unable to open file!");
         fwrite($myfile, $this->content);
         fclose($myfile);
 
-        return "submit_create";
+        return $this->result;
     }
 
     public function read() {

@@ -6,11 +6,12 @@ if ( isset($_POST['url']) && $_POST['url'] !== "") {
 include('crud_Module.php');
 
 
-if (isset($createResult)) {
-    $result = "<textarea name='content' rows='8' cols='40'></textarea>";
-}
+if (isset($crudResult)) {
+    if ($crudResult["mode"] == "create") {
+        $result = "<textarea name='content' rows='8' cols='40'></textarea>";
+    }
 
-elseif (isset($crudResult)) {
+
     if ($crudResult["mode"] == "read") {
         $result = "<textarea name='content' rows='8' cols='40'>" . $crudResult["content"] . "</textarea>";
     }
