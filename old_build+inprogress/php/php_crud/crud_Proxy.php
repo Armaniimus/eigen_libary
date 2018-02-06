@@ -1,9 +1,9 @@
 <?php
-if (isset($_POST['url'])) {
+if ( isset($_POST['url']) && $_POST['url'] !== "") {
     $_POST['url'] = "files/" . $_POST['url'];
 }
 
-include('crud_Controller.php');
+include('crud_Module.php');
 
 
 if (isset($createResult)) {
