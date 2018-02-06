@@ -11,19 +11,16 @@ if (isset($crudResult)) {
         $result = "<textarea name='content' rows='8' cols='40'></textarea>";
     }
 
-
     else if ($crudResult["mode"] == "read") {
         $result = "<textarea name='content' rows='8' cols='40'>" . $crudResult["content"] . "</textarea>";
     }
-
 
     else if ($crudResult["mode"] == "update_setup") {
         $result = "
             Update Data: <br>
             <textarea name='content' rows='6' cols='40'>" . $crudResult["content"] . "</textarea>
             <input type='submit' name='update' value='Update'>
-            <input type='hidden' name='submit_update_url' value='$url'>
-            <input type='hidden' name='submit_update'>
+            <input type='hidden' name='submit_update' value='$url'>
         ";
     }
 

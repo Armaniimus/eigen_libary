@@ -7,8 +7,8 @@ if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update']
     //Setup Url
     function controlUrl($url) {
         $_POST['url'];
-        if (isset( $_POST['submit_update_url'] ) ) {
-            $url = $_POST['submit_update_url'];
+        if (isset( $_POST['submit_update'] ) ) {
+            $url = $_POST['submit_update'];
         }
         $url = str_replace('..', '', $url);
 
