@@ -34,11 +34,8 @@ elseif (isset($deleteResult)) {
     $result = "<textarea name='content' rows='8' cols='40'></textarea>";
 }
 
-//standard echo
-else {
+if (!isset($result) ) {
     $result = "<textarea name='content' rows='8' cols='40'></textarea>";
 }
 
-if (isset($_POST['create'] ) || isset($_POST['read'] ) || isset($_POST['update'] ) || isset($_POST['delete'] ) ) {
-    echo $result;
-}
+echo $result;
