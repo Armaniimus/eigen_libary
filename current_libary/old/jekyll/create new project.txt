@@ -1,2 +1,0 @@
-cd to directory
-jekyll new #name
