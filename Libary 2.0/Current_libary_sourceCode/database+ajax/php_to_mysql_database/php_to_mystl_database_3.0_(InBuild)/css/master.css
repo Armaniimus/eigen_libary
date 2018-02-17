@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0px;
+    height: 98%;
+    width: 100%;
+    padding: 0px;
+}
+main {
+    padding: 0 5%;
+}
+
+.createViewOuter {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(100, 100, 100, 0.5);
+    position: absolute;
+    top: 0px;
+    z-index: 200;
+}
+
+.createView {
+    padding: 40px 30px;
+    margin: 0 auto;
+    top: calc(50% - 150px);
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #444;
+    position: relative;
+}
+
+.createViewInner {
+    margin: 0 auto;
+    /* width: 100px; */
+    text-align: center;
+    display: block;
+}
+
+.createViewInnerLabel {
+    text-align: center;
+}
