@@ -36,7 +36,6 @@ function create($tableName, $columnNames) {
 function read($tableName, $columnNames) {
     $DB_Crud = new DB_Specify_Functions;
     $where = $DB_Crud->ExtractPostIDOnly();
-    echo $where;
 
     $dataArray = $DB_Crud->ReadDBInto2DArray($tableName, $columnNames, $where);
     $dataArray = ArrayToHTMLTable5($dataArray);
@@ -47,7 +46,6 @@ function read($tableName, $columnNames) {
 function update($tableName, $columnNames) {
     $DB_Crud = new DB_Specify_Functions;
     $where = $DB_Crud->ExtractPostIDOnly();
-    echo $where;
 
     for ($i=1; $i < count($columnNames); $i++) {
         $set = $DB_Crud->updateSet($columnNames[$i], $_POST[$columnNames[$i] ]);
@@ -59,7 +57,7 @@ function deleteColumn($tableName) {
     $DB_Crud = new DB_Main;
     $where = $DB_Crud->ExtractPostIDOnly();
 
-    echo $DB_Crud->DeleteDBRecord($tableName, $where);
+    $DB_Crud->DeleteDBRecord($tableName, $where);
 }
 
 if (!isset($dataArray) ) {
