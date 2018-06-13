@@ -1,4 +1,5 @@
 const ajax_module = (function() {
+    // private singleton methods
     let response = "";
 
     function ajaxRequest(sendMode, url, selectorObject, payload, cache) {
@@ -117,6 +118,7 @@ const ajax_module = (function() {
 
 
     return {
+        // public singleton methods
         get: (function (url, selectorObject, callbackFunc, cache) {
             get (url, selectorObject, callbackFunc, cache);
         }),
@@ -128,7 +130,7 @@ const ajax_module = (function() {
         putJson: (function (url, selectorObject, callbackFunc, payload, cache) {
             putJson (url, selectorObject, callbackFunc, payload, cache);
         }),
-        
+
         postFile: (function (url, selectorObject, callbackFunc, payload, cache) {
             postFile (url, selectorObject, callbackFunc, payload, cache);
         }),
