@@ -3,7 +3,7 @@
 
 
 //-- global variables D: connect(), getcolumnNames(), getTableNames() --//
-$serverInfo = ["Servername" => "localhost", "Username" => "root", "Password" => "", "Databasename" => "iphone_kopen"]; //Servername, Username, password, dbname
+$serverInfo = ["Servername" => "localhost", "Username" => "", "Password" => "", "Databasename" => ""]; //Servername, Username, password, dbname
 
 //generates table information
 $tableNames = getTableNames();
@@ -24,6 +24,8 @@ function connect() {
 
     //insert the global variables inside this function
     global $serverInfo;
+
+    $serverInfo = ["Servername" => "localhost", "Username" => "root", "Password" => "", "Databasename" => ""]; //Servername, Username, password, dbname
 
     //Create connection
     $conn = new mysqli($serverInfo['Servername'], $serverInfo['Username'], $serverInfo['Password'], $serverInfo['Databasename']);
