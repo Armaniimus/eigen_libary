@@ -1,11 +1,16 @@
 <?php
 
 class PhpUtilities {
-
     function __construct() {
 
     }
 
+    /***
+    * $number expects a float to cut to a decimal amount
+    * $decimals expects an number (Decides how many decimal numbers will be used)
+    *
+    * @Description
+    * tofixed functionality equal to javascript toFixed */
     public function toFixed($number, $decimals) {
         return number_format($number, $decimals, ".", "");
     }
