@@ -68,6 +68,8 @@
             }
         }
 
+
+        // ReadData
         public function ReadData($readQuery, $nrParamArray = NULL) {
 
             // If a prepared statement is needed because of evil user data
@@ -134,13 +136,13 @@
         }
 
         // requires ($updateQuery) or ($tableName + $AssocArray + $idValue + $idName)
-
         // string variables -> $updateQuery $tableName $idName
         // int variables -> $idValue
         // array variables -> $AssocArray
         public function UpdateData($updateQuery = NULL, $tableName = NULL, $AssocArray = NULL, $idName = NULL, $idValue = NULL) {
 
             if ($updateQuery == NULL) {
+
                 if ($idValue == NULL || $idName == NULL) {
                     throw new \Exception("Missing data to process the update request --[IdValue] --> $idValue  --[idName] -->$idName");
                 }
@@ -273,29 +275,31 @@
         ** description -> Sets insert data for the create query or set data for the updateQuery
         ** relies on methods -> Null
 
-        ** Requires -> $colNames_nrArr, $AssocArray, $option
-        ** assocArray variables -> $AssocArray
+        ** Requires -> $colNames_nrArr, $AssocDataArray, $option
+        ** assocArray variables -> $AssocDataArray
         ** nrArray variables -> $colNames_nrArr
         ** int variables -> $option
         ****/
-        private function SetRecordData_Assoc($colNames_nrArr, $AssocArray, $option) {
+        private function SetRecordData_Assoc($colNames_nrArr, $AssocDataArray, $option) {
 
             // Generate Set part for the update
             if ($option == 0 || $option == 'update') {
-                $recordData = $colNames_nrArr[0] . " = '" . $AssocArray[$colNames_nrArr[0]] . "'";
+                $recordData = $colNames_nrArr[0] . " = '" . $AssocDataArray[$colNames_nrArr[0]] . "'";
                 for ($i=1; $i < count($colNames_nrArr); $i++) {
-                    if (isset($AssocArray[$colNames_nrArr[$i]])) {
-                        $recordData .= ", " . $colNames_nrArr[$i] . " = '" . $AssocArray[$colNames_nrArr[$i]] . "'";
+
+                    // checks if supplied columnName exists as index in the data array
+                    if (isset($AssocDataArray[$colNames_nrArr[$i]])) {
+                        $recordData .= ", " . $colNames_nrArr[$i] . " = '" . $AssocDataArray[$colNames_nrArr[$i]] . "'";
                     }
                 }
             }
 
             // Generate Values part for the update (not tested)
             else if ($option == 1 || $option == 'create') {
-                $recordData = "'" . $AssocArray[$colNames_nrArr[0]] . "'";
+                $recordData = "'" . $AssocDataArray[$colNames_nrArr[0]] . "'";
 
                 for ($i=1; $i < count($colNames_nrArr); $i++) {
-                    $recordData .= "," . "'" . $AssocArray[$colNames_nrArr[$i]] . "'";
+                    $recordData .= "," . "'" . $AssocDataArray[$colNames_nrArr[$i]] . "'";
                 }
             }
 
