@@ -91,6 +91,7 @@ class SessionModel {
         $time = time();
 
         // start session
+        ini_set('session.cookie_httponly', 1); // Sets header to disable javascript interaction with the sessioncookie
         ini_set('session.gc_maxlifetime', $expireTime); // sets time until marked as garbage on the server
         ini_set('session.cookie_lifetime', $maxExpireTime); // sets time until the cookie is thrown away in the browser
         session_start();
