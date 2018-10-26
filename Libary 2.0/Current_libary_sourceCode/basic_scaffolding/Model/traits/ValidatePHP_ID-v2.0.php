@@ -1,16 +1,16 @@
 <?php
 trait ValidatePHP_ID {
 
-    /****
-    ** description -> Selects specified data from an array
-    ** relies on methods -> Null
-
-    ** Requires -> $array, $code
-    ** string variables -> $code
-    ** array variables -> $array
-    ****/
-
-    public function ValidatePHP_ID($idValue, $Method = NULL) {
+    /**
+     * A method used to check if a valid Sql ID is supplied
+     * checks include if it has a value, is a number, is a integer, is not negative,
+     *
+     * @param   int     $idValue    a valid int number
+     * @param   string  $method     an optional string to get more specific errors
+     *
+     * @return  bool                true or false
+     */
+    public function validatePHP_ID($idValue, $Method = NULL) {
 
         // run tests and set return message if needed
         if ($idValue == "" || $idValue == NULL) {
@@ -43,9 +43,6 @@ trait ValidatePHP_ID {
         } else {
             return TRUE;
         }
-
     }
 }
-
-
- ?>
+?>
