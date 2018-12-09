@@ -24,7 +24,9 @@ $echo = $Router->run();
 
 // if router could find anything based on the url
 if ($Router->error) {
-    //go to the homepage
+    require_once 'Controller/Controller_main.php';
+    $controller = new Controller_main();
+    $echo = $controller->mydefault();
 }
 
 echo $echo;

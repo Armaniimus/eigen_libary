@@ -1,5 +1,5 @@
 <?php
-Define("BESTAND_DIEPTE", 7);
+Define("BESTAND_DIEPTE", 6);
 
 $url = $_SERVER['REQUEST_URI'];
 $packets = explode("/", $url);
