@@ -21,7 +21,7 @@ Class HtmlElements {
      * @param  string $specialColumnName a column title for the extra collumns
      * @return
      */
-    public function generateButtonedTable($dataArray2d, $htmlTableName, $option, $extraColumnsArray = NULL, $specialColumnName = NULL) {
+    public function CustomadvancedTable(array $dataArray2d, string $tablename, array $option, array $extraColumnsArray = NULL, string $specialColumnName = NULL) {
 
         if (!empty($extraColumnsArray) ) {
             $extraLength = count($extraColumnsArray[0]);
@@ -44,10 +44,91 @@ Class HtmlElements {
             // select checkboxes
         }
 
-        $table = "<table $border $width class='$htmlTableName' id='$htmlTableName'>" .
-            $this->buttonedTableHead($dataArray2d, $htmlTableName, $extraLength, $specialColumnName) .
-            $this->buttonedTableBody($dataArray2d, $htmlTableName,  $extraColumnsArray) .
-        "</table>";
+        //  start of head generation
+        $head = "<thead class='$tablename--thead'>";
+            foreach ($dataArray2d as $key => $value) {
+                $row = "<tr class='$tablename--tr'><th colspan='4'>Film</th><th colspan='3'>Acteur</th></tr>";
+                $row .= "<tr class='$tablename--tr'>";
+                "<td></td>";
+                    foreach ($value as $columnName => $v) {
+                        $columnName[0] = strToUpper($columnName[0]);
+                        $row .= "<th class='$tablename--th'>" . $columnName . "</th>";
+                    }
+                    if ($extraLength > 0) {
+                        $extraColumnName[0] = strToUpper($extraColumnName[0]);
+                        $row .= "<th class='$tablename--th' colspan='$extraLength'>$extraColumnName</th>";
+                    }
+
+                $row .= "</tr>";
+                $head .= $row;
+                break;
+            }
+        $head .= "</thead>";
+
+        // body generation
+        $body = "<tbody class='$tablename--tbody'>";
+            $i=0;
+            foreach ($dataArray2d as $key => $value) {
+                $row = "<tr class='$tablename--tr'>";
+                    foreach ($value as $k => $v) {
+                        $row .= "<td class='$tablename--td'>" . $value[$k] . "</td>";
+                    }
+
+                    if ($extraColumnsArray !== NULL) {
+                        for ($ii=0; $ii < count($extraColumnsArray[$i]); $ii++) {
+                            $row .= $extraColumnsArray[$i][$ii];
+                        }
+                    }
+                $row  .= "</tr>";
+                $body .= $row;
+                $i++;
+            }
+        $body .= "</tbody>";
+
+        $table = "<table $border $width class='$tablename' id='$tablename'>";
+        $table .= $head;
+        $table .= $body;
+        $table .= "</table>";
+
+        return $table;
+    }
+
+    /**
+     * The purpose of this tablegenerating function is to be simple enough
+     * for the newest programmers to understand and maybe expand on
+     *
+     * @param  array  $dataArray2d              the array needs to be an 2d array with a
+     *                                          numbered array around it and associative arrays inside
+     * @param  string $tablename(optional)      a name to use for the css class of the table
+     * @return string                           The return is a htmlTable
+     */
+    public function simpleTable(array $dataArray2d, string $tablename = "") {
+        // head
+        $thead = "<thead><tr>";
+        foreach ($dataArray2d as $key => $value) {
+            foreach ($value as $k => $v) {
+                $thead .= "<th>" . $k . "</th>";
+            }
+            break;
+        }
+        $thead .= "</tr></thead>";
+
+        // body
+        $tbody = "<tbody>";
+        foreach ($dataArray2d as $key => $value) {
+            $row = "<tr>";
+                foreach ($value as $k => $v) {
+                    $row .= "<td>" . $value[$k] . "</td>";
+                }
+            $row  .= "</tr>";
+            $tbody .= $row;
+        }
+        $tbody .= "</tbody>";
+
+        $table = "<table border='1' class='$tablename'>";
+        $table .= $thead;
+        $table .= $tbody;
+        $table .= "</table>";
 
         return $table;
     }
@@ -68,7 +149,6 @@ Class HtmlElements {
     public function generateForm($sendMethod, $targetUrl, $formName, $DB_data, $DB_columnNames, $DB_dataTypesArray, $DB_requiredNullArray, $option = 0) {
         $headAndFoot = $this->setHeadAndFootForm($formName, $targetUrl, $sendMethod);
         $main = $this->generateFormMainData($formName, $DB_data, $DB_columnNames, $DB_dataTypesArray, $DB_requiredNullArray, $option);
-        return $this->combineForm($headAndFoot["header"], $main, $headAndFoot["footer"]);
     }
 
     /**
@@ -85,71 +165,6 @@ Class HtmlElements {
         $table .= "</tr></table>";
 
         return $table;
-    }
-
-    /**
-     * this method is used to generate the tableheads of all columns
-     * @param array   $dataArray2d     2 dimensional array the outer being an assoc array and the inner being numbered
-     *                                 such as is typicaly returned by the datahandler
-     * @param string  $tablename       used to make the css classes tablename--thead, .tablename--tr, .tablename--th
-     * @param integer $extraLength     used to define how much extra length is needed after the columns
-     * @param string  $extraColumnName a string with a suitable name for this column
-     */
-    private function buttonedTableHead($dataArray2d, $tablename, $extraLength = 0, $extraColumnName = NULL) {
-        // table Collumn names
-        $head = "<thead class='$tablename--thead'>";
-            foreach ($dataArray2d as $key => $value) {
-                $row = "<tr class='$tablename--tr'>";
-                "<td></td>";
-                    foreach ($value as $columnName => $v) {
-                        $columnName[0] = strToUpper($columnName[0]);
-                        $row .= "<th class='$tablename--th'>" . $columnName . "</th>";
-                    }
-                    if ($extraLength > 0) {
-                        $extraColumnName[0] = strToUpper($extraColumnName[0]);
-                        $row .= "<th class='$tablename--th' colspan='$extraLength'>$extraColumnName</th>";
-                    }
-
-                $row .= "</tr>";
-
-                $head .= $row;
-                break;
-            }
-        $head .= "</thead>";
-        return $head;
-    }
-
-    /**
-     * this method is used to generate the body of an html table
-     * @param  array  $dataArray2d       2 dimensional array the outer being an assoc array and the inner being numbered
-     *                                   such as is typicaly returned by the datahandler
-     * @param  string $tablename         an name used to generate html class names for css styling names generated are .tablename--tbody, .tablename--tr, .tablename--td
-     * @param  array  $extraColumnsArray a table with extra data to be added can be used to extent functionality
-     * @return string                    the body of a html table
-     */
-    private function buttonedTableBody($dataArray2d, $tablename, $extraColumnsArray) {
-        // table Body
-        $body = "<tbody class='$tablename--tbody'>";
-
-            $i=0;
-            foreach ($dataArray2d as $key => $value) {
-                $row = "<tr class='$tablename--tr'>";
-                    foreach ($value as $k => $v) {
-                        $row .= "<td class='$tablename--td'>" . $value[$k] . "</td>";
-                    }
-
-                    if ($extraColumnsArray !== NULL) {
-                        for ($ii=0; $ii < count($extraColumnsArray[$i]) ; $ii++) {
-                            $row .= $extraColumnsArray[$i][$ii];
-                        }
-                    }
-
-                $row .= "</tr>";
-                $body .= $row;
-                $i++;
-            }
-        $body .= "</tbody>";
-        return $body;
     }
 
     /**
@@ -241,6 +256,92 @@ Class HtmlElements {
     private function combineForm($head, $main, $footer) {
         $form = $head . $main . $footer;
         return $form;
+    }
+    /**
+     * this method is used to generate a table with data contained in them
+     * @param  array  $dataArray2d       2 dimensional array the outer being an assoc array and the inner being numbered
+     * @param  string $htmlTableName     a name that is used as id for the html table
+     *                                   also the following html classes are generated to be used in css
+     *                                   $tablename, $tablename--thead, $tablename--tbody, $tablename--tr, $tablename--th, $tablename--td
+     *
+     * @param  array  $option            an array or string with booleans
+     *                                   option[0] border?
+     *                                   option[1] width 100%?
+     *                                   option[2] future use
+     *
+     * @param  array  $extraColumnsArray an array with extra column to be added can be used to extent functionality
+     * @param  string $specialColumnName a column title for the extra collumns
+     * @return
+     */
+    public function advancedTable(array $dataArray2d, string $tablename, array $option, array $extraColumnsArray = NULL, string $specialColumnName = NULL) {
+
+        if (!empty($extraColumnsArray) ) {
+            $extraLength = count($extraColumnsArray[0]);
+        } else {
+            $extraLength = 0;
+        }
+
+        $border = "";
+        $width = "";
+
+        if ($option[0] == "1") {
+            $border = "border='1'";
+        }
+
+        if ($option[1] == "1") {
+            $width = "width='100%'";
+        }
+
+        if ($option[2] == "1") {
+            // select checkboxes
+        }
+
+        //  start of head generation
+        $head = "<thead class='$tablename--thead'>";
+            foreach ($dataArray2d as $key => $value) {
+                $row = "<tr class='$tablename--tr'>";
+                "<td></td>";
+                    foreach ($value as $columnName => $v) {
+                        $columnName[0] = strToUpper($columnName[0]);
+                        $row .= "<th class='$tablename--th'>" . $columnName . "</th>";
+                    }
+                    if ($extraLength > 0) {
+                        $extraColumnName[0] = strToUpper($extraColumnName[0]);
+                        $row .= "<th class='$tablename--th' colspan='$extraLength'>$extraColumnName</th>";
+                    }
+
+                $row .= "</tr>";
+                $head .= $row;
+                break;
+            }
+        $head .= "</thead>";
+
+        // body generation
+        $body = "<tbody class='$tablename--tbody'>";
+            $i=0;
+            foreach ($dataArray2d as $key => $value) {
+                $row = "<tr class='$tablename--tr'>";
+                    foreach ($value as $k => $v) {
+                        $row .= "<td class='$tablename--td'>" . $value[$k] . "</td>";
+                    }
+
+                    if ($extraColumnsArray !== NULL) {
+                        for ($ii=0; $ii < count($extraColumnsArray[$i]); $ii++) {
+                            $row .= $extraColumnsArray[$i][$ii];
+                        }
+                    }
+                $row  .= "</tr>";
+                $body .= $row;
+                $i++;
+            }
+        $body .= "</tbody>";
+
+        $table = "<table $border $width class='$tablename' id='$tablename'>";
+        $table .= $head;
+        $table .= $body;
+        $table .= "</table>";
+
+        return $table;
     }
 }
 
