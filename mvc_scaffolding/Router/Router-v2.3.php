@@ -39,7 +39,7 @@ class Router {
     /**
      * in this constructor the packets property is set and the data for it is gained from the browser URI
      * and this is filtered with the gived rootUrl
-     * for example if you have a folder like pc/c/hi/rootprojectcontrol/method/param1/param2
+     * for example if you have a folder like c:/folder/folder/rootproject/control/method/param1/param2
      * a rootUrl of 4 will result in control/method/param1/param2 which you want in this way
      * @param integer $rootUrl      this property is used to determine the offset of the folder
      * @param string  $fallBackCtrl (optional) this string needs to be the unique name part of the controller like main in Controller_main.php
