@@ -1,0 +1,14 @@
+<form class="" action="" method="post">
+    <input class="hidden" type="text" name="hi" id="hi" value="" minlength="7" required oninvalid="validateHi()" onkeyup="validateHi()" onkeydown="validateHi()"><br>
+    <script type="text/javascript">
+        function validateHi() {
+            const field = document.getElementById('hi');
+
+            field.setCustomValidity('');
+            if (!field.checkValidity() ) {
+                field.setCustomValidity('hi moet minimaal 7 characters lang zijn');
+            }
+        }
+    </script>
+    <input type="submit" name="submit" value="verstuur">
+</form>

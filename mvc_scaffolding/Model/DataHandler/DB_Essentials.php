@@ -68,5 +68,13 @@ class DB_Essentials {
         $sth = $this->pdo->prepare($sql);
         return $sth->execute($bindings);
     }
+
+    $datahandler->deleteData(string $sql,
+        [
+            "lastname" => "",
+            "lastname" => "",
+            "lastname" => "",
+        ]
+    )
 }
 ?>

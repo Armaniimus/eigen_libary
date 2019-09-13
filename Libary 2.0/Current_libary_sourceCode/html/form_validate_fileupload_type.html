@@ -1,0 +1,34 @@
+<div class="upload_box"> Upload hier jouw CV:
+    <input name="cv" type="file" id="File" accept=".doc, .docx, .pdf, .png, .jpg, .jpeg" onchange="validateExtention()" required><!-- accept is to provide a filter for the user -->
+</div>
+<script type="text/javascript">
+    document.getElementById("File").required = true;
+
+    function validateExtention() {
+        const file = document.getElementById('File');
+        CheckExtension(file);
+    }
+
+    const validFilesTypes = ["doc", "docx", "pdf", "png", "jpg", "jpeg"];
+
+    function CheckExtension(file) {
+        /*global document: false */
+        let filePath = file.value;
+        const ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+        let isValidFile = false;
+
+        for (var i = 0; i < validFilesTypes.length; i++) {
+            if (ext == validFilesTypes[i]) {
+                isValidFile = true;
+                break;
+            }
+        }
+
+        if (!isValidFile) {
+            file.value = null;
+            alert("bestand heeft een onjuiste extentie. Valide extenties zijn:\n\n" + validFilesTypes.join(", "));
+        }
+
+        return isValidFile;
+    }
+</script>
