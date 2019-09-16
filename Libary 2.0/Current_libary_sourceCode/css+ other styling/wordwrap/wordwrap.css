@@ -1,0 +1,51 @@
+.mytext {
+    width: 500px;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*text truncate multi*/
+.text-truncate-multi {
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  line-height: 1.2em;
+  padding-bottom:0px;
+  margin-bottom: 1em;
+}
+
+.text-truncate-m1 {max-height: 1.2em;}
+.text-truncate-m2 {max-height: 2.4em;}
+.text-truncate-m3 {max-height: 3.6em;}
+.text-truncate-m4 {max-height: 4.8em;}
+.text-truncate-m5 {max-height: 6em;}
+.text-truncate-m6 {max-height: 7.2em;}
+.text-truncate-m7 {max-height: 8.4em;}
+.text-truncate-m8 {max-height: 9.6em;}
+.text-truncate-m9 {max-height: 10.8em;}
+.text-truncate-m10 {max-height: 12em;}
+.text-truncate-m11 {max-height: 13.2em;}
+.text-truncate-m12 {max-height: 14.4em;}
+.text-truncate-m13 {max-height: 15.6em;}
+.text-truncate-m14 {max-height: 16.8em;}
+.text-truncate-m15 {max-height: 18em;}
+.text-truncate-m16 {max-height: 19.2em;}
+.text-truncate-m17 {max-height: 20.4em;}
+.text-truncate-m18 {max-height: 21.6em;}
+.text-truncate-m19 {max-height: 22.8em;}
+.text-truncate-m20 {max-height: 24em;}
+
+/* text truncate multi read more*/
+.text-truncate-m-rm {
+  display: block;
+  text-align: left;
+  font-weight: bolder;
+  margin: 0;
+  margin-top: -1em;
+  padding-top: 0px;
+}
