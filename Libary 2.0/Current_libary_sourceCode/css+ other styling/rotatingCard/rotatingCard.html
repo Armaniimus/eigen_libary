@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swap</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="maincontainer">
+		<div id="hi" class="thecard">
+			<div class="thefront">front of the card</div>
+			<div class="theback">back of the card</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		const hi = document.getElementById('hi');
+		hi.addEventListener('click', function(e) {
+			console.log(e.currentTarget);
+			e.currentTarget.classList.toggle("thecard2");
+		})
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
