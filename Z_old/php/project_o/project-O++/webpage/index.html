@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta charset="desciption">
+        <meta charset="keywords">
+        <meta charset="viewport">
+        <meta charset="favicon">
+
+        <link rel="stylesheet" href="css/grid-v1.1.css">
+        <link rel="stylesheet" href="css/master.css">
+        <title>project-o</title>
+    </head>
+    <body>
+        <header class="row">
+
+            <!-- 1st menu -->
+            <div class="">
+                <button type="button" name="button">Save</button>
+                <button type="button" name="button">Load</button>
+                <button type="button" name="button">Save Export As Html</button>
+            </div>
+
+            <br>
+        </header>
+
+        <main class="row">
+
+            <div class="ad-head col-12">
+
+            </div>
+
+            <!-- start middle container -->
+            <div class="col-12">
+                <!-- start side menu -->
+                <div class="col-4 float">
+
+                    <!-- start dom nav -->
+                    <div id="dom-navigation--screen" class="">
+                        <div class="col-12">
+                            <button type="button" name="button">Switch screen</button>
+                                <!-- <button type="button" name="button">Program Wiki</button> -->
+                            <button type="button" name="addChild" id="addChild">Add</button>
+                            <button type="button" name="editElement" id="editElement">Edit</button>
+                            <button type="button" name="remove" id="remove">Remove</button>
+                        </div>
+
+                        <ul class="dom-navigation">
+                            <li class="dom-nav--opencontent">Html</li>
+                            <ul class="dom-indent page-box">
+                                <li class="dom-nav--closedcontent">Meta</li>
+                                <ul class="dom-indent page-box-hidden">
+                                    <li class="dom-nav--content">Title</li>
+                                </ul>
+                                <li class="dom-nav--opencontent">Body</li>
+                                <ul class="dom-indent page-box">
+                                    <li class="dom-selected dom-nav--content">Header</li>
+                                    <li class="dom-nav--content">Main</li>
+                                    <li class="dom-nav--content">Footer</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <!-- start wiki -->
+                    <div id="wiki--screen" class="info-page col-12 hidden">
+                        <div class="">
+                            <button type="button" name="button">Dom Nav</button>
+                        </div>
+                        <div class="">
+                            info and wiki here
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <!-- end side menu -->
+
+                <!-- start main info -->
+                <div class="edit-room col-8 float">
+                    <div class="col-12">
+                        <button type="button" name="button">Selected Edit</button>
+                        <button type="button" name="button">Selected Info</button>
+                        <button type="button" name="button">Total Info</button>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="col-6 float">
+                            <h4>Element</h4>
+                            <div>Element-name</div>
+                            <div class="">
+                                <button type="button" name="button">Add_Child</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-6 float">
+                            <h4>ID</h4>
+                            <div class="">
+                                ID-name
+                            </div>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>Classes</h4>
+                            <select class="" name="">
+                                <option value="0">Class-0</option>
+                                <option value="1">Class-1</option>
+                                <option value="2">Class-2</option>
+                                <option value="3">Class-3</option>
+                                <option value="4">Class-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>Attributes</h4>
+                            <select class="" name="">
+                                <option value="0">Attribute-0</option>
+                                <option value="1">Attribute-1</option>
+                                <option value="2">Attribute-2</option>
+                                <option value="3">Attribute-3</option>
+                                <option value="4">Attribute-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="col-4 float">
+                            <h4>children</h4>
+                            <select class="" name="">
+                                <option value="0">child-0</option>
+                                <option value="1">child-1</option>
+                                <option value="2">child-2</option>
+                                <option value="3">child-3</option>
+                                <option value="4">child-4</option>
+                            </select>
+                            <div class="">
+                                <button type="button" name="button">Add</button>
+                                <button type="button" name="button">Edit</button>
+                                <button type="button" name="button">Remove</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- end main info -->
+        </main>
+
+        <footer class="row">
+            <br><br><br>
+        </footer>
+    </body>
+    <!-- <script type="text/javascript" src="javascript/master.js"></script> -->
+
+    <script type="text/javascript" src="javascript/api_controls.js"></script>
+    <script type="text/javascript" src="javascript/add_dom_arrows.js"></script>
+    <script type="text/javascript" src="javascript/dom_tree_controls.js"></script>
+    <script type="text/javascript" src="javascript/add_child.js"></script>
+    <script type="text/javascript" src="javascript/remove_child.js"></script>
+
+    <script type="text/javascript" src="javascript/testFunctions.js"></script>
+    <script type="text/javascript" src="javascript/run.js"></script>
+</html>

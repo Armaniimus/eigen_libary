@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <style media="screen">
+            .AvrCustomListStyle li {
+                cursor: pointer;
+                list-style-type: none;
+            }
+
+            .AvrCustomListStyle li::before {
+                padding: 0 5px;
+                content: url("img/checkbox.png");
+            }
+
+            .AvrCustomListStyle .AvrLiActive::before {
+                content: url("img/checkbox-checked.png");
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="AvrCustomListStyle">
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+        </ul>
+    </body>
+
+    <script type="text/javascript">
+        (function() {
+            const list = document.querySelectorAll(".AvrCustomListStyle");
+            for (let i = 0; i < list.length; i++) {
+                list[i].addEventListener("click", controlRecept, event);
+            }
+        })();
+
+        function controlRecept(event) {
+            if (event.target.tagName == "LI") {
+                if (event.target.className == "AvrLiActive") {
+                    event.target.className = "";
+                } else {
+                    event.target.className = "AvrLiActive";
+                }
+            }
+        }
+    </script>
+</html>

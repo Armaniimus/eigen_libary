@@ -1,0 +1,142 @@
+.ad {
+    width: 120px;
+    min-height: 50px;
+    border: 1px solid red;
+}
+
+.ad-head {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid red;
+}
+
+.between-ads {
+    width: calc(100% - 240px);
+}
+
+header {
+    background-color: orange;
+    height: 60px;
+}
+
+main {
+    margin-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    background-color: orange;
+    height: 60px;
+    width: 100%;
+}
+
+html,
+body {
+    margin: 0px;
+}
+
+html {
+    min-width: 768px;
+}
+
+/* Dom arrow styles*/
+.dom-arrows {
+    display: inline;
+    width: 20px;
+    cursor: pointer;
+}
+
+.dom-arrows:hover {
+    background-color: lightgrey;
+}
+
+/* Dom item styles*/
+.dom-nav--opencontent,
+.dom-nav--closedcontent {
+    display: inline-block;
+    list-style: none;
+    width: calc(100% - 15px);
+    padding-left: 5px;
+}
+
+.dom-nav--content {
+    padding-left: 15px;
+    list-style: none;
+}
+
+.dom-nav--content:hover,
+.dom-nav--opencontent:hover,
+.dom-nav--closedcontent:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+/*Dom list + control styles*/
+.dom-controls,
+.dom-navigation {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* domWrapper styles*/
+.dom-indent {
+    padding-left: 15px;
+}
+
+.page-box {
+    display: block;
+}
+
+.page-box-hidden {
+    display: none;
+}
+
+/*dom-select style*/
+.dom-selected {
+    background-color: lightblue !important;
+}
+
+.dom-selected:hover {
+    background-color: blue !important;
+}
+
+.inputformsurounding {
+    z-index: 10000;
+    background-color: rgba(100, 100, 100, 0.5);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+.dom-btn-width {
+    width: 128px
+}
+
+.inputform {
+    height: 50vh;
+    width: 50vw;
+    margin: 25vh 25vw;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+    padding: 15px;
+}
+
+.form-addelement-select,
+.form-addelement-input  {
+    margin-bottom: 10px;
+}
+
+.form-addelement-select,
+.form-addelement-input,
+.form-addelement-label,
+.form-addelement-button {
+    display: block;
+}
