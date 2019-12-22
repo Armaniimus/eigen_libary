@@ -15,46 +15,6 @@ class PhpUtilities {
         return number_format($number, $decimals, ".", "");
     }
 
-    /***
-    * $array expects an 2dimensional numeric array with assoc arrays in it
-    * $key expects an string (is used as key for the inner assoc arrays)
-    *
-    * @Description
-    * converts regular . to , and adds euro sighn in front */
-
-    /**
-     * this method is used to convert numbers in a 2d array from regular US standard to NL standard
-     * @param  array  $array a 2darray to be able to loop through
-     * @param  string $key   the key to be used to select how to loop through the array
-     *
-     * @return string        returns the converted array
-     */
-    public function convert_NormalToEuro_2DArray($array = NULL, $key = NULL) {
-        // Convert to . to , with euro
-        for ($i=0; $i < count($array); $i++) { // Loop and convert all shown data
-            $array[$i]["$key"] = "&euro;" . $array[$i]["$key"];
-            $array[$i]["$key"] = str_Replace(".", ",", $array[$i]["$key"]);
-        }
-        return $array;
-    }
-
-    /**
-     * this method is used to convert numbers in a 2d array from NL standard to regular US standard
-     * @param  array  $array a 2darray to be able to loop through
-     * @param  string $key   the key to be used to select how to loop through the array
-     *
-     * @return string        returns the converted array
-     */
-    public function convert_EuroToNormal_2DArray($array = NULL, $key = NULL) {
-        // Convert to . to , with euro
-        for ($i=0; $i < count($array); $i++) { // Loop and convert all shown data
-            $array[$i]["$key"] = str_Replace(",", ".", $array[$i]["$key"]);
-            $array[$i]["$key"] = str_Replace("&euro;", "", $array[$i]["$key"]);
-            $array[$i]["$key"] = str_Replace("€", "", $array[$i]["$key"]);
-        }
-        return $array;
-    }
-
     /**
      * convert a US standard decimal to NL standard
      * @param  string $string  a value to to be converted
@@ -82,39 +42,45 @@ class PhpUtilities {
         return $string;
     }
 
-    /****
-    ** description -> Selects specified data from an array
-    ** relies on methods -> Null
-
-    ** Requires -> $array, $code
-    ** string variables -> $code
-    ** array variables -> $array
-    ****/
-    public function selectWithCodeFromArray($array, $code) {
+    /**
+    *  description -> Selects specified data from an array
+    *
+    *  @param string $code a code to define what to get from array
+    *       0 ignore position
+    *       1 use position
+    *       2 use this and all positions after
+    *       3 ignore this and all positions after
+    *  @param array  $array a numeric array
+    *  @return array        a numeric array
+    */
+    public function selectFromArray($array, $code) {
         $splittedCode = str_split($code);
         $return = []; // <--- is used to store the output data
         $y=0; // <--- is used to count in which position the next datapiece needs to go
 
         for ($i=0; $i<count($array); $i++) {
             if ($splittedCode[$i] == 0) {
+                continue;
 
-            }
-            else if ($splittedCode[$i] == 1) {
+            } else if ($splittedCode[$i] == 1) {
                 $return[$y] = $array[$i];
                 $y++;
-            }
-            else if ($splittedCode[$i] == 2) {
+
+            } else if ($splittedCode[$i] == 2) {
                 //runs till the end of the array and writes everything inside the array
                 for ($i=$i; $i<count($array); $i++) {
                     $return[$y] = $array[$i];
                     $y++;
                 }
-            }
-            else if ($splittedCode[$i] == 3) {
-                //runs till the end of the array and writes nothings
-                for ($i=$i; $i<count($array); $i++) {
 
-                }
+            } else if ($splittedCode[$i] == 3) {
+                break;
+                // //runs till the end of the array and writes nothings
+                // for ($i=$i; $i<count($array); $i++) {
+                //
+                // }
+            } else {
+                throw new Exception("incorrect code given to selectFromArray()", 1);
             }
         }
         return $return;
@@ -137,29 +103,28 @@ class PhpUtilities {
     }
 
     /**
-     * This method can be used to select something from a assocArray
-     * @param  array  $AssocArray this is an assoc array
-     * @param  string $code       this code can be used to select what you want from the array
-     *                            each character represents 1 array position.
-     *                            a 0 means ignore this position
-     *                            a 1 means put this position in the return array
-     * @return array              an array filtered by use of the supplied code.
+     * retrieve posts based on a array of strings
+     * @param array $fields     an array of strings to be used as key
+     * @return array            an aray with the data of the post
      */
-    public function selectFromAssoc($AssocArray, $code) {
-        $i = 0;
-        $y = 0;
-        foreach ($AssocArray as $key => $value) {
-            if ($code[$i] === "0") {
-
-            }
-
-            else if ($code[$i] === "1") {
-                $resultArray[$key] = $value;
-                $y++;
-            }
-            $i++;
+    private function Get_Post(array $fields) {
+        $data = [];
+        for ($i=0; $i<count($fields); $i++) {
+            $data[ $fields[$i] ] = ( empty($_POST[ $fields[$i] ]) ) ? "" : $_POST[ $fields[$i] ];
         }
+        return $data;
+    }
 
-        return $resultArray;
+    /**
+     * method tests if postsExist
+     * @param  array  $fields   an array with strings to be used as key on the $_POST
+     * @return bool             true, false
+     */
+    private function checkPostsExist(array $fields) {
+        $test = true;
+        for ($i=0; $i<count($fields); $i++) {
+            !empty($_POST[ $fields[$i] ]) && $_POST[ $fields[$i] ] != "" ? : $test = false;
+        }
+        return $test;
     }
 }
