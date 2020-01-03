@@ -123,7 +123,7 @@ class PhpUtilities {
     private function checkPostsExist(array $fields) {
         $test = true;
         for ($i=0; $i<count($fields); $i++) {
-            !empty($_POST[ $fields[$i] ]) && $_POST[ $fields[$i] ] != "" ? : $test = false;
+            !empty($_POST[ $fields[$i] ]) ? : $test = false;
         }
         return $test;
     }
