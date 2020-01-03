@@ -81,7 +81,7 @@ class Validator {
                check type
              elseif data is required
                return false*/
-            if (isset($data[$key]) && $data[$key] != "") {
+            if (isset($data[$key]) && trim($data[$key]) != "") {
                 $typeRes = self::valArray_Type($valArray["type"], $valArray["min"], $valArray["max"], $data[$key]);
                 if ($typeRes == FALSE) {
                     $message .= "$key == invalid ".$valArray["type"]."<br>";
