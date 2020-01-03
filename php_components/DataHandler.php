@@ -9,20 +9,24 @@
  * @method delete() delete a database record
 */
 class DataHandler {
+    private static $db;
+    private static $conn;
+
 
     /**
-     * constructor for the datahandler
+     * Connect for the datahandler
      *
      * @param string $server        Database server adress
      * @param string $database      database name for the connection
      * @param string $username      database username for the connection
      * @param string $password      database password for the connection
      */
-    function __construct($server, $db, $user, $pass) {
+    public static function setConn($server, $db, $user, $pass) {
         try {
-            $this->conn = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
+            self::$db = $db;
+            self::$conn = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
             // set the PDO error mode to exception
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully";
 
         } catch(PDOException $e) {
@@ -30,8 +34,8 @@ class DataHandler {
         }
     }
 
-    private function crudFunc($sql, $bindings) {
-        $query = $this->conn->prepare($sql);
+    private static function crudFunc($sql, $bindings) {
+        $query = self::$conn->prepare($sql);
         $query->execute($bindings);
         return $query;
     }
@@ -44,8 +48,8 @@ class DataHandler {
      * @param  bool     $multible
      * @return array
      */
-    public function read($sql, $bindings = [], $multible = TRUE) {
-        $query = $this->crudFunc($sql, $bindings);
+    public static function read(string $sql, array $bindings = [], $multible = TRUE) {
+        $query = self::crudFunc($sql, $bindings);
 
         if ($multible) {
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -62,23 +66,72 @@ class DataHandler {
      * @param  array    $bindings
      * @return bool
      */
-    public function noRead($sql, $bindings = []) {
-        return $this->crudFunc($sql, $bindings);
+    public static function noRead(string $sql, array $bindings = []) {
+        return self::crudFunc($sql, $bindings);
     }
 
     // alias of noRead
-    public function create($sql, $bindings = []) {
-        return $this->noRead($sql, $bindings = [])
-    }
-    
-    // alias of noRead
-    public function update($sql, $bindings = []) {
-        return $this->noRead($sql, $bindings = [])
+    public static function create(string $sql, array $bindings = []) {
+        return self::noRead($sql, $bindings);
     }
 
     // alias of noRead
-    public function delete($sql, $bindings = []) {
-        return $this->noRead($sql, $bindings = [])
+    public static function update(string $sql, array $bindings = []) {
+        return self::noRead($sql, $bindings);
+    }
+
+    // alias of noRead
+    public static function delete(string $sql, array $bindings = []) {
+        return self::noRead($sql, $bindings);
+    }
+
+    /**
+    * This method is used to receive column information form the database table
+    *
+    * @param  string  $tableName        sql tableName
+    * @return array with tableData
+    */
+    public static function info(string $tableName) {
+        // run Query
+        $sql = "show Fields FROM $tableName";
+        return self::read($sql, [], TRUE);
+    }
+
+    public static function infoDB(string $db = NULL) {
+        if ($db == NULL) {
+            $db = self::$db;
+        }
+        $sql = "show tables FROM $db";
+        return self::read($sql, [], TRUE);
+    }
+
+    /**
+     * counts the amount results that are returned from the db
+     * @param   string      $tablename  an sql table name
+     * @param   string      $column     an valid column in db
+     * @param   string      $value      a valid string value
+     * @return  int                     returns the counted columns
+     */
+    public static function count(string $tableName, string $column = "", string $value = "") {
+        $bindings = [];
+        $where = "";
+
+        if (trim($tableName) && strpos($tableName, ' ') !== false) {
+            return;
+
+        } elseif ($column != "" && $value != "") {
+            // check if key has no spaces
+            if (trim($column) && strpos($column, ' ') !== false) {
+                return;
+            }
+
+            $where = "WHERE $column = :value";
+            $bindings["value"] = $value;
+        }
+        $sql = "SELECT count(*) FROM $tableName $where";
+        $res = self::read($sql, $bindings , FALSE);
+
+        return $res['count(*)'];
     }
 }
 
