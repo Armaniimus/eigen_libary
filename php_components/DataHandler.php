@@ -87,12 +87,30 @@ class DataHandler {
         return self::read($sql, [], TRUE);
     }
 
+    /**
+    * This method is used to dump the showfields data intead of returning it
+    */
+    public static function dumpShowFields(string $tableName) {
+        echo "<pre>";
+        var_dump( showFields(string $tableName) );
+        echo "</pre>";
+    }
+
     public static function showTables(string $db = NULL) {
         if ($db == NULL) {
             $db = self::$db;
         }
         $sql = "show tables FROM $db";
         return self::read($sql, [], TRUE);
+    }
+
+    /**
+    * This method is used to dump the showTables data intead of returning it
+    */
+    public static function dumpShowTables(string $db = NULL) {
+        echo "<pre>";
+        var_dump( showTables($db) );
+        echo "</pre>";
     }
 
     /**
