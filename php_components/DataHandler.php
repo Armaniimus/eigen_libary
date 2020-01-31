@@ -70,20 +70,10 @@ class DataHandler {
         return self::crudFunc($sql, $bindings);
     }
 
-    // alias of noRead
-    public static function create(string $sql, array $bindings = []) {
-        return self::noRead($sql, $bindings);
-    }
-
-    // alias of noRead
-    public static function update(string $sql, array $bindings = []) {
-        return self::noRead($sql, $bindings);
-    }
-
-    // alias of noRead
-    public static function delete(string $sql, array $bindings = []) {
-        return self::noRead($sql, $bindings);
-    }
+    // aliassen of noRead
+    public static function create(string $sql, array $bindings = []) {return self::noRead($sql, $bindings);}
+    public static function update(string $sql, array $bindings = []) {return self::noRead($sql, $bindings);}
+    public static function delete(string $sql, array $bindings = []) {return self::noRead($sql, $bindings);}
 
     /**
     * This method is used to receive column information form the database table
