@@ -81,13 +81,13 @@ class DataHandler {
     * @param  string  $tableName        sql tableName
     * @return array with tableData
     */
-    public static function info(string $tableName) {
+    public static function showFields(string $tableName) {
         // run Query
         $sql = "show Fields FROM $tableName";
         return self::read($sql, [], TRUE);
     }
 
-    public static function infoDB(string $db = NULL) {
+    public static function showTables(string $db = NULL) {
         if ($db == NULL) {
             $db = self::$db;
         }
