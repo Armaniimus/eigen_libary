@@ -2,11 +2,24 @@
 
 /**
  * @summary This class is used to contain the neccesary crud functions to interact with database records
- * @property object $pdo  a variable to store the connection
- * @method create() create a database record
- * @method read()   read a database record
- * @method update() update a database record
- * @method delete() delete a database record
+ * @property string $db    a variable to store the dbName
+ * @property object $conn  a variable to store the connection
+ *
+ * @method setConn($server, $db, $user, $pass) this method us required to run before any other method as it sets up the connection in a static variable
+ *
+ * @method noRead($sql, $bindings) run a non read query
+
+ * @method create() allias of noRead
+ * @method read()   allias of noRead
+ * @method update() allias of noRead
+ * @method delete() allias of noRead
+ *
+ * @method showTables(optional $db) get info of the tables inside a/the db
+ * @method showFields($table) get info of the columns/fields in the specified table;
+ * @method dumpShowTables() dumps the tables to the screen
+ * @method dumpShowFields() dumps the column/fields info to the screen
+ *
+ * @method count($tableName, $columnName, $value) counts the amount of times a the given value exists inside the specified column and table
 */
 class DataHandler {
     private static $db;
@@ -21,7 +34,7 @@ class DataHandler {
      * @param string $username      database username for the connection
      * @param string $password      database password for the connection
      */
-    public static function setConn($server, $db, $user, $pass) {
+    public static function setConn(string $server, string $db, string $user, string $pass) {
         try {
             self::$db = $db;
             self::$conn = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
@@ -34,7 +47,12 @@ class DataHandler {
         }
     }
 
-    private static function crudFunc($sql, $bindings) {
+    /**
+     * @param  string $sql      [description]
+     * @param  array  $bindings [description]
+     * @return [type]           [description]
+     */
+    private static function crudFunc(string $sql, array $bindings) {
         $query = self::$conn->prepare($sql);
         $query->execute($bindings);
         return $query;
@@ -114,7 +132,7 @@ class DataHandler {
     }
 
     /**
-     * counts the amount results that are returned from the db
+     * counts the amount of times a the given value exists inside the specified column and table
      * @param   string      $tablename  an sql table name
      * @param   string      $column     an valid column in db
      * @param   string      $value      a valid string value
