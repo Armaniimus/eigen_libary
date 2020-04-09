@@ -1,0 +1,11 @@
+javaFX
+
+theater analogy
+Stage - Using the theatre analogy, this is where your application is presented
+Scene - A stage can have one or more scenes that are switched out
+Scene Graph - These are the items that will make up the scene, in the theatre analogy this could be assumed to be the set, you know, the walls, the furniture and other set pieces.
+Nodes - Everything that is added to the scene graph is a Node. Every node (except the root) has one single parent, and there can be multiple children.
+Root Node - The first node in the graph that has many children.
+
+
+

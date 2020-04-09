@@ -1,0 +1,30 @@
+##ui controls
+
+textfield
+button
+checkboxes
+sliders
+file choosers
+
+##shapes
+
+circels squares triangles and more!
+attributes can be color size rotation
+
+##layout
+
+Hbox horizontal aligns items horizontal
+Vbox vertical aligns items vertical
+Borderpane has 5 regions top, bottom, left, center, and right
+StackPane allows items to stack on eachother each item is added on top of the previous item
+Gridpane  allows alignment with rows and collumns
+FlowPane
+AnchorPane
+TilePane
+
+Note: layout can be inserted into other layouts
+
+
+
+
+
