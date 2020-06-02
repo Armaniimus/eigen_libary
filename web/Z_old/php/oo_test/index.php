@@ -1,9 +1,11 @@
 <?php
+// phpinfo();
+
 require "Banana.php";
 require "Monkey.php";
 
 $john = new Monkey("John", new Banana(90) );
-$wilco = new Monkey("Wilco");
+$wilco = new Monkey("Wilco", null);
 
 echo $john->hasBanana();
 echo $wilco->hasBanana();

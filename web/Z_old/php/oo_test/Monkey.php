@@ -5,12 +5,12 @@
 class Monkey {
     private $banana = null;
     private $name = "";
-    function __construct($name, $banana = null) {
+    function __construct(String $name, ?Banana $banana) {
         $this->name = $name;
         $this->banana = $banana;
     }
 
-    public function hasBanana() {
+    public function hasBanana() :string {
         $message = $this->name . ' has ';
         if ($this->banana == null) {
             $message .= 'no banana';
@@ -20,11 +20,11 @@ class Monkey {
         return $message .= '<br />';
     }
 
-    public function getBanana($banana) {
+    public function getBanana(Banana $banana) {
         $this->banana = $banana;
     }
 
-    public function giveBanana($monkey) {
+    public function giveBanana(Monkey $monkey) {
         if ($this->banana != null) {
             $monkey->getBanana($this->banana);
             $this->banana = null;
@@ -54,7 +54,7 @@ class Monkey {
         return $this->name . ' eats his banana <br />';
     }
 
-    public function findBanana($banana) {
+    public function findBanana(Banana $banana) {
         $this->banana = $banana;
         return $this->name . ' finds a banana <br />';
     }
