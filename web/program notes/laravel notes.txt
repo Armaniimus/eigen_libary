@@ -1,0 +1,8 @@
+#install laravel with composer#
+composer global require "laravel/installer=~1.1"
+
+#start project#
+composer create-project --prefer-dist laravel/laravel "name of project"
+
+#serve laravel#
+php artisan serve
