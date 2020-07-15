@@ -6,3 +6,11 @@ composer create-project --prefer-dist laravel/laravel "name of project"
 
 #serve laravel#
 php artisan serve
+
+#make model
+php artisan make:model modelFolder/modelName
+php artisan make:model modelName
+
+#make controller
+php artisan make:controller controllerFolder/controllerName
+php artisan make:controller controllerName
