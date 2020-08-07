@@ -1,0 +1,6 @@
+// watch and compile sass to css on change
+
+sass --watch inputFile.scss:outputFile.css
+
+// watch and compile+ minify sass to css on change
+sass --watch inputFile.scss:outputFile.css --style compressed
