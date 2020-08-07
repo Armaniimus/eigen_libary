@@ -1,0 +1,46 @@
+MODE ANALYTICS
+
+
+--
+--sql string functions
+--
+REPLACE(<value or column>, <target string>, <replacement string>)
+SUBSTR(<value or column>, <start>, <length>)
+UPPER(<value or column>)
+LOWER(<value or column>)
+LENGTH(<value or column>)
+
+IS NULL --test if empty
+IS NOT NULL --test if not empty 
+
+CONCAT(<value or column>, <value or column>, <value or column>) -- only in MySQL PostgreSQL and MS SQL
+
+--
+--sql numeric functions 
+-- 
+
+COUNT() 
+AVG() 
+SUM() 
+MIN() 
+MAX() 
+ROUND(<value>, <decimal places>)
+
+
+--
+--sql date functions
+--
+DATE_FORMAT(date,format) --MySQL format time %d = day %m = month %Y = year
+
+NOW() --mysql get dateTime
+CURDATE() -- mysql get date
+CURTIME() -- mysql get time
+
+
+--
+--
+--
+DISTINCT --filter unique rows;
+COUNT(DISTINCT <columm>) --filter unique column values
+
+HAVING = WHERE for a GROUP BY function
