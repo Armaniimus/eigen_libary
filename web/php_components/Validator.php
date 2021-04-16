@@ -150,11 +150,11 @@ class Validator {
             if ($valuesArray[$i] == "required") {
                 $required = TRUE;
 
-            } elseif (strpos("min:") !== FALSE ) {
+            } elseif (strpos($values, "min:") !== FALSE ) {
                 $minArray = explode(":", $valuesArray[$i] );
                 $min = $minArray[1];
 
-            } elseif (strpos("max:") !== FALSE ) {
+            } elseif (strpos($values, "max:") !== FALSE ) {
                 $maxArray = explode(":", $valuesArray[$i] );
                 $max = $maxArray[1];
             }
