@@ -1,6 +1,5 @@
 /*De Hoopkaap grid version 1.10*/
 
-
 /* functions to center by flexbox powerfull but costly in html */
 .flexparent {display:flex}
 
@@ -25,27 +24,12 @@
 .flexblock {display: inline-block;}
 
 /* grid support function1: */
-* {
-    box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
 /* float Support: */
-.float,
-.float-l,
-.float-left {
-    float: left;
-}
-
-.float-r,
-.float-right {
-    float: right;
-}
-
-.clearfix::after {
-    display: block;
-    clear: both;
-    content: "";
-}
+.float, .float-l, .float-left {float: left;}
+.float-r, .float-right {float: right;}
+.clearfix::after {display: block; clear: both; content: "";}
 
 /*
     A grid system copied out of bootstrap 4.3.1
