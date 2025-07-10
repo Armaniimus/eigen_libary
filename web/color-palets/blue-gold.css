@@ -1,0 +1,25 @@
+/* bg stands for blue-gold
+	primary-color: "blue"
+	secondary-color: "gold"
+*/
+
+:root {
+	--bg-blue-tint-transparent: rgba(128, 138, 154, 0.6);
+	--bg-blue-tone-transparent: rgba(64, 74, 91, 0.6);
+	--bg-blue-transparent: rgba(0, 20, 53, 0.6);
+	--bg-blue-shade-transparent: rgba(0, 10, 27, 0.6);
+	--bg-blue-shade-semi-transparent: rgba(0, 10, 27, 0.8);
+
+	--bg-orange-tint: rgb(227, 201, 153);
+	--bg-orange-tone: rgb(163, 137, 90);
+	--bg-orange: rgb(198, 146, 51);
+	--bg-orange-halfshade: rgb(148, 109, 38);
+	--bg-orange-shade: rgb(99, 73, 26);
+
+	--bg-orange-tint-transparent: rgba(227, 201, 153, 0.6);
+	--bg-orange-tone-transparent: rgba(163, 137, 90, 0.6);
+	--bg-orange-tone-semi-transparent: rgba(163, 137, 90, 0.8);
+	--bg-orange-transparent: rgba(198, 146, 51, 0.6);
+	--bg-orange-shade-transparent: rgba(99, 73, 26, 0.6);
+	--bg-orange-shade-semi-transparent: rgba(99, 73, 26, 0.8);
+}
