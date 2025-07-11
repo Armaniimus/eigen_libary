@@ -4,6 +4,11 @@
 */
 
 :root {
+	--bg-blue-tint: rgb(128, 138, 154);
+	--bg-blue-tone: rgb(64, 74, 91);
+	--bg-blue: rgb(0, 20, 53);
+	--bg-blue-shade: rgb(0, 10, 27);
+	
 	--bg-blue-tint-transparent: rgba(128, 138, 154, 0.6);
 	--bg-blue-tone-transparent: rgba(64, 74, 91, 0.6);
 	--bg-blue-transparent: rgba(0, 20, 53, 0.6);
